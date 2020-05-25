@@ -15,37 +15,38 @@
 
 		body {
 			background-color: var(--teritaryDark);
+			text-align: right;
 			position: relative;
 		}
 
 		div.extend {
 			right: 0px;
-
-			width: 3px;
-			height: 3em;
-
+			width: var(--strokeWidth);
+			
 			margin-top: -1em;
+			height: 3em;
 
 			background-color: var(--primaryColor);
 			position: absolute;
 		}
 
 		div.extend {
-			width: 3px;
+			width: var(--strokeWidth);
 
 			transition-duration: 0.2s;
 			transition-timing-function: ease;
 		}
 
 		span:hover div.extend {
-			width: 100%;
+			width: calc(100% - 1em);
 		}
 		
 		span {
-			width: calc(100% - 2em);
+			width: calc(100% - 3em);
 			height: 1em;
 
 			padding: 1em;
+			background-color: var(--primaryDark);
 			
 			text-align: right;
 			display: inline-block;
@@ -53,7 +54,7 @@
 
 		p {
 			margin: 0px;
-			margin-right: 3px;
+			margin-right: var(--strokeWidth);
 			z-index: 1;
 			position: relative;
 		}
@@ -65,5 +66,7 @@
 	<body>
 		<img class="logo" src="Assets/AlternateLogo.png" alt="Mod-Bot">
 		<a href="index.html" target="_parent"><span><div class="extend"></div><p>Home Page</p></span></a>
+		<a href="mods.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
+		<a target="_parent"><span><div class="extend"></div><p>Non-functional button</p></span></a>
 	</body>
 </html>
