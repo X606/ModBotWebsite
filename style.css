@@ -1,13 +1,37 @@
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--secondaryDark);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--primaryDark);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: var(--primaryColor);
+}
+
 body {
 	--primaryColor: #ff6800;
+	--secondaryColor: #307030;
 
 	--primaryDark: #111111;
-	--secondaryDark: #181818;
-	--teritaryDark: #202020;
+	--secondaryDark: #202020;
+	--teritaryDark: #181818;
 
 	--primaryLight: #eeeeee;
 
+	--modSize: 16em;
+	--modRadius: 10px;
+
 	--strokeWidth: 3px;
+	--imageRatio: 0.75;
+	
+	--buttonPadding: 0.1em;
+	--buttonOutset: 2px;
 
 	margin: 0px;
 	padding: 0px;
@@ -37,8 +61,28 @@ div.frame {
 	border-right-style: solid;
 }
 
+div.mod {
+	width: var(--modSize);
+	height: calc(var(--modSize) * var(--modRatio));
+	
+	background-color: var(--teritaryDark);
+}
+
 img.logo {
 	width: 100%;
+}
+
+img.modImage {
+	width: 100%;
+	height: calc(var(--modSize) * var(--imageRatio));
+
+	background-color: #000000;
+	border: var(--strokeWidth) var(--primaryColor);
+
+	border-bottom-style: solid;
+	border-radius: ;
+
+	object-fit: scale-down;
 }
 
 iframe.sidebar {
@@ -50,6 +94,51 @@ iframe.sidebar {
 	
 	position: absolute;
 	
+}
+
+button {
+	margin: 1em;
+	outline: none;
+
+	padding-top: var(--buttonPadding);
+	padding-left: var(--buttonPadding);
+
+	padding-bottom: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
+	padding-right: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
+
+	border: outset var(--buttonOutset);
+	border-radius: 4px;
+
+	font-size: 1em;
+}
+
+button.downloadButton {
+	background-color: var(--secondaryColor);
+	border-color: var(--secondaryColor);
+}
+
+button:active {
+	padding-top: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
+	padding-left: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
+
+	padding-bottom: var(--buttonPadding);
+	padding-right: var(--buttonPadding);
+
+	border-style: inset;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h2.modTitle {
+	margin: 0.3em;
+	margin-top: 0.1em;
+}
+
+p.modDescription {
+	margin: 0.5em;
+	font-size: 0.9em;
 }
 
 a {
