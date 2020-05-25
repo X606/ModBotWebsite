@@ -1,0 +1,55 @@
+body {
+	--primaryColor: #ff6800;
+
+	--primaryDark: #111111;
+	--secondaryDark: #181818;
+	--teritaryDark: #202020;
+
+	--primaryLight: #eeeeee;
+
+	margin: 0px;
+	padding: 0px;
+
+	color: var(--primaryLight);
+	font-family: Arial, Helvetica, sans-serif;
+
+	scroll-behavior: smooth;
+}
+
+body.frame {
+	padding: 2em;
+	padding-right: calc(12em + 10vw);
+
+	background-color: var(--secondaryDark);
+	position: relative;
+}
+
+div.frame {
+	padding: 2em;
+	background-color: var(--primaryDark);
+
+	border: 2px var(--primaryColor);
+	border-left-style: solid;
+	border-right-style: solid;
+}
+
+img.logo {
+	width: 100%;
+}
+
+iframe.sidebar {
+	right: 0px;
+	width: calc(10em + 10vw);
+
+	/* Ugly height workaround, fix! */
+	top: 0px;
+	height: 100%;
+	
+	position: absolute;
+	
+}
+
+a {
+	color: var(--primaryLight);
+	text-decoration: none;
+}
