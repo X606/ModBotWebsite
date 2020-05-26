@@ -1,38 +1,17 @@
-::-webkit-scrollbar {
-	width: 10px;
-}
-
-::-webkit-scrollbar-track {
-	background-color: var(--secondaryDark);
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: var(--primaryDark);
-}
-
-::-webkit-scrollbar-corner {
-	background-color: var(--primaryColor);
-}
-
-body {
+* {
 	--primaryColor: #ff6800;
-	--secondaryColor: #307030;
 
 	--primaryDark: #111111;
 	--secondaryDark: #202020;
-	--teritaryDark: #181818;
+	--teritaryDark: #191919;
 
 	--primaryLight: #eeeeee;
-
-	--modSize: 16em;
-	--modRadius: 10px;
+	--secondaryLight: #555555;
 
 	--strokeWidth: 3px;
-	--imageRatio: 0.75;
-	
-	--buttonPadding: 0.1em;
-	--buttonOutset: 2px;
+}
 
+body {
 	margin: 0px;
 	padding: 0px;
 
@@ -61,28 +40,8 @@ div.frame {
 	border-right-style: solid;
 }
 
-div.mod {
-	width: var(--modSize);
-	height: calc(var(--modSize) * var(--modRatio));
-	
-	background-color: var(--teritaryDark);
-}
-
 img.logo {
 	width: 100%;
-}
-
-img.modImage {
-	width: 100%;
-	height: calc(var(--modSize) * var(--imageRatio));
-
-	background-color: #000000;
-	border: var(--strokeWidth) var(--primaryColor);
-
-	border-bottom-style: solid;
-	border-radius: ;
-
-	object-fit: scale-down;
 }
 
 iframe.sidebar {
@@ -97,34 +56,25 @@ iframe.sidebar {
 }
 
 button {
-	margin: 1em;
+	padding: 0.3em;
+	margin-bottom: 0.5em;
+	margin-left: 0.5em;
+
+	border: none;
+	border-bottom: solid var(--strokeWidth);
 	outline: none;
 
-	padding-top: var(--buttonPadding);
-	padding-left: var(--buttonPadding);
+	font-size: 0.9em;
+	font-weight: lighter;
+	vertical-align: text-top;
 
-	padding-bottom: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
-	padding-right: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
-
-	border: outset var(--buttonOutset);
-	border-radius: 4px;
-
-	font-size: 1em;
-}
-
-button.downloadButton {
-	background-color: var(--secondaryColor);
-	border-color: var(--secondaryColor);
+	z-index: 5;
+	position: relative;
 }
 
 button:active {
-	padding-top: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
-	padding-left: calc(var(--buttonOutset) / 2 + var(--buttonPadding));
-
-	padding-bottom: var(--buttonPadding);
-	padding-right: var(--buttonPadding);
-
-	border-style: inset;
+	margin-top: var(--strokeWidth);
+	border: none;
 }
 
 h1, h2, h3 {
@@ -144,4 +94,18 @@ p.modDescription {
 a {
 	color: var(--primaryLight);
 	text-decoration: none;
+}
+
+::-webkit-scrollbar {
+	width: 1em;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--teritaryDark);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--secondaryLight);
+	border: solid var(--strokeWidth) var(--teritaryDark);
+	border-radius: calc(var(--strokeWidth) * 1.5);
 }

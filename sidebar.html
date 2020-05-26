@@ -15,23 +15,20 @@
 
 		body {
 			background-color: var(--teritaryDark);
+			
 			text-align: right;
 			position: relative;
 		}
 
 		div.extend {
 			right: 0px;
-			width: var(--strokeWidth);
+			width: calc(var(--strokeWidth));
 			
 			margin-top: -1em;
 			height: 3em;
 
 			background-color: var(--primaryColor);
 			position: absolute;
-		}
-
-		div.extend {
-			width: var(--strokeWidth);
 
 			transition-duration: 0.2s;
 			transition-timing-function: ease;
@@ -39,6 +36,7 @@
 
 		span:hover div.extend {
 			width: calc(100% - 1em);
+			
 		}
 		
 		span {
@@ -62,11 +60,28 @@
 		span:hover p {
 			text-decoration: underline;
 		}
+
+		img + a span, img + a span div.extend {
+			border-top-right-radius: var(--strokeWidth);
+		}
+
+		img + a span, img + a span:hover div.extend {
+			border-top-left-radius: var(--strokeWidth);
+		}
+
+		span.last, span.last div.extend {
+			border-bottom-right-radius: var(--strokeWidth);
+		}
+
+		span.last, span.last:hover div.extend {
+			border-bottom-left-radius: var(--strokeWidth);
+		}
 	</style>
 	<body>
 		<img class="logo" src="Assets/AlternateLogo.png" alt="Mod-Bot">
 		<a href="index.html" target="_parent"><span><div class="extend"></div><p>Home Page</p></span></a>
 		<a href="mods.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
 		<a target="_parent"><span><div class="extend"></div><p>Non-functional button</p></span></a>
+		<a target="_parent"><span class="last"><div class="extend"></div><p>Non-functional button</p></span></a>
 	</body>
 </html>
