@@ -6,13 +6,12 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 		<link rel="stylesheet" href="style.css">
+
+		<!-- Workaround to fix transition bug on chrome. -->
 		<script> </script>
 	</head>
 	<style>
-		::-webkit-scrollbar {
-			display: none;
-		}
-
+		/* Adjusts body to look nice aligned right. */
 		body {
 			background-color: var(--teritaryDark);
 			
@@ -20,6 +19,7 @@
 			position: relative;
 		}
 
+		/* Extender div behind button texts, purely decorative. */
 		div.extend {
 			right: 0px;
 			width: calc(var(--strokeWidth));
@@ -34,11 +34,13 @@
 			transition-timing-function: ease;
 		}
 
+		/* Colors the button orange by extending div. */
 		span:hover div.extend {
 			width: calc(100% - 1em);
 			
 		}
 		
+		/* Places span correctly in relation to other spans. */
 		span {
 			width: calc(100% - 3em);
 			height: 1em;
@@ -50,25 +52,30 @@
 			display: inline-block;
 		}
 
+		/* Adjusts paragraph margins and makes sure its on top of extender div. */
 		p {
 			margin: 0px;
 			margin-right: var(--strokeWidth);
+
 			z-index: 1;
 			position: relative;
 		}
 
+		/* Makes it more clear that the span is in a link. */
 		span:hover p {
 			text-decoration: underline;
 		}
 
-		img + a span, img + a span div.extend {
+		/* Gives first button (after the logo image) rounded top corners. */
+		img.logo + a span, img.logo + a span div.extend {
 			border-top-right-radius: var(--strokeWidth);
 		}
 
-		img + a span, img + a span:hover div.extend {
+		img.logo + a span, img.logo + a span:hover div.extend {
 			border-top-left-radius: var(--strokeWidth);
 		}
 
+		/* Gives last button (with the 'last' class) rounded bottom corners. */
 		span.last, span.last div.extend {
 			border-bottom-right-radius: var(--strokeWidth);
 		}
@@ -76,12 +83,22 @@
 		span.last, span.last:hover div.extend {
 			border-bottom-left-radius: var(--strokeWidth);
 		}
+
+		/* One scrollbar is enough, thank you. */
+		::-webkit-scrollbar {
+			display: none;
+		}
 	</style>
 	<body>
+		<!-- Small logo in top right of screen. -->
 		<img class="logo" src="Assets/AlternateLogo.png" alt="Mod-Bot">
+		
+		<!-- All buttons consist of a name paragraph next to an extend div, all inside a span inside a link. -->
 		<a href="index.html" target="_parent"><span><div class="extend"></div><p>Home Page</p></span></a>
-		<a href="mods.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
+		<a href="modBrowsing.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
 		<a target="_parent"><span><div class="extend"></div><p>Non-functional button</p></span></a>
+
+		<!-- The last button's span needs to have the 'last' class, so that the bottom corners are rounded. -->
 		<a target="_parent"><span class="last"><div class="extend"></div><p>Non-functional button</p></span></a>
 	</body>
 </html>

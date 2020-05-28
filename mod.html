@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<link rel="icon" href="Assets/Icon.png">
+		<link rel="stylesheet" href="style.css">
+
+		<title>Mod-Bot</title>
+	</head>
+	<style>
+		* {
+			/* Color shades being used on buttons. */
+			--primaryDownload: #226622;
+			--secondaryDownload: #337733;
+			--teritaryDownload: #448844;
+
+			--primaryCopy: #ccbb22;
+			--secondaryCopy: #ddcc33;
+			--teritaryCopy: #eedd44;
+		}
+
+		/* Background div, used to make link cover whole iframe. */
+		div.modBackground {
+			height: 100vh;
+			background-color: var(--teritaryDark);
+
+			position: relative;
+			overflow: hidden;
+		}
+
+		/* A div that contains all buttons, to make sure they are next to each other. */
+		div.buttonHolder {
+			width: max-content;
+			bottom: 2em;
+
+			margin-left: 2em;
+			position: absolute;
+		}
+
+		/* Thumbnail image with borde on one side. */
+		img.modImage {
+			width: 100vw;
+			max-height: 50vh;
+
+			margin: 0px;
+			margin-top: calc(0px - var(--strokeWidth));
+			margin-bottom: 0.5em;
+
+			border: var(--strokeWidth) var(--primaryColor);
+			border-bottom-style: solid;
+
+			background-color: #000000;
+			object-fit: scale-down;
+			float: left;
+		}
+
+		/* Changes buttons sizes */
+		button {
+			margin-right: 0.5em;
+			padding: 0.4em;
+			font-size: 1em;
+		}
+
+		/* Changes colors of buttons. */
+		button.downloadButton {
+			background-color: var(--secondaryDownload);
+			border-color: var(--primaryDownload);
+		}
+
+		button.copyButton {
+			background-color: var(--secondaryCopy);
+			border-color: var(--primaryCopy);
+		}
+
+		button.downloadButton:hover {
+			background-color: var(--teritaryDownload);
+			border-color: var(--secondaryDownload);
+		}
+
+		button.copyButton:hover {
+			background-color: var(--teritaryCopy);
+			border-color: var(--secondaryCopy);
+		}
+
+		/* Adjusts margin for title. */
+		h1.modTitle {
+			margin: 1em;
+			margin-top: 0.5em;
+			margin-bottom: 0em;
+		}
+
+		/* Adds underline for author link. */
+		a.authorName:hover {
+			text-decoration: underline;
+		}
+
+		/* Adjusts margin for description. */
+		p.modDescription {
+			margin: 1.5em;
+			margin-top: 0.5em;
+		}
+
+		/* Adjusts margin and size for author paragraph. */
+		p.modAuthor {
+			margin: 0px;
+			margin-right: 1em;
+			margin-bottom: 2em;
+
+			font-size: 0.75em;
+			text-align: right;
+		}
+
+		/* Changes layout if area is wider than usual. */
+		@media screen and (min-width: 40em) {
+			div.modBackground {
+				text-align: right;
+			}
+			
+			div.buttonHolder {
+				right: 2em;
+			}
+
+			img.modImage {
+				width: 50vw;
+				max-height: 100vh;
+
+				margin-right: 2em;
+
+				border-bottom-style: none;
+				border-right-style: solid;
+			}
+		}
+
+		/* Changes size if area is narrower than usual.
+		TO DO: Add more detail when screen is not narrow. */
+		@media screen and (max-width: 20em) {
+			div.buttonHolder {
+				bottom: 1em;
+				margin-left: 1em;
+			}
+
+			h1.modTitle {
+				font-size: 1.6em;
+			}
+
+			p.modDescription {
+				font-size: 0.8em;
+			}
+		}
+
+		/* One scrollbar is enough, thank you. */
+		::-webkit-scrollbar {
+			display: none;
+		}
+	</style>
+	<body>
+		<a href="modPreview.html" target="_page">
+			<div class="modBackground">
+				<img class="modImage" src="Assets/Spine.png">
+				<h1 class="modTitle">Spine</h1>
+				<p class="modDescription">Spine is love, spine is life. Download now or you'll think twice.</p>
+				<p class="modAuthor">by <a class="authorName" href="">Spine</a></p>
+				<div class="buttonHolder">
+					<button class="downloadButton">Download</button>
+					<button class="copyButton">Copy ID</button>
+				</div>
+			</div>
+		</a>
+	</body>
+</html>

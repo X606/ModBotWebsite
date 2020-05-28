@@ -1,4 +1,5 @@
 * {
+	/* General colors being used on site. */
 	--primaryColor: #ff6800;
 
 	--primaryDark: #111111;
@@ -8,9 +9,11 @@
 	--primaryLight: #eeeeee;
 	--secondaryLight: #555555;
 
+	/* Width of most decorative divs, all borders and some border radiuses. */
 	--strokeWidth: 3px;
 }
 
+/* Sets some frequently used default parameters. */
 body {
 	margin: 0px;
 	padding: 0px;
@@ -21,6 +24,7 @@ body {
 	scroll-behavior: smooth;
 }
 
+/* Background body, leaves space for sidebar iframe. */
 body.frame {
 	padding: 2em;
 	padding-right: calc(12em + 10vw);
@@ -29,7 +33,11 @@ body.frame {
 	position: relative;
 }
 
+/* Background div, leaves space for top background image. */
 div.frame {
+	width: calc(100% - 4em - var(--strokeWidth) * 2);
+
+	margin-top: 10vw;
 	padding: 2em;
 	background-color: var(--primaryDark);
 
@@ -38,13 +46,17 @@ div.frame {
 
 	border-left-style: solid;
 	border-right-style: solid;
+
+	float: left;
+	position: relative;
 }
 
+/* Gradient at bottom of top background image, purely decorative. */
 div.backgroundGradient {
 	left: 0px;
-	width: calc(100% - 10em - 10vw);
+	width: calc(90vw - 10em);
 
-	top: calc(20vw - 4em);
+	top: calc(10vw);
 	height: 4em;
 
 	background-image: linear-gradient(#00000000, var(--secondaryDark));
@@ -57,18 +69,20 @@ img.logo {
 	width: 100%;
 }
 
+/* Wide background image at top of layot.
+FIX: Functionality on firefox. */
 img.backgroundImage {
-	width: calc(100% + 4em);
-
-	height: 20vw;
+	width: calc(90vw - 10em);
+	height: calc(10vw + 4em);
 	margin: -2em;
 
 	z-index: -1;
 	
-	position: relative;
+	position: absolute;
 	object-fit: cover;
 }
 
+/* Locks sidebar in place on the right. */
 iframe.sidebar {
 	right: 0px;
 	width: calc(10em + 10vw);
@@ -77,13 +91,25 @@ iframe.sidebar {
 	height: clamp(100vh, 100%, 100%);
 	
 	position: absolute;
-	
 }
 
+/* Sets size of iframes used for mod previews.
+FIX: Correct height, probably needs to be calculated with script.*/
+iframe.modBox {
+	width: 15em;
+	height: 25em;
+
+	margin: 0.2em;
+}
+
+iframe.modPreview {
+	width: 100%;
+	height: 50em;
+}
+
+/* Makes a general button template with slight 3D effect. */
 button {
 	padding: 0.3em;
-	margin-bottom: 0.5em;
-	margin-left: 0.5em;
 
 	border: none;
 	border-bottom: solid var(--strokeWidth);
@@ -102,25 +128,20 @@ button:active {
 	border: none;
 }
 
+/* Bold text is illegal. */
 h1, h2, h3 {
 	font-weight: normal;
 }
 
-h2.modTitle {
-	margin: 0.3em;
-	margin-top: 0.1em;
-}
-
-p.modDescription {
-	margin: 0.5em;
-	font-size: 0.9em;
-}
-
+/* Fixes nicer looking links, underline is not always added with a:hover. */
 a {
 	color: var(--primaryLight);
+
+	outline: none;
 	text-decoration: none;
 }
 
+/* Oooh, fancy custom scrollbar. */
 ::-webkit-scrollbar {
 	width: 1em;
 }
@@ -132,5 +153,4 @@ a {
 ::-webkit-scrollbar-thumb {
 	background-color: var(--secondaryLight);
 	border: solid var(--strokeWidth) var(--teritaryDark);
-	border-radius: calc(var(--strokeWidth) * 1.5);
 }
