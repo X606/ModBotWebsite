@@ -1,0 +1,60 @@
+* {
+	/* Color shades being used on buttons. */
+	--primaryDownload: #226622;
+	--secondaryDownload: #337733;
+	--teritaryDownload: #448844;
+
+	--primaryCopy: #ccbb22;
+	--secondaryCopy: #ddcc33;
+	--teritaryCopy: #eedd44;
+}
+
+div.modBackground {
+	padding-bottom: 3em;
+	background-color: var(--teritaryDark);
+
+	overflow: hidden;
+	position: relative;
+}
+
+/* A div that contains all buttons, to make sure they are next to each other. */
+div.buttonHolder {
+	bottom: 0px;
+	position: absolute;
+}
+
+img.modImage {
+	border: var(--strokeWidth) var(--primaryColor);
+	border-bottom-style: solid;
+
+	background-color: #000000;
+	object-fit: scale-down;
+}
+
+button.downloadButton {
+	background-color: var(--secondaryDownload);
+	border-color: var(--primaryDownload);
+}
+
+button.copyButton {
+	background-color: var(--secondaryCopy);
+	border-color: var(--primaryCopy);
+}
+
+button.downloadButton:hover {
+	background-color: var(--teritaryDownload);
+	border-color: var(--secondaryDownload);
+}
+
+button.copyButton:hover {
+	background-color: var(--teritaryCopy);
+	border-color: var(--secondaryCopy);
+}
+
+a.authorName:hover {
+	text-decoration: underline;
+}
+
+p.modAuthor {
+	text-align: right;
+}
