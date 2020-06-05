@@ -10,6 +10,7 @@
 }
 
 div.modBackground {
+	width: 100%;
 	padding-bottom: 3em;
 	background-color: var(--teritaryDark);
 
@@ -24,8 +25,10 @@ div.buttonHolder {
 }
 
 img.modImage {
-	border: var(--strokeWidth) var(--primaryColor);
-	border-bottom-style: solid;
+	border-bottom: solid var(--strokeWidth) var(--primaryColor);
+	
+	border-bottom-left-radius: var(--strokeWidth);
+	border-bottom-right-radius: var(--strokeWidth);
 
 	background-color: #000000;
 	object-fit: scale-down;
@@ -57,4 +60,5 @@ a.authorName:hover {
 
 p.modAuthor {
 	text-align: right;
+	margin: calc(var(--spaceModifier) / 2);
 }

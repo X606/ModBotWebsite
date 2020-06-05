@@ -13,41 +13,53 @@
 	</head>
 	<style>
 		div.modBackground {
+			width: calc(100% - (var(--spaceModifier) * 2));
+			padding: var(--spaceModifier);
+
 			float: left;
 		}
 
 		div.buttonHolder {
-			margin: 1em;
+			margin-bottom: var(--spaceModifier);
 		}
 
 		img.modImage {
-			width: 100%;
+			width: calc(100% + (var(--spaceModifier) * 2));
 			max-height: 25em;
 
-			margin-bottom: 1em;
+			margin: calc(0px - var(--spaceModifier));
+			margin-bottom: calc(var(--spaceModifier) / 2);
 			float: left;
 		}
 
 		button {
-			margin-right: 1em;
+			margin-right: calc(var(--spaceModifier) / 2);
+			padding: 0.5em;
+			
+			font-size: 1em;
 		}
 
 		h1.modTitle {
-			margin: 0.5em;
+			margin: 0px;
 			font-size: 2em;
 		}
 
-		p.modDescription {
-			margin: 1em;
-		}
-
 		p.modAuthor {
-			margin: 1em;
+			margin-right: 0px;
 		}
 
+		hr {
+			border: none calc(var(--strokeWidth) / 2) var(--primaryColor);
+			border-radius: calc(var(--strokeWidth) / 2);
+		}
+
+		/* Changes layout if screen is wide. */
 		@media screen and (min-width: 60em){
 			div.modBackground {
 				border-bottom: solid var(--strokeWidth) var(--primaryColor);
+
+				border-bottom-left-radius: var(--strokeWidth);
+				border-bottom-right-radius: var(--strokeWidth);
 
 				float: right;
 				text-align: right;
@@ -55,31 +67,30 @@
 
 			div.buttonHolder {
 				right: 1em;
+				margin-bottom: calc(var(--spaceModifier) / 2);
 			}
 
 			img.modImage {
-				width: auto;
-				max-width: 50%;
-
-				max-height: 100%;
-				margin-bottom: -3em;
+				width: 50%;
+				max-height: 30em;
 				
-				border-bottom-style: none;
-			}
+				margin-right: var(--spaceModifier);
 
-			button {
-				font-size: 1em;
-				padding: 0.5em;
+				border-style: none;
+				border-radius: 0px;
 			}
 
 			h1.modTitle {
-				margin: 1em;
-				margin-bottom: 0px;
+				margin-top: calc(0px - (var(--spaceModifier) / 2));
 			}
 
 			p.modDescription {
-				margin: 2em;
-				margin-top: 1em;
+				margin: var(--spaceModifier);
+				margin-top: -1em;
+			}
+
+			hr {
+				border-style: solid;
 			}
 		}
 	</style>
@@ -96,7 +107,8 @@
 			<div class="modBackground">
 				<img class="modImage" src="Assets/Spine.png">
 				<h1 class="modTitle">Spine</h1>
-				<p class="modDescription">Spine is love, spine is life. Download now or you'll think twice.</p>
+				<hr>
+				<p class="modDescription"><p>Spine is love, spine is life. Download now or you'll think twice.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p><p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p></p>
 				<p class="modAuthor">by <a class="authorName" href="">Spine</a></p>
 				<div class="buttonHolder">
 					<button class="downloadButton">Download</button>
