@@ -9,6 +9,8 @@
 	--primaryLight: #eeeeee;
 	--secondaryLight: #555555;
 
+	--primaryHighlight: #ffffff11;
+
 	/* Width of most decorative divs, all borders and some border radiuses. */
 	--strokeWidth: 3px;
 
@@ -89,8 +91,7 @@ img.logo {
 	width: 100%;
 }
 
-/* Wide background image at top of layot.
-FIX: Functionality on firefox. */
+/* Wide background image at top of layot.*/
 img.backgroundImage {
 	width: calc(100vw - var(--sidebarWidth));
 	height: calc(var(--backgroundHeight) - 1px);
@@ -121,8 +122,23 @@ iframe.modBox {
 	margin: calc(var(--spaceModifier) / 10);
 }
 
+/* Sets size of iframes used for user comments.*/
+iframe.comment {
+	width: 100%;
+	height: 10em;
+
+	margin: calc(var(--spaceModifier) / 10);
+}
+
+/* Sets size of iframes used for previews of user profiles.*/
+iframe.userHeader {
+	width: 100%;
+	height: 2em;
+}
+
 /* Makes a general button template with slight 3D effect. */
 button {
+	margin: 0px;
 	padding: 0.3em;
 
 	border: none;
@@ -139,8 +155,13 @@ button {
 
 button:active {
 	margin-top: var(--strokeWidth);
-	margin-bottom: calc(0px - var(--strokeWidth));
 	border: none;
+}
+
+/* Workaround to stop button backgrounds from twitching
+when pressed on firefox or edge. */
+div.buttonHolder button:active {
+	margin-bottom: calc(0px - var(--strokeWidth));
 }
 
 /* Fixes nicer looking links, underline is not always added with a:hover. */
@@ -149,6 +170,11 @@ a {
 
 	outline: none;
 	text-decoration: none;
+}
+
+hr {
+	border: solid calc(var(--strokeWidth) / 2) var(--primaryColor);
+	border-radius: calc(var(--strokeWidth) / 2);
 }
 
 /* Oooh, fancy custom scrollbar. */

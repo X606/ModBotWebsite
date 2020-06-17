@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<link rel="icon" href="Assets/Icon.png">
+		<link rel="stylesheet" href="style.css">
+
+		<title>Mod-Bot</title>
+	</head>
+	<style>
+		body {
+			height: 100%;
+			padding: 5vh;
+
+			position: relative;
+			overflow: hidden;
+		}
+
+		img.avatar {
+			width: 90vh;
+			height: 90vh;
+
+			object-fit: scale-down;
+		}
+
+		a:hover p.name {
+			text-decoration: underline;
+		}
+
+		p.name {
+			top: calc(50vh - 0.5em);
+			left: calc(140vh - 0.5em);
+
+			margin: 0px;
+			font-size: calc(1em + 5vh);
+
+			position: absolute;
+		}
+
+		::-webkit-scrollbar {
+			display: none;
+		}
+	</style>
+	<body>
+		<a target="_top">
+			<img class="avatar" src="Assets/DefaultAvatar.png">
+			<p class="name">Spine</p>
+		</a>
+	</body>
+</html>

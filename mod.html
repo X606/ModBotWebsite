@@ -14,16 +14,23 @@
 	<style>
 		body {
 			height: 100%;
+			
+			background-color: var(--teritaryDark);
 			overflow: hidden;
 		}
 
 		div.buttonHolder {
 			margin: 1em;
 		}
-
+		
 		img.modImage {
 			width: 100vw;
 			max-height: 50vh;
+		}
+
+		iframe.userHeader {
+			height: 1.5em;
+			margin-left: 1em;
 		}
 
 		button {
@@ -33,12 +40,18 @@
 		}
 
 		h1.modTitle {
-			margin: 0.5em;
+			margin: 0px;
+			padding: 0.5em;
 			font-size: 1.6em;
 		}
 
+		a.previewLink:hover h1.modTitle, a.previewLink:hover p.modDescription {
+			background-color: var(--primaryHighlight);
+		}
+
 		p {
-			margin: 1em;
+			margin: 0px;
+			padding: 1em;
 			font-size: 0.8em;
 		}
 
@@ -47,17 +60,15 @@
 		}
 	</style>
 	<body>
-		<a href="modPreview.html" target="_parent">
-			<div class="modBackground">
-				<img class="modImage" src="Assets/Spine.png">
-				<h1 class="modTitle">Spine</h1>
-				<p class="modDescription">Spine is love, spine is life. Download now or you'll think twice.</p>
-				<p class="modAuthor">by <a class="authorName" href="">Spine</a></p>
-				<div class="buttonHolder">
-					<button class="downloadButton">Download</button>
-					<button class="copyButton">Copy ID</button>
-				</div>
-			</div>
+		<a class="previewLink" href="modPreview.html" target="_parent">
+			<img class="modImage" src="Assets/Spine.png">
+			<h1 class="modTitle">Spine</h1>
+			<p class="modDescription">Spine is love, spine is life. Download now or you'll think twice.</p>
 		</a>
+		<iframe class="userHeader" src="userHeader.html" frameborder="0"></iframe>
+		<div class="buttonHolder">
+			<button class="downloadButton">Download</button>
+			<button class="copyButton">Copy ID</button>
+		</div>
 	</body>
 </html>

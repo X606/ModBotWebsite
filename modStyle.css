@@ -7,14 +7,15 @@
 	--primaryCopy: #ccbb22;
 	--secondaryCopy: #ddcc33;
 	--teritaryCopy: #eedd44;
+
+	--primaryLoad: #222222;
+	--secondaryLoad: #333333;
+	--teritaryLoad: #444444;
 }
 
 div.modBackground {
-	width: 100%;
 	padding-bottom: 3em;
 	background-color: var(--teritaryDark);
-
-	overflow: hidden;
 	position: relative;
 }
 
@@ -44,6 +45,12 @@ button.copyButton {
 	border-color: var(--primaryCopy);
 }
 
+button.loadButton {
+	background-color: var(--secondaryLoad);
+	border-color: var(--primaryLoad);
+	color: var(--primaryLight);
+}
+
 button.downloadButton:hover {
 	background-color: var(--teritaryDownload);
 	border-color: var(--secondaryDownload);
@@ -54,11 +61,22 @@ button.copyButton:hover {
 	border-color: var(--secondaryCopy);
 }
 
-a.authorName:hover {
+button.loadButton:hover {
+	background-color: var(--teritaryLoad);
+	border-color: var(--secondaryLoad);
+}
+
+a.modAuthor {
+	width: max-content;
+	margin: calc(var(--spaceModifier) / 2);
+
+	float: right;
+}
+
+a.modAuthor:hover p.authorName {
 	text-decoration: underline;
 }
 
-p.modAuthor {
-	text-align: right;
-	margin: calc(var(--spaceModifier) / 2);
+p.authorName {
+	display: inline;
 }
