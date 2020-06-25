@@ -1,0 +1,37 @@
+div.commentBackground {
+	max-height: 10em;
+
+	margin-bottom: calc(var(--spaceModifier) / 2);
+
+	padding: calc(var(--spaceModifier) / 4);
+	padding-bottom: calc(var(--spaceModifier) / 2 + var(--strokeWidth) + 0.8em);
+
+	background-color: var(--primaryDark);
+
+	overflow: hidden;
+	position: relative;
+}
+
+div.commentBackground div.commentActions {
+	width: calc(100% - (var(--spaceModifier) / 4));
+	height: min-content;
+
+	left: 0px;
+	bottom: 0px;
+
+	padding: calc(var(--spaceModifier) / 8);
+	text-align: right;
+
+	background-image: linear-gradient(#ffffff00, var(--primaryDark));
+	position: absolute;
+}
+
+div.commentBackground button {
+	font-size: 0.8em;
+}
+
+div.commentBackground button.showMore {
+	left: 0px;
+	bottom: 0px;
+	position: absolute;
+}

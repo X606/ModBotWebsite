@@ -10,12 +10,15 @@
 		<link rel="stylesheet" href="modStyle.css">
 
 		<title>Mod-Bot</title>
+
+		<!-- Workaround to fix transition bug on chrome. -->
+		<script> </script>
 	</head>
 	<style>
 		body {
 			height: 100%;
 			
-			background-color: var(--teritaryDark);
+			background-color: var(--tertiaryDark);
 			overflow: hidden;
 		}
 
@@ -41,12 +44,17 @@
 
 		h1.modTitle {
 			margin: 0px;
+			margin-top: calc(0px - var(--strokeWidth));
 			padding: 0.5em;
 			font-size: 1.6em;
 		}
 
-		a.previewLink:hover h1.modTitle, a.previewLink:hover p.modDescription {
+		a.previewLink:hover img.modImage, a.previewLink:hover h1.modTitle, a.previewLink:hover p.modDescription {
 			background-color: var(--primaryHighlight);
+		}
+
+		a.previewLink {
+			margin: 0px;
 		}
 
 		p {
@@ -60,7 +68,7 @@
 		}
 	</style>
 	<body>
-		<a class="previewLink" href="modPreview.html" target="_parent">
+		<a class="previewLink" href="modPreview.html" target="_top">
 			<img class="modImage" src="Assets/Spine.png">
 			<h1 class="modTitle">Spine</h1>
 			<p class="modDescription">Spine is love, spine is life. Download now or you'll think twice.</p>

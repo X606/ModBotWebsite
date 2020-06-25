@@ -1,10 +1,15 @@
 * {
-	/* General colors being used on site. */
+	/* General colors being used on site,
+	brace yourselves for some really fancy variable names. */
 	--primaryColor: #ff6800;
 
-	--primaryDark: #111111;
-	--secondaryDark: #202020;
-	--teritaryDark: #191919;
+	--primaryDark: #121212;
+	--secondaryDark: #161616;
+	--tertiaryDark: #1a1a1a;
+
+	--primaryGrey: #262626;
+	--secondaryGrey: #313131;
+	--teritaryGrey: #414141;
 
 	--primaryLight: #eeeeee;
 	--secondaryLight: #555555;
@@ -45,19 +50,19 @@ body.frame {
 	padding: var(--spaceModifier);
 	padding-right: calc(var(--spaceModifier) + var(--sidebarWidth));
 
-	background-color: var(--secondaryDark);
+	background-color: var(--primaryDark);
 
 	position: relative;
 }
 
 /* Background div, leaves space for top background image. */
 div.frame {
-	width: calc(100% - (var(--spaceModifier) - var(--strokeWidth)) * 2);
+	width: calc(100% - (var(--spaceModifier) + var(--strokeWidth)) * 2);
 
 	margin-top: calc(var(--backgroundHeight) - (var(--spaceModifier) * 2));
 	padding: var(--spaceModifier);
 
-	background-color: var(--primaryDark);
+	background-color: var(--secondaryDark);
 
 	border: var(--strokeWidth) var(--primaryColor);
 	border-radius: var(--strokeWidth);
@@ -81,7 +86,7 @@ div.backgroundGradient {
 	top: calc(var(--backgroundHeight) - (var(--spaceModifier) * 2));
 	height: calc(var(--spaceModifier) * 2);
 
-	background-image: linear-gradient(#00000000, var(--secondaryDark));
+	background-image: linear-gradient(#00000000, var(--primaryDark));
 
 	z-index: -1;
 	position: absolute;
@@ -109,23 +114,15 @@ iframe.sidebar {
 	width: var(--sidebarWidth);
 
 	top: 0px;
-	height: 100%;
+	height: 100vh;
 	
-	position: absolute;
+	position: fixed;
 }
 
 /* Sets size of iframes used for mod previews.*/
 iframe.modBox {
 	width: 15em;
 	height: 25em;
-
-	margin: calc(var(--spaceModifier) / 10);
-}
-
-/* Sets size of iframes used for user comments.*/
-iframe.comment {
-	width: 100%;
-	height: 10em;
 
 	margin: calc(var(--spaceModifier) / 10);
 }
@@ -144,18 +141,35 @@ button {
 	border: none;
 	outline: none;
 
-	border-bottom: solid var(--strokeWidth);
+	background-color: var(--secondaryGrey);
+	border-bottom: solid var(--strokeWidth) var(--primaryGrey);
+	
+	color: var(--primaryLight);
 	vertical-align: text-top;
 
 	font-size: 0.9em;
+	cursor: pointer;
 
-	z-index: 5;
-	position: relative;
+	transition-duration: 0.05s;
+}
+
+button i.material-icons {
+	margin-top: -0.3em;
+	margin-bottom: -0.3em;
+
+	vertical-align: middle;
+	font-size: 1.5em;
+}
+
+button:hover {
+	background-color: var(--teritaryGrey);
+	border-color: var(--secondaryGrey);
 }
 
 button:active {
 	margin-top: var(--strokeWidth);
-	border: none;
+	border-bottom-width: 0px;
+	transition-duration: 0.05s;
 }
 
 /* Workaround to stop button backgrounds from twitching
@@ -183,10 +197,10 @@ hr {
 }
 
 ::-webkit-scrollbar-track {
-	background-color: var(--teritaryDark);
+	background-color: var(--tertiaryDark);
 }
 
 ::-webkit-scrollbar-thumb {
 	background-color: var(--secondaryLight);
-	border: solid var(--strokeWidth) var(--teritaryDark);
+	border: solid var(--strokeWidth) var(--tertiaryDark);
 }

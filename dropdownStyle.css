@@ -1,0 +1,66 @@
+/* This document contains adjustments needed to
+make dropdown menus functional and good looking. */
+
+div.menu {
+	user-select: none;
+	z-index: 2;
+
+	display: inline-block;
+	position: relative;
+}
+
+div.menuItems {
+	width: max-content;
+
+	background-color: var(--secondaryGrey);
+	box-shadow: 0px calc(var(--strokeWidth) * 4) calc(var(--strokeWidth) * 4) var(--secondaryDark);
+
+	position: absolute;
+	display: none;
+}
+
+div.menuItems p {
+	/* Oh yeah? Try max-content without calc() for yourself an see what happens. */
+	width: calc(max-content);
+	margin: 0px;
+
+	padding: calc(var(--spaceModifier) / 8);
+	padding-left: calc(var(--spaceModifier) / 8 + var(--strokeWidth));
+
+	border-left: solid var(--strokeWidth) var(--primaryColor);
+	font-size: 0.9em;
+}
+
+div.menuItems p.last {
+	border-bottom-left-radius: var(--strokeWidth);
+}
+
+div.menuItems p:hover {
+	background-color: var(--primaryHighlight);
+}
+
+div.menuItems i.material-icons {
+	font-size: 1em;
+	margin-right: calc(var(--spaceModifier) / 8);
+}
+
+i.material-icons#menuButton {
+	bottom: 0px;
+	vertical-align: middle;
+
+	padding: 0.1em;
+	background-color: var(--primaryGrey);
+	border-left: solid var(--strokeWidth) var(--primaryColor);
+	border-radius: var(--strokeWidth);
+	font-size: 1.5em;
+}
+
+div.menu:hover div.menuItems {
+	display: block;
+}
+
+div.menu:hover i.material-icons#menuButton {
+	background-color: var(--secondaryGrey);
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
