@@ -49,8 +49,16 @@
 			font-size: 1.6em;
 		}
 
+		a.previewLink:hover {
+			cursor: pointer;
+		}
+
 		a.previewLink:hover img.modImage, a.previewLink:hover h1.modTitle, a.previewLink:hover p.modDescription {
 			background-color: var(--primaryHighlight);
+		}
+
+		a.previewLink:hover h1.modTitle {
+			text-decoration: underline;
 		}
 
 		a.previewLink {
@@ -60,6 +68,8 @@
 		p {
 			margin: 0px;
 			padding: 1em;
+
+			padding-top: 0px;
 			font-size: 0.8em;
 		}
 

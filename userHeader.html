@@ -12,8 +12,10 @@
 	</head>
 	<style>
 		body {
+			width: max-content;
 			height: 100%;
-			padding: 5vh;
+
+			user-select: none;
 
 			position: relative;
 			overflow: hidden;
@@ -26,18 +28,29 @@
 			object-fit: scale-down;
 		}
 
+		a {
+			width: max-content;
+			height: 100vh;
+
+			padding: 5vh;
+			position: absolute;
+		}
+
+		a:hover {
+			background-color: var(--primaryHighlight);
+			cursor: pointer;
+		}
+
 		a:hover p.name {
 			text-decoration: underline;
 		}
 
 		p.name {
-			top: calc(50vh - 0.5em);
-			left: calc(140vh - 0.5em);
-
 			margin: 0px;
 			font-size: calc(1em + 5vh);
 
-			position: absolute;
+			vertical-align: super;
+			display: inline;
 		}
 
 		::-webkit-scrollbar {

@@ -20,6 +20,12 @@
 			position: relative;
 		}
 
+
+		div.currentUser {
+			margin-left: 1em;
+			margin-bottom: 1em;
+		}
+
 		/* Extender div behind button texts, purely decorative. */
 		div.extend {
 			right: 0px;
@@ -33,6 +39,22 @@
 
 			transition-duration: 0.2s;
 			transition-timing-function: ease;
+		}
+
+		button {
+			font-size: 1em;
+			padding: 0.5em;
+		}
+
+		/* Button color specifications. */
+		button.signupButton {
+			background-color: #dd4600;
+			border-color: #bb2400;
+		}
+
+		button.signupButton:hover {
+			background-color: #ff6800;
+			border-color: #dd4600;
 		}
 
 		/* Colors the button orange by extending div. */
@@ -59,6 +81,8 @@
 			margin-right: var(--strokeWidth);
 
 			z-index: 1;
+
+			user-select: none;
 			position: relative;
 		}
 
@@ -67,16 +91,16 @@
 			text-decoration: underline;
 		}
 
-		/* Gives first button (after the logo image) rounded top corners. */
-		img.logo + a span, img.logo + a span div.extend {
+		/* Gives first button (with 'first' class) rounded top corners. */
+		span.first, span.first div.extend {
 			border-top-right-radius: var(--strokeWidth);
 		}
 
-		img.logo + a span, img.logo + a span:hover div.extend {
+		span.first, span.first:hover div.extend {
 			border-top-left-radius: var(--strokeWidth);
 		}
 
-		/* Gives last button (with the 'last' class) rounded bottom corners. */
+		/* Gives last button (with 'last' class) rounded bottom corners. */
 		span.last, span.last div.extend {
 			border-bottom-right-radius: var(--strokeWidth);
 		}
@@ -94,8 +118,17 @@
 		<!-- Small logo in top right of screen. -->
 		<img class="logo" src="Assets/AlternateLogo.png" alt="Mod-Bot">
 		
+		<!-- Div that contains log in and sign up buttons, or if alerady logged in, username and profile picture. -->
+		<div class="currentUser">
+			<div class="buttonHolder">
+				<button class="loginButton">Log in</button>
+				<button class="signupButton">Sign up</button>
+			</div>
+		</div>
+
 		<!-- All buttons consist of a name paragraph next to an extend div, all inside a span inside a link. -->
-		<a href="index.html" target="_parent"><span><div class="extend"></div><p>Home Page</p></span></a>
+		<!-- The first button's span needs to have the 'first' class, so that the top corners are rounded. -->
+		<a href="index.html" target="_parent"><span class="first"><div class="extend"></div><p>Home Page</p></span></a>
 		<a href="modBrowsing.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
 		<a target="_parent"><span><div class="extend"></div><p>Non-functional button</p></span></a>
 

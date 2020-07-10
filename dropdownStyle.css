@@ -20,7 +20,8 @@ div.menuItems {
 }
 
 div.menuItems p {
-	/* Oh yeah? Try max-content without calc() for yourself an see what happens. */
+	/* For some reason, calc(max-content) seems to give the right results
+	while only max-content doesn't. */
 	width: calc(max-content);
 	margin: 0px;
 
@@ -37,6 +38,9 @@ div.menuItems p.last {
 
 div.menuItems p:hover {
 	background-color: var(--primaryHighlight);
+
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 div.menuItems i.material-icons {

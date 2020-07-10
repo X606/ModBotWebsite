@@ -92,6 +92,10 @@ div.backgroundGradient {
 	position: absolute;
 }
 
+img, iframe {
+	user-select: none;
+}
+
 img.logo {
 	width: 100%;
 }
@@ -141,15 +145,16 @@ button {
 	border: none;
 	outline: none;
 
-	background-color: var(--secondaryGrey);
-	border-bottom: solid var(--strokeWidth) var(--primaryGrey);
-	
 	color: var(--primaryLight);
-	vertical-align: text-top;
+	background-color: var(--secondaryGrey);
 
-	font-size: 0.9em;
+	border-bottom: solid var(--strokeWidth) var(--primaryGrey);
+	border-radius: 0px;
+	
+	vertical-align: text-top;
 	cursor: pointer;
 
+	font-size: 0.9em;
 	transition-duration: 0.05s;
 }
 
@@ -164,6 +169,8 @@ button i.material-icons {
 button:hover {
 	background-color: var(--teritaryGrey);
 	border-color: var(--secondaryGrey);
+
+	text-decoration: underline;
 }
 
 button:active {
