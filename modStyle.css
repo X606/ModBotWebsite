@@ -1,28 +1,10 @@
-* {
-	/* Color shades being used on buttons. */
-	--primaryDownload: #226622;
-	--secondaryDownload: #337733;
-	--tertiaryDownload: #448844;
-
-	--primaryCopy: #ccbb22;
-	--secondaryCopy: #ddcc33;
-	--tertiaryCopy: #eedd44;
-
-	--primaryRate: #004499;
-	--secondaryRate: #1155aa;
-	--tertiaryRate: #2266bb;
-}
-
-div.modBackground {
-	padding-bottom: 3em;
-	background-color: var(--tertiaryDark);
-	position: relative;
-}
-
-/* A div that contains all buttons, to make sure they are next to each other. */
+/* A div that contains several buttons,
+to make sure they are next to each other. */
 div.buttonHolder {
 	bottom: 0px;
 	right: var(--spaceModifier);
+
+	user-select: none;
 	position: absolute;
 }
 
@@ -36,48 +18,14 @@ img.modImage {
 	object-fit: scale-down;
 }
 
-button.downloadButton, button.copyButton, button.rateButton {
-	color: var(--primaryDark);
-}
-
-button.downloadButton {
-	background-color: var(--secondaryDownload);
-	border-color: var(--primaryDownload);
-}
-
-button.copyButton {
-	background-color: var(--secondaryCopy);
-	border-color: var(--primaryCopy);
-}
-
-button.rateButton {
-	background-color: var(--secondaryRate);
-	border-color: var(--primaryRate);
-}
-
-button.downloadButton:hover {
-	background-color: var(--tertiaryDownload);
-	border-color: var(--secondaryDownload);
-}
-
-button.copyButton:hover {
-	background-color: var(--tertiaryCopy);
-	border-color: var(--secondaryCopy);
-}
-
-button.rateButton:hover {
-	background-color: var(--tertiaryRate);
-	border-color: var(--secondaryRate);
-}
-
 /* Temp solution to show how button is supposed to look
 when user has recommended mod. */
-button.rateButton i.material-icons {
+button#rateButton i.material-icons {
 	color: var(--primaryDark);
 	transition-delay: 3s;
 }
 
-button.rateButton:active i.material-icons {
+button#rateButton:active i.material-icons {
 	color: var(--primaryColor);
 	transition-delay: 0.05s;
 }

@@ -1,0 +1,29 @@
+form {
+	padding: calc(var(--spaceModifier) / 2);
+
+	background-color: var(--tertiaryDark);
+}
+
+div.textInput {
+	min-height: calc(var(--spaceModifier) / 2 + 5em + 6px);
+	background-color: var(--primaryGrey);
+}
+
+textArea, div.textInput, input {
+	margin-bottom: calc(var(--spaceModifier) / 2);
+}
+
+textArea, div.textInput {
+	padding: calc(var(--spaceModifier) / 4);
+}
+
+textArea {
+	width: calc(100% - (var(--spaceModifier) / 2));
+	font-size: 1.3em;
+
+	color: var(--primaryLight);
+	background-color: var(--primaryGrey);
+	
+	border: none;
+	resize: none;
+}
