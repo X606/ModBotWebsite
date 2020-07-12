@@ -1,20 +1,24 @@
 * {
 	/* Color shades being used on buttons. */
-	--primaryGreen: #226622;
-	--secondaryGreen: #337733;
-	--tertiaryGreen: #448844;
+	--primaryGreen: #008800;
+	--secondaryGreen: #11aa11;
+	--tertiaryGreen: #22cc22;
 
-	--primaryYellow: #ccbb22;
-	--secondaryYellow: #ddcc33;
-	--tertiaryYellow: #eedd44;
+	--primaryYellow: #bbbb00;
+	--secondaryYellow: #dddd11;
+	--tertiaryYellow: #ffff22;
 
-	--primaryBlue: #004499;
-	--secondaryBlue: #1155aa;
-	--tertiaryBlue: #2266bb;
+	--primaryBlue: #0066aa;
+	--secondaryBlue: #1188cc;
+	--tertiaryBlue: #22aaee;
 
 	--primaryOrange: #bb2400;
 	--secondaryOrange: #dd4600;
 	--tertiaryOrange: #ff6800;
+
+	--primaryRed: #aa0000;
+	--secondaryRed: #cc1111;
+	--tertiaryRed: #ee2222;
 }
 
 /* Makes a general button template with slight 3D effect. */
@@ -62,7 +66,7 @@ button:active, input#button:active {
 
 /* Sets diffrent shades of colors on buttons,
 depending on if they are being hovered on or not. */
-button.green, button.yellow, button.blue, input#button.green, input#button.yellow, input#button.blue {
+button.green, button.yellow, button.blue, button.red, input#button.green, input#button.yellow, input#button.blue, input#button.red {
 	color: var(--primaryDark);
 }
 
@@ -86,6 +90,11 @@ button.orange, input#button.orange {
 	border-color: var(--primaryOrange);
 }
 
+button.red, input#button.red {
+	background-color: var(--secondaryRed);
+	border-color: var(--primaryRed);
+}
+
 button.green:hover, input#button.green:hover {
 	background-color: var(--tertiaryGreen);
 	border-color: var(--secondaryGreen);
@@ -104,4 +113,9 @@ button.blue:hover, input#button.blue:hover {
 button.orange:hover, input#button.orange:hover {
 	background-color: var(--tertiaryOrange);
 	border-color: var(--secondaryOrange);
+}
+
+button.red:hover, input#button.red:hover {
+	background-color: var(--tertiaryRed);
+	border-color: var(--secondaryRed);
 }

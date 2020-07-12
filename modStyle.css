@@ -1,3 +1,12 @@
+/* Changes how mod boxes are listed. */
+div.modsHolder {
+	margin-left: calc(0px - (var(--spaceModifier) / 2));
+	margin-right: calc(0px - (var(--spaceModifier) / 2));
+
+	text-align: center;
+	display: inline-block;
+}
+
 /* A div that contains several buttons,
 to make sure they are next to each other. */
 div.buttonHolder {
@@ -9,13 +18,14 @@ div.buttonHolder {
 }
 
 img.modImage {
+	background-color: #000000;
 	border-bottom: solid var(--strokeWidth) var(--primaryColor);
 	
 	border-bottom-left-radius: var(--strokeWidth);
 	border-bottom-right-radius: var(--strokeWidth);
 
-	background-color: #000000;
-	object-fit: scale-down;
+	image-rendering: auto;
+	object-fit: contain;
 }
 
 /* Temp solution to show how button is supposed to look
