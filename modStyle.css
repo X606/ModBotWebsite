@@ -7,16 +7,6 @@ div.modsHolder {
 	display: inline-block;
 }
 
-/* A div that contains several buttons,
-to make sure they are next to each other. */
-div.buttonHolder {
-	bottom: 0px;
-	right: var(--spaceModifier);
-
-	user-select: none;
-	position: absolute;
-}
-
 img.modImage {
 	background-color: #000000;
 	border-bottom: solid var(--strokeWidth) var(--primaryColor);

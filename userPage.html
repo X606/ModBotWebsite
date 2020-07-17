@@ -24,15 +24,20 @@
 		}
 
 		div.buttonHolder {
+			width: max-content;
+			right: 0px;
+
+			float: right;
 			position: relative;
 		}
 
-		/* Not yet functional. */
+		
 		div.modsHolder {
-			width: 100%;
-			float: none;
+			width: calc(100vw - (var(--sidebarWidth) + (var(--spaceModifier) * 3) + (var(--strokeWidth) * 2)));
+			
+			text-align: left;
 			white-space: nowrap;
-			overflow: hidden;
+			overflow-x: scroll;
 		}
 
 		img.userAvatar {
@@ -45,6 +50,11 @@
 		}
 
 		h2.userName {
+			margin-bottom: 0px;
+		}
+
+		h3 {
+			margin-top: 2em;
 			margin-bottom: 0px;
 		}
 
@@ -71,15 +81,15 @@
 				<button id="followButton" class="blue"><i class="material-icons">person_add</i>Follow</button>
 				<button id="reportButton" class="red"><i class="material-icons">report</i>Report</button>
 			</div>
-			<!-- To be added
+			<br>
+			<h3>Featured mods</h3>
 			<div class="modsHolder">
-				<h3>Featured mods</h3>
 				<iframe class="modBox" src="mod.html" frameborder="0"></iframe>
 				<iframe class="modBox" src="mod.html" frameborder="0"></iframe>
 				<iframe class="modBox" src="mod.html" frameborder="0"></iframe>
 				<iframe class="modBox" src="mod.html" frameborder="0"></iframe>
 				<iframe class="modBox" src="mod.html" frameborder="0"></iframe>
-			</div>-->
+			</div>
 		</div>
 	</body>
 </html>

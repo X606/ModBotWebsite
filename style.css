@@ -78,11 +78,21 @@ div.frame {
 	position: relative;
 }
 
+/* A div that contains several buttons,
+to make sure they are next to each other. */
+div.buttonHolder {
+	bottom: 0px;
+	right: var(--spaceModifier);
+
+	user-select: none;
+	position: absolute;
+}
+
 /* Workaround to stop button backgrounds from twitching
 when pressed on firefox or edge. */
 div.buttonHolder button:active {
 	margin-bottom: calc(0px - var(--strokeWidth));
-	user-select: none;
+	/* user-select: none; */
 }
 
 /* Gradient at bottom of top background image, purely decorative. */
@@ -105,6 +115,7 @@ img, iframe, button {
 
 img {
 	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 }
 
 img.logo {
