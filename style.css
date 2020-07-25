@@ -12,7 +12,8 @@
 	--teritaryGrey: #414141;
 
 	--primaryLight: #eeeeee;
-	--secondaryLight: #555555;
+	--secondaryLight: #aaaaaa;
+	--tertiaryLight: #555555;
 
 	--primaryHighlight: #ffffff11;
 
@@ -197,6 +198,6 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--secondaryLight);
+	background-color: var(--tertiaryLight);
 	border: solid var(--strokeWidth) var(--tertiaryDark);
 }
