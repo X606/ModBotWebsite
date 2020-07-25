@@ -20,7 +20,6 @@
 	--strokeWidth: 3px;
 
 	--sidebarWidth: calc(10em + 10vw);
-	--footerHeight: 2em;
 
 
 	/* Height of background image and gradient.*/
@@ -60,7 +59,6 @@ div.frame {
 	width: calc(100% - (var(--spaceModifier) + var(--strokeWidth)) * 2);
 
 	margin-top: calc(var(--backgroundHeight) - (var(--spaceModifier) * 2));
-	margin-bottom: calc(var(--footerHeight) + var(--spaceModifier) / 4);
 	
 	padding: var(--spaceModifier);
 	background-color: var(--secondaryDark);
@@ -153,11 +151,13 @@ iframe.sidebar {
 }
 
 iframe.footer {
-	left: 0px;
-	width: calc(100% - var(--sidebarWidth));
-	bottom: 0px;
-	height: var(--footerHeight);
-	position: absolute;
+	width: calc(100% + var(--spaceModifier) * 2);
+	height: 2em;
+
+	margin: calc(0px - var(--spaceModifier));
+	margin-top: var(--spaceModifier);
+
+	display: block;
 }
 
 /* Sets size of iframes used for mod previews.*/
