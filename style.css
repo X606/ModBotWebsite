@@ -19,8 +19,9 @@
 	/* Width of most decorative divs, all borders and some border radiuses. */
 	--strokeWidth: 3px;
 
-	/* Width of sidebar. */
 	--sidebarWidth: calc(10em + 10vw);
+	--footerHeight: 2em;
+
 
 	/* Height of background image and gradient.*/
 	--backgroundHeight: 15vw;
@@ -28,7 +29,6 @@
 	/* A value that affects margin/padding on all elements. */
 	--spaceModifier: calc(3vw + 1em);
 
-	/* Bold text is illegal. */
 	font-weight: normal;
 	font-family: Arial, Helvetica, sans-serif;
 
@@ -60,8 +60,9 @@ div.frame {
 	width: calc(100% - (var(--spaceModifier) + var(--strokeWidth)) * 2);
 
 	margin-top: calc(var(--backgroundHeight) - (var(--spaceModifier) * 2));
+	margin-bottom: calc(var(--footerHeight) + var(--spaceModifier) / 4);
+	
 	padding: var(--spaceModifier);
-
 	background-color: var(--secondaryDark);
 
 	border: var(--strokeWidth) var(--primaryColor);
@@ -98,7 +99,7 @@ div.buttonHolder button:active {
 /* Gradient at bottom of top background image, purely decorative. */
 div.backgroundGradient {
 	left: 0px;
-	width: calc(100vw - var(--sidebarWidth));
+	width: calc(100% - var(--sidebarWidth));
 
 	top: calc(var(--backgroundHeight) - (var(--spaceModifier) * 2));
 	height: calc(var(--spaceModifier) * 2);
@@ -149,6 +150,14 @@ iframe.sidebar {
 	height: 100vh;
 	
 	position: fixed;
+}
+
+iframe.footer {
+	left: 0px;
+	width: calc(100% - var(--sidebarWidth));
+	bottom: 0px;
+	height: var(--footerHeight);
+	position: absolute;
 }
 
 /* Sets size of iframes used for mod previews.*/
