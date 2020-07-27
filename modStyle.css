@@ -18,11 +18,12 @@ img.modImage {
 	object-fit: contain;
 }
 
-/* Temp solution to show how button is supposed to look
-when user has recommended mod. */
+.likeButton {
+	transition-duration: 0.2s;
+}
+
 button#rateButton i.material-icons {
-	color: var(--primaryDark);
-	transition-delay: 3s;
+	transition-duration: 0.2s;
 }
 
 button#rateButton:active i.material-icons {

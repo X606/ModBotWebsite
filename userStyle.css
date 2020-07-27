@@ -10,6 +10,9 @@ div.commentBackground {
 
 	overflow: hidden;
 	position: relative;
+
+	transition-duration: 1s;
+	transition-property: max-height;
 }
 
 div.commentBackground div.commentActions {
