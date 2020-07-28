@@ -17,7 +17,9 @@
 
 	<script src="/Mod-Bot_API.js"></script>
 	<script src="modPreview.js"></script>
+
 	<script src="popup.js"></script>
+	<script src="sidebar.js"></script>
 
 	<!-- Workaround to fix transition bug on chrome. -->
 	<script></script>
@@ -70,7 +72,7 @@
 		}
 
 		button {
-			margin-left: calc(var(--spaceModifier) / 2);
+			margin-left: calc(var(--spaceModifier) / 4);
 			padding: 0.5em;
 			
 			font-size: 1em;
@@ -147,8 +149,6 @@
 					<i id="menuButton" class="material-icons">more_horiz</i>
 					<div class="menuItems">
 						<a><p><i class="material-icons">star</i>Star mod</p></a>
-						<a><p><i class="material-icons">reply</i>Share mod</p></a>
-						<a href="modEdit.html"><p><i class="material-icons">edit</i>Edit mod</p></a>
 						<a><p class="last"><i class="material-icons">report</i>Report mod</p></a>
 					</div>
 				</div>
@@ -162,9 +162,10 @@
 
 			<div class="comments">
 				<h2>Comments</h2>
-				<div id="commentPoster" class="commentPoster">
+				<div id="commentPoster" class="commentPoster" style="display: none;">
+					<p id="commentError" class="errorText"></p>
 					<textarea id="commentTextArea" rows="5" placeholder="What are your thoughts on this mod?"></textarea>
-					<button id="postCommentButton" class="green">Post comment</button>
+					<button id="postCommentButton" class="green"><i class="material-icons">add_comment</i> Post comment</button>
 				</div>
 
 				<div class="commentBackground" style="display: none;" id="commentPrefab">
@@ -174,12 +175,12 @@
 					<div class="commentActions">
 						<button class="showButton">Show more</button>
 						<button class="likeButton blue"><i class="material-icons">thumb_up</i> <span class="commentLikedCount">0</span></button>
-						<button style="display: none;" class="deleteButton red">Delete</button>
+						<button style="display: none;" class="deleteButton red"><i class="material-icons">delete</i> Delete</button>
 					</div>
 				</div>
 				
 				<div id="commentHolder"></div>
-				<button id="loadButton">Load more comments</button>
+				<button id="loadButton"><i class="material-icons">expand_more</i> Load more comments</button>
 			</div>
 		</div>
 	</body>

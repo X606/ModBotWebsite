@@ -7,29 +7,40 @@
 
 	<link rel="icon" href="Assets/Icon.png">
 	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="buttonStyle.css">
 	<link rel="stylesheet" href="modStyle.css">
 
 	<script src="/Mod-Bot_API.js"></script>
 	<script src="modBrowsing.js"></script>
+
 	<script src="popup.js"></script>
+	<script src="sidebar.js"></script>
 
 	<title>Mod-Bot</title>
 </head>
-	<body class="frame">
-		<!-- Sidebar navigation menu. -->
-		<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
-		
-		<!-- Background image at top with gradient at bottom. -->
-		<img class="backgroundImage" src="Assets/BackgroundImage.jpg">
-		<div class="backgroundGradient"></div>
-		
-		<!-- Background div with main content inside. -->
-		<div class="frame">
-
-			<!-- Contains all mod boxes. -->
-			<div class="modsHolder" id="modsHolder">
-				<!-- Temp copies of same iframe. -->
-			</div>
-		</div>
-	</body>
+<style>
+	div.modsHolder {
+		margin-top: calc(var(--spaceModifier) / 2);
+	}
+	button#uploadButton {
+		padding: 0.5em;
+		font-size: 1em;
+	}
+</style>
+<body class="frame">
+	<!-- Sidebar navigation menu. -->
+	<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
+	
+	<!-- Background image at top with gradient at bottom. -->
+	<img class="backgroundImage" src="Assets/BackgroundImage.jpg">
+	<div class="backgroundGradient"></div>
+	
+	<!-- Background div with main content inside. -->
+	<div class="frame">
+		<button id="uploadButton" class="orange">Create or edit mod</button>
+		<!-- Contains all mod boxes. -->
+		<div class="modsHolder" id="modsHolder"></div>
+	</div>
+</body>
 </html>

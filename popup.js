@@ -1,5 +1,5 @@
 var hasCreatedPopup = false;
-const basePopupHtml = "<div id='popupBackground' class='popupBackground'><div id='popupFrame' class='popupFrame'></div></div>"
+const basePopupHtml = "<div id='popupBackground' class='popupBackground'><div id='popupFrame' class='popupFrame'><button id='xit' class='red'>X</button></div></div>"
 
 function htmlToElem(html) {
 	let temp = document.createElement('template');
@@ -20,8 +20,13 @@ function createPopup(onPopupCreated)
 
 	var generatedElement = htmlToElem(basePopupHtml);
 	document.body.insertBefore(generatedElement, document.body.firstChild);
-	onPopupCreated(new Popup(document.getElementById("popupBackground"), document.getElementById("popupFrame"))); 
 	
+	var popup = new Popup(document.getElementById("popupBackground"), document.getElementById("popupFrame"));
+	onPopupCreated(popup);
+
+	document.getElementById("xit").addEventListener("click", function() {
+		popup.close();
+	});
 }
 
 function Popup(popupBackground, popupFrame)

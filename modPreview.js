@@ -5,6 +5,10 @@ if (!modID) {
 	console.error("No mod provided");
 }
 
+RunOnLoadedWhenSignedIn(function() {
+	document.getElementById("commentPoster").style = "";
+});
+
 API.GetModData(modID, function (modData) {
 	var image = document.getElementsByClassName("modImage")[0];
 	API.SetImageElementToModImage(image, modID);
@@ -45,13 +49,29 @@ API.GetModData(modID, function (modData) {
 				alert("You have to be signed in to like mods");
 			}
 		});
+	});
+	document.getElementById("postCommentButton").addEventListener("click", function() {
+		var comment = document.getElementById("commentTextArea");
+		var commentError = document.getElementById("commentError")
 
-		
+		if(isNullOrWhitespace(comment.value)) {
+			commentError.innerHTML = "Unable to post empty comment.";
+			return;
+		}
 
+		API.PostComment(modID ,comment.value, function(returnValue) {
+			if(returnValue.isError) {
+				commentError.innerHTML = returnValue.message;
+				return;
+			}
+			comment.value = "";
+			window.location.reload();
+		});
 	});
 	
 	document.getElementById("hideElements").innerHTML = "#mainHolder > * { opacity: 1; transition-duration: 1s; transition-property: opacity;}";
 });
+
 API.GetSpecialModData(modID, function (modData) {
 	document.getElementById("likedCount").innerHTML = modData.Likes;
 
@@ -184,3 +204,10 @@ function copyToClipboard(str) {
 
 	alert("Copied \"" + str + "\" to clipboard");
 };
+
+function isNullOrWhitespace( input ) {
+
+    if (typeof input === 'undefined' || input == null) return true;
+
+    return input.replace(/\s/g, '').length < 1;
+}

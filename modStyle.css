@@ -4,7 +4,7 @@ div.modsHolder {
 	margin-right: calc(0px - (var(--spaceModifier) / 2));
 
 	text-align: center;
-	display: inline-block;
+	display: block;
 }
 
 img.modImage {

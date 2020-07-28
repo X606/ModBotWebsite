@@ -4,7 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="dropdownStyle.css">
 
 	<script src="/Mod-Bot_API.js"></script>
 
@@ -34,6 +37,13 @@
 			position: relative;
 		}
 
+		div.menuItems p {
+			text-align: left;
+			padding: calc(var(--spaceModifier) / 4);
+			padding-left: calc(var(--spaceModifier) / 4 + var(--strokeWidth));
+			font-size: 1em;
+		}
+
 		/* Extender div behind button texts, purely decorative. */
 		div.extend {
 			right: 0px;
@@ -47,6 +57,11 @@
 
 			transition-duration: 0.2s;
 			transition-timing-function: ease;
+		}
+
+		iframe.userHeader {
+			width: calc(100% - 3em);
+			vertical-align: bottom;
 		}
 
 		button {
@@ -125,7 +140,17 @@
 				<button id="loginButton">Log in</button>
 				<button id="signupButton" class="orange">Sign up</button>
 			</div>
-			<iframe id="userHeader" class="userHeader" src="userHeader.html" style="display: none;" frameborder="0"></iframe>
+			<div id="userActions" style="display: none;">
+				<div class="menu">
+					<i id="menuButton" class="material-icons">more_horiz</i>
+					<div class="menuItems">
+						<a><p><i class="material-icons">portrait</i>Change avatar</p></a>
+						<a><p><i class="material-icons">settings</i>User settings</p></a>
+						<a id="logoutButton"><p class="last"><i class="material-icons">exit_to_app</i>Log out</p></a>
+					</div>
+				</div>
+				<iframe id="userHeader" class="userHeader" src="userHeader.html" frameborder="0"></iframe>
+			</div>
 		</div>
 
 		<!-- All buttons consist of a name paragraph next to an extend div, all inside a span inside a link. -->

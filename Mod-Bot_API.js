@@ -18,7 +18,7 @@ function setCookie(cname, cvalue, exmins) {
   var d = new Date();
   d.setTime(d.getTime() + (exmins*60*1000));
   var expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=Strict";
 }
 
 const API = {};
@@ -400,7 +400,7 @@ API.GetUser = function (userID, callback) {
 API.GetCurrentUser = function(callback) {
 	API.IsSignedIn(function(isSignedIn) {
 		if (!isSignedIn) {
-			var message = {isError:true, message: "You are not signed in"};
+			var message = "null";
 			if (callback != null) {
 				callback(message);
 			} else {
@@ -408,14 +408,7 @@ API.GetCurrentUser = function(callback) {
 			}
 			return;
 		}
-		var e = "5a3fe63b-c40b-4077-aff0-8158194c5869";
-		if (callback != null) {
-			callback(e);
-		} 
-		else {
-			console.log(e);
-		}
-		/*Post("/api/?operation=getCurrentUser", 
+		Post("/api/?operation=getCurrentUser", 
 		{
 			sessionId: API.SessionID
 		}, function(e) {
@@ -425,12 +418,20 @@ API.GetCurrentUser = function(callback) {
 			else {
 				console.log(e);
 			}
-		});*/
+		});
 	});
 };
 
-API.OnLoadedWhenSignedIn = null;
-API.OnLoadedWhenNotSignedIn = null;
+API.OnLoadedWhenSignedIn = [];
+API.OnLoadedWhenNotSignedIn = [];
+
+function RunOnLoadedWhenSignedIn(callback) {
+	API.OnLoadedWhenSignedIn.push(callback);
+}
+
+function RunOnLoadedWhenNotSignedIn(callback) {
+	API.OnLoadedWhenNotSignedIn.push(callback);
+}
 
 function SetCurrentSession(sessionID) {
 	API.IsValidSession(sessionID, function(e) {
@@ -471,16 +472,16 @@ var savedSessionID = getCookie("SessionID");
 API.IsValidSession(savedSessionID, function(e){
 	if (e === true) {
 		API.SessionID = savedSessionID;
-		if (API.OnLoadedWhenSignedIn != null) {
-			API.OnLoadedWhenSignedIn();
+		for(var i = 0; i < API.OnLoadedWhenSignedIn.length; i++) {
+			API.OnLoadedWhenSignedIn[i]();
 		}
 	} else {
 		API.SessionID = "";
 		setCookie("SessionID", "", -5);
 		console.log("The saved session id is now invalid");
 
-		if (API.OnLoadedWhenNotSignedIn != null) {
-			API.OnLoadedWhenNotSignedIn();
+		for(var i = 0; i < API.OnLoadedWhenNotSignedIn.length; i++) {
+			API.OnLoadedWhenNotSignedIn[i]();
 		}
 	}
 });
