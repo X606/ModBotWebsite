@@ -7,20 +7,19 @@
 
 	<link rel="icon" href="Assets/Icon.png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="buttonStyle.css">
 
 	<title>Mod-Bot</title>
 
 	<script src="/Mod-Bot_API.js"></script>
+	<script src="popup.js"></script>
 
 	<!-- Workaround to fix transition bug on chrome. -->
 	<script></script>
 </head>
 	<style>
 		div.innerFrame {
-			width: max-content;
+			max-width: max-content;
 			margin-top: calc(var(--spaceModifier) / 2);
 			
 			padding: calc(var(--spaceModifier) / 2);
@@ -51,7 +50,7 @@
 	<body class="frame">
 		<!-- Sidebar navigation menu. -->
 		<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
-		
+
 		<!-- Background image at top with gradient at bottom. -->
 		<img class="backgroundImage" src="Assets//BackgroundImage.jpg">
 		<div class="backgroundGradient"></div>

@@ -14,21 +14,7 @@ img.modImage {
 	border-bottom-left-radius: var(--strokeWidth);
 	border-bottom-right-radius: var(--strokeWidth);
 
-	image-rendering: auto;
 	object-fit: contain;
-}
-
-.likeButton {
-	transition-duration: 0.2s;
-}
-
-button#rateButton i.material-icons {
-	transition-duration: 0.2s;
-}
-
-button#rateButton:active i.material-icons {
-	color: var(--primaryColor);
-	transition-delay: 0.05s;
 }
 
 a.modAuthor {

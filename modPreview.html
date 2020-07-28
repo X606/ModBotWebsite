@@ -7,18 +7,17 @@
 
 	<link rel="icon" href="Assets/Icon.png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
 	<link rel="stylesheet" href="style.css">
+	
 	<link rel="stylesheet" href="modStyle.css">
 	<link rel="stylesheet" href="userStyle.css">
-
-	<link rel="stylesheet" href="buttonStyle.css">
 	<link rel="stylesheet" href="dropdownStyle.css">
 
 	<title>Mod-Bot</title>
 
 	<script src="/Mod-Bot_API.js"></script>
 	<script src="modPreview.js"></script>
+	<script src="popup.js"></script>
 
 	<!-- Workaround to fix transition bug on chrome. -->
 	<script></script>
@@ -41,11 +40,20 @@
 			bottom: var(--spaceModifier);
 		}
 
-		div.commentsHolder {
+		div.comments {
 			margin-top: var(--spaceModifier);
 			padding: calc(var(--spaceModifier) / 2);
 			padding-top: calc(var(--spaceModifier) / 4);
 			background-color: var(--tertiaryDark);
+		}
+
+		div.commentPoster {
+			margin-bottom: calc(var(--spaceModifier) / 2);
+		}
+
+		div.commentPoster textarea {
+			margin-left: 0px;
+			margin-bottom: calc(var(--spaceModifier) / 8);
 		}
 
 		img.modImage {
@@ -62,10 +70,14 @@
 		}
 
 		button {
-			margin-left: 1em;
+			margin-left: calc(var(--spaceModifier) / 2);
 			padding: 0.5em;
 			
 			font-size: 1em;
+		}
+
+		div.commentPoster button {
+			margin-left: 0px;
 		}
 
 		h1.modTitle {
@@ -148,8 +160,12 @@
 				</div>
 			</div>
 
-			<div class="commentsHolder">
+			<div class="comments">
 				<h2>Comments</h2>
+				<div id="commentPoster" class="commentPoster">
+					<textarea id="commentTextArea" rows="5" placeholder="What are your thoughts on this mod?"></textarea>
+					<button id="postCommentButton" class="green">Post comment</button>
+				</div>
 
 				<div class="commentBackground" style="display: none;" id="commentPrefab">
 					<iframe class="userHeader" src="userHeader.html" frameborder="0"></iframe>
@@ -160,13 +176,9 @@
 						<button class="likeButton blue"><i class="material-icons">thumb_up</i> <span class="commentLikedCount">0</span></button>
 						<button style="display: none;" class="deleteButton red">Delete</button>
 					</div>
-					</div>
-
-				<div id="commentHolder">
-
-
-
 				</div>
+				
+				<div id="commentHolder"></div>
 				<button id="loadButton">Load more comments</button>
 			</div>
 		</div>
