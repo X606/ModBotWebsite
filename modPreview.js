@@ -61,9 +61,6 @@ API.GetSpecialModData(modID, function (modData) {
 		}
 	});
 
-	const commentPrefab = document.getElementById("commentPrefab");
-	const commentHolder = document.getElementById("commentHolder");
-
 	const sort = urlParams.get("comments");
 	if (sort == "newest") {
 		DownloadedNonSpawnedComments = modData.Comments;
@@ -85,6 +82,9 @@ API.GetSpecialModData(modID, function (modData) {
 
 function SpawnNextComments() {
 	var count = Math.min(DownloadedNonSpawnedComments.length, 2);
+
+	const commentPrefab = document.getElementById("commentPrefab");
+	const commentHolder = document.getElementById("commentHolder");
 
 	for (var i = 0; i < count; i++) {
 		const comment = DownloadedNonSpawnedComments.pop();

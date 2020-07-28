@@ -121,10 +121,11 @@
 		
 		<!-- Div that contains log in and sign up buttons, or if alerady logged in, username and profile picture. -->
 		<div class="currentUser">
-			<div class="buttonHolder">
+			<div id="userButtons" class="buttonHolder" style="display: none;">
 				<button id="loginButton">Log in</button>
 				<button id="signupButton" class="orange">Sign up</button>
 			</div>
+			<iframe id="userHeader" class="userHeader" src="userHeader.html" style="display: none;" frameborder="0"></iframe>
 		</div>
 
 		<!-- All buttons consist of a name paragraph next to an extend div, all inside a span inside a link. -->

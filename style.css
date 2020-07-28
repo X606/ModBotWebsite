@@ -293,6 +293,10 @@ a {
 	text-decoration: none;
 }
 
+p.errorText {
+	color: var(--tertiaryRed);
+}
+
 hr {
 	border: solid calc(var(--strokeWidth) / 2) var(--primaryColor);
 	border-radius: calc(var(--strokeWidth) / 2);

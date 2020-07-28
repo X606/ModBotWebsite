@@ -1,6 +1,13 @@
 var hasCreatedPopup = false;
 const basePopupHtml = "<div id='popupBackground' class='popupBackground'><div id='popupFrame' class='popupFrame'></div></div>"
 
+function htmlToElem(html) {
+	let temp = document.createElement('template');
+	html = html.trim(); // Never return a space text node as a result
+	temp.innerHTML = html;
+	return temp.content;
+}
+  
 function createPopup(onPopupCreated)
 {
 	if(hasCreatedPopup)
@@ -11,7 +18,8 @@ function createPopup(onPopupCreated)
 	hasCreatedPopup = true;
 	document.body.style.overflowY = "hidden"
 
-	document.body.innerHTML = basePopupHtml + document.body.innerHTML;
+	var generatedElement = htmlToElem(basePopupHtml);
+	document.body.insertBefore(generatedElement, document.body.firstChild);
 	onPopupCreated(new Popup(document.getElementById("popupBackground"), document.getElementById("popupFrame"))); 
 	
 }
@@ -34,6 +42,16 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += "<p>";
 		itemToAdd += text;
 		itemToAdd += "</p>";
+
+		popupFrame.innerHTML += itemToAdd;
+	};
+
+	this.createError = function(id) {
+		var itemToAdd = "";
+
+		itemToAdd += "<p id='";
+		itemToAdd += id;
+		itemToAdd += "' class='errorText'></p>";
 
 		popupFrame.innerHTML += itemToAdd;
 	};

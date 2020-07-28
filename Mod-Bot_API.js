@@ -397,7 +397,40 @@ API.GetUser = function (userID, callback) {
 		});
 }
 
+API.GetCurrentUser = function(callback) {
+	API.IsSignedIn(function(isSignedIn) {
+		if (!isSignedIn) {
+			var message = {isError:true, message: "You are not signed in"};
+			if (callback != null) {
+				callback(message);
+			} else {
+				console.log(message);
+			}
+			return;
+		}
+		var e = "5a3fe63b-c40b-4077-aff0-8158194c5869";
+		if (callback != null) {
+			callback(e);
+		} 
+		else {
+			console.log(e);
+		}
+		/*Post("/api/?operation=getCurrentUser", 
+		{
+			sessionId: API.SessionID
+		}, function(e) {
+			if (callback != null) {
+				callback(e);
+			} 
+			else {
+				console.log(e);
+			}
+		});*/
+	});
+};
+
 API.OnLoadedWhenSignedIn = null;
+API.OnLoadedWhenNotSignedIn = null;
 
 function SetCurrentSession(sessionID) {
 	API.IsValidSession(sessionID, function(e) {
@@ -445,5 +478,9 @@ API.IsValidSession(savedSessionID, function(e){
 		API.SessionID = "";
 		setCookie("SessionID", "", -5);
 		console.log("The saved session id is now invalid");
+
+		if (API.OnLoadedWhenNotSignedIn != null) {
+			API.OnLoadedWhenNotSignedIn();
+		}
 	}
 });
