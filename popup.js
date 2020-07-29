@@ -38,7 +38,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += text;
 		itemToAdd += "</h3>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createParagraph = function(text) {
@@ -48,7 +48,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += text;
 		itemToAdd += "</p>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createError = function(id) {
@@ -58,11 +58,11 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += id;
 		itemToAdd += "' class='errorText'></p>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createBreak = function() {
-		popupFrame.innerHTML += "<br>";
+		popupFrame.appendChild(htmlToElem("<br>"));
 	};
 
 	this.createTextInput = function(id, placeholder) {
@@ -74,7 +74,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += placeholder;
 		itemToAdd += "' type='text'></input>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createPasswordInput = function(id, placeholder) {
@@ -86,7 +86,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += placeholder;
 		itemToAdd += "' type='password'></input>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createEmailInput = function(id, placeholder) {
@@ -98,7 +98,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += placeholder;
 		itemToAdd += "' type='email'></input>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createUrlInput = function(id, placeholder) {
@@ -110,7 +110,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += placeholder;
 		itemToAdd += "' type='url'></input>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createTextAreaInput = function(id, rows, placeholder) {
@@ -124,7 +124,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += placeholder;
 		itemToAdd += "'></textarea>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createFileInput = function(id) {
@@ -134,7 +134,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += id;
 		itemToAdd += "' type='file'></input>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createColorInput = function(id) {
@@ -144,7 +144,7 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += id;
 		itemToAdd += "' type='color'></input>";
 
-		popupFrame.innerHTML += itemToAdd;
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
 	this.createButtonInput = function(text, callback) {
@@ -154,10 +154,13 @@ function Popup(popupBackground, popupFrame)
 		itemToAdd += text;
 		itemToAdd += "</button>";
 
-		popupFrame.innerHTML += itemToAdd;
-
+		popupFrame.appendChild(htmlToElem(itemToAdd));
 		popupFrame.lastChild.addEventListener("click", callback);
 	};
+
+	this.createRaw = function (element) {
+		popupFrame.appendChild(element);
+	}
 
 	this.close = function() {
 		popupBackground.remove();

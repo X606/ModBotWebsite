@@ -12,3 +12,14 @@ CallOnLoad(function () {
 	});
 
 });
+
+RunOnLoadedWhenSignedIn(function () {
+	var uploadButton = document.getElementById("uploadButton");
+	uploadButton.style = "";
+	uploadButton.addEventListener("click", function () {
+		createPopup(function (popup) {
+			popup.createTitle("Upload mod");
+			popup.createRaw(API.GetUploadModForm());
+		});
+	});
+});

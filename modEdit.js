@@ -1,3 +1,3 @@
-API.OnLoadedWhenSignedIn = function () {
+RunOnLoadedWhenSignedIn(function () {
 	document.getElementById("sessionInput").value = API.SessionID;
-}
+});
