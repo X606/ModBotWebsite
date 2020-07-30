@@ -437,10 +437,9 @@ API.GetUploadModForm = function () {
 	formElement.appendChild(document.createElement("br"));
 
 	var sessionInput = document.createElement("input");
-	sessionInput.type = "text";
+	sessionInput.type = "hidden";
 	sessionInput.name = "session";
 	sessionInput.value = API.SessionID;
-	sessionInput.style = "display: none";
 	formElement.appendChild(sessionInput);
 
 	var submitButton = document.createElement("input");

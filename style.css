@@ -299,6 +299,14 @@ iframe.userHeader {
 	height: 2em;
 }
 
+select {
+	margin-bottom: calc(var(--spaceModifier) / 4);
+	padding: 0.2em;
+
+	color: var(--primaryLight);
+	background-color: var(--secondaryGrey);
+}
+
 /* Fixes nicer looking links, underline is not always added with a:hover. */
 a {
 	color: var(--primaryLight);

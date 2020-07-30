@@ -8,13 +8,9 @@ div.modsHolder {
 }
 
 img.modImage {
-	background-color: #000000;
 	border-bottom: solid var(--strokeWidth) var(--primaryColor);
-	
 	border-bottom-left-radius: var(--strokeWidth);
 	border-bottom-right-radius: var(--strokeWidth);
-
-	object-fit: contain;
 }
 
 a.modAuthor {

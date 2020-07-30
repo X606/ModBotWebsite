@@ -5,6 +5,28 @@ if (!modID) {
 	console.error("No mod provided");
 }
 
+CallOnLoad(function() {
+	var selector = document.getElementById("commentSorting");
+	var currentSort = urlParams.get("comments");
+	
+	if(currentSort == "newest") {
+		selector.value = "new";
+	} else {
+		selector.value = "liked"
+	}
+
+	selector.addEventListener("change", function() {
+		var pathNameWithoutQuery = window.location.pathname;
+
+		if(selector.value == "new" && currentSort != "newest") {
+			window.location.href = pathNameWithoutQuery + "?modID=" + modID + "&comments=newest";
+
+		} else if(selector.value == "liked" && currentSort == "newest") {
+			window.location.href = pathNameWithoutQuery + "?modID=" + modID;
+		}
+	});
+});
+
 RunOnLoadedWhenSignedIn(function() {
 	document.getElementById("commentPoster").style = "";
 });
