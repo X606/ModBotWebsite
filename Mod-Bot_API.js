@@ -45,6 +45,9 @@ API.CreateAccount = function(username, password, callback) {
 API.DownloadMod = function(modID) {
 	window.open("/api/?operation=downloadMod&id=" + modID);
 };
+API.DownloadTempFile = function (key) {
+	window.open("/api/?operation=downloadTempFile&key=" + key);
+};
 API.GetAllModIds = function(callback) {
 	Post("/api/?operation=getAllModIds",{}, 
 	function(e) {
@@ -382,6 +385,34 @@ API.LikeComment = function(targetModID, targetCommentId, state, callback) {
 				console.log(e);
 			}
 		});
+	});
+};
+API.DownloadModTemplate = function (modName, description, tags, callback) {
+	API.IsSignedIn(function (isSignedIn) {
+		if (!isSignedIn) {
+			var message = { isError: true, message: "You are not signed in" };
+			console.log(message);
+			return;
+		}
+
+		Post("/api/?operation=getModTemplate",
+			{
+				modName: modName,
+				description: description,
+				tags: tags,
+				sessionId: API.SessionID
+			}, function (e) {
+				e = JSON.parse(e);
+				if (e.isError) {
+					if (callback != null) {
+						callback(e.message);
+					}
+					else {
+						console.log(e.message);
+					}
+				}
+				API.DownloadTempFile(e.fileKey);
+			});
 	});
 };
 API.GetUser = function (userID, callback) {
