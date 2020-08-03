@@ -46,5 +46,5 @@ function copyToClipboard(str) {
 	document.execCommand('copy');
 	document.body.removeChild(el);
 
-	alert("Copied \"" + str + "\" to clipboard");
+	alert("Copied \"" + str + "\" to clipboard.");
 };

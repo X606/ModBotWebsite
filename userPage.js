@@ -16,10 +16,10 @@ API.GetUser(userID, function (userData) {
 		copyToClipboard(userID);
 	});
 	document.getElementById("followButton").addEventListener("click", function () {
-		alert("TODO: make the follow button work");
+		createBanner("Make the follow button work.", "TODO", "warning", 2000);
 	});
 	document.getElementById("reportButton").addEventListener("click", function () {
-		alert("TODO: make the report button work");
+		createBanner("Make the report button work.", "TODO", "warning", 2000);
 	});
 
 	API.SetImageElementToProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
@@ -39,5 +39,5 @@ function copyToClipboard(str) {
 	document.execCommand('copy');
 	document.body.removeChild(el);
 
-	alert("Copied \"" + str + "\" to clipboard");
+	createBanner("Copied \"" + str + "\" to clipboard.", null, "check_circle", 1000);
 };

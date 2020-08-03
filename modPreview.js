@@ -31,6 +31,10 @@ RunOnLoadedWhenSignedIn(function() {
 	document.getElementById("commentPoster").style = "";
 });
 
+RunOnLoadedWhenNotSignedIn(function() {
+	document.getElementById("signInText").style = "";
+});
+
 API.GetModData(modID, function (modData) {
 	var image = document.getElementsByClassName("modImage")[0];
 	API.SetImageElementToModImage(image, modID);
@@ -68,7 +72,7 @@ API.GetModData(modID, function (modData) {
 					document.getElementById("likedCount").innerHTML = likes;
 				});
 			} else {
-				alert("You have to be signed in to like mods");
+				createBanner("You have to be signed in to like mods.", null, "error", 2000);
 			}
 		});
 	});
@@ -164,7 +168,7 @@ function SpawnNextComments() {
 						commentLikedCountDisplay.innerHTML = likes;
 					});
 				} else {
-					alert("You need to be signed in to like comments.");
+					createBanner("You have to be signed in to like comments.", null, "error", 2000);
 				}
 			})
 			
@@ -224,7 +228,7 @@ function copyToClipboard(str) {
 	document.execCommand('copy');
 	document.body.removeChild(el);
 
-	alert("Copied \"" + str + "\" to clipboard");
+	createBanner("Copied \"" + str + "\" to clipboard.", null, "check_circle", 1000);
 };
 
 function isNullOrWhitespace( input ) {

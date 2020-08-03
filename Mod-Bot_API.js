@@ -453,35 +453,6 @@ API.GetCurrentUser = function(callback) {
 	});
 };
 
-API.GetUploadModForm = function () {
-	var formElement = document.createElement("form");
-	formElement.action = "/api/?operation=uploadMod";
-	formElement.enctype = "multipart/form-data";
-	formElement.method = "post";
-	
-	var fileInput = document.createElement("input");
-	fileInput.type = "file";
-	fileInput.name = "file";
-	fileInput.accept = ".zip";
-	formElement.appendChild(fileInput);
-
-	formElement.appendChild(document.createElement("br"));
-
-	var sessionInput = document.createElement("input");
-	sessionInput.type = "hidden";
-	sessionInput.name = "session";
-	sessionInput.value = API.SessionID;
-	formElement.appendChild(sessionInput);
-
-	var submitButton = document.createElement("input");
-	submitButton.type = "submit";
-	submitButton.value = "Upload";
-	submitButton.class = "green";
-	formElement.appendChild(submitButton);
-
-	return formElement;
-};
-
 API.OnLoadedWhenSignedIn = [];
 API.OnLoadedWhenNotSignedIn = [];
 
