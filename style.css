@@ -13,7 +13,8 @@
 
 	--primaryLight: #eeeeee;
 	--secondaryLight: #aaaaaa;
-	--tertiaryLight: #555555;
+	--tertiaryLight: #777777;
+	--quaternaryLight: #555555;
 
 	--primaryHighlight: #ffffff11;
 	--secondaryHighlight: #000000aa;
@@ -43,7 +44,6 @@
 	--strokeWidth: 3px;
 
 	--sidebarWidth: calc(10em + 10vw);
-
 
 	/* Height of background image and gradient.*/
 	--backgroundHeight: 15vw;
@@ -366,11 +366,32 @@ a {
 	text-decoration: none;
 }
 
-p.errorText {
+.errorText {
 	color: var(--tertiaryRed);
 }
 
-p.signInText {
+.signInText {
+	color: var(--quaternaryLight);
+}
+
+.greyText {
+	color: var(--quaternaryLight);
+}
+
+.greyText a {
+	color: var(--secondaryLight);
+}
+
+.greyText a:hover {
+	color: var(--primaryLight);
+	text-decoration: underline;
+}
+
+.greyText a.hiddenLink {
+	color: var(--quaterniaryLight);
+}
+
+.greyText a:hover.hiddenLink {
 	color: var(--tertiaryLight);
 }
 
@@ -476,6 +497,6 @@ input:-webkit-autofill:first-line {
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: var(--tertiaryLight);
+	background-color: var(--quaternaryLight);
 	border: solid var(--strokeWidth) var(--tertiaryDark);
 }

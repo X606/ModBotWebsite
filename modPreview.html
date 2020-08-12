@@ -27,7 +27,9 @@
 	<style>
 		div.modBackground {
 			width: calc(100% - (var(--spaceModifier) * 2));
+
 			padding: var(--spaceModifier);
+			padding-bottom: calc(var(--spaceModifier) + 2em);
 
 			background-color: var(--tertiaryDark);
 			border-bottom: solid var(--strokeWidth) var(--primaryColor);
@@ -56,6 +58,15 @@
 		div.commentPoster textarea {
 			margin-left: 0px;
 			margin-bottom: calc(var(--spaceModifier) / 8);
+		}
+
+		span.date {
+			color: var(--tertiaryLight);
+		}
+
+		span.greyText {
+			margin-top: 1em;
+			float: left;
 		}
 
 		img.modImage {
@@ -160,6 +171,14 @@
 					<button id="copyButton" class="yellow"><i class="material-icons">content_paste</i>Copy ID</button>
 					<button id="rateButton" class="blue"><i class="material-icons">thumb_up</i> <span id="likedCount">0</span></button>
 				</div>
+				<p class="greyText">
+					Upload date:
+					<span class="date" id="uploadDate">1969-12-31</span><!--
+					-->, latest update
+					<span class="date" id="updateDate">1969-12-31</span><!--
+					-->. (Times formatted as
+					<a class="hiddenLink" href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO-8601)</a>
+				</p>
 			</div>
 
 			<div class="comments">
@@ -179,10 +198,13 @@
 					<iframe class="userHeader" src="userHeader.html" frameborder="0"></iframe>
 					<p style="opacity: 0; transition-duration: 1s; transition-property: opacity;" class="commentContent">Very good mod, I'd highly recommend.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
 					
-					<div class="commentActions">
-						<button class="showButton">Show more</button>
-						<button class="likeButton blue"><i class="material-icons">thumb_up</i> <span class="commentLikedCount">0</span></button>
-						<button style="display: none;" class="deleteButton red"><i class="material-icons">delete</i> Delete</button>
+					<div class="commentGradient">
+						<div class="commentActions">
+							<span class="greyText">Posted <span class="date" id="postTime">3 hours</span> ago.</span>
+							<button class="showButton">Show more</button>
+							<button class="likeButton blue"><i class="material-icons">thumb_up</i> <span class="commentLikedCount">0</span></button>
+							<button style="display: none;" class="deleteButton red"><i class="material-icons">delete</i> Delete</button>
+						</div>
 					</div>
 				</div>
 				
