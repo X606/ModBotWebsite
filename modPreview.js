@@ -107,6 +107,9 @@ API.GetSpecialModData(modID, function (modData) {
 		}
 	});
 
+	document.getElementById("uploadDate").innerHTML = formatDate(new Date(modData.PostedDate*1000));
+	document.getElementById("updateDate").innerHTML = formatDate(new Date(modData.UpdatedDate*1000));
+
 	const sort = urlParams.get("comments");
 	if (sort == "newest") {
 		DownloadedNonSpawnedComments = modData.Comments;
@@ -136,7 +139,9 @@ function SpawnNextComments() {
 		const comment = DownloadedNonSpawnedComments.pop();
 
 		const cloned = commentPrefab.cloneNode(true);
+		cloned.id = "";
 		cloned.querySelector(".userHeader").src += "?userID=" + comment.PosterUserId;
+		cloned.querySelector("#postTime").innerHTML = timeDifference(new Date().getTime(), comment.PostedUTCTime*1000);
 		var content = cloned.querySelector(".commentContent");
 		content.innerHTML = comment.CommentBody;
 
@@ -236,4 +241,50 @@ function isNullOrWhitespace( input ) {
     if (typeof input === 'undefined' || input == null) return true;
 
     return input.replace(/\s/g, '').length < 1;
+}
+function timeDifference(current, previous) {
+
+	var msPerMinute = 60 * 1000;
+	var msPerHour = msPerMinute * 60;
+	var msPerDay = msPerHour * 24;
+	var msPerMonth = msPerDay * 30;
+	var msPerYear = msPerDay * 365;
+
+	var elapsed = current - previous;
+
+	if (elapsed < msPerMinute) {
+		return Math.round(elapsed / 1000) + ' seconds';
+	}
+
+	else if (elapsed < msPerHour) {
+		return Math.round(elapsed / msPerMinute) + ' minutes';
+	}
+
+	else if (elapsed < msPerDay) {
+		return Math.round(elapsed / msPerHour) + ' hours';
+	}
+
+	else if (elapsed < msPerMonth) {
+		return 'approximately ' + Math.round(elapsed / msPerDay) + ' days';
+	}
+
+	else if (elapsed < msPerYear) {
+		return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months';
+	}
+
+	else {
+		return 'approximately ' + Math.round(elapsed / msPerYear) + ' years';
+	}
+}
+function formatDate(d) {
+	var month = '' + (d.getMonth() + 1),
+		day = '' + d.getDate(),
+		year = d.getFullYear();
+
+	if (month.length < 2)
+		month = '0' + month;
+	if (day.length < 2)
+		day = '0' + day;
+
+	return [year, month, day].join('-');
 }
