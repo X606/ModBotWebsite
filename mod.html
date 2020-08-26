@@ -7,8 +7,8 @@
 
 	<link rel="icon" href="Assets/Icon.png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="modStyle.css">
+	
+	<link rel="stylesheet" href="CSS/style.css">
 
 	<title>Mod-Bot</title>
 
@@ -51,6 +51,10 @@
 		img.modImage {
 			width: 100vw;
 			height: 50vh;
+
+			border-bottom: solid var(--strokeWidth) var(--primaryColor);
+			border-bottom-left-radius: var(--strokeWidth);
+			border-bottom-right-radius: var(--strokeWidth);
 
 			margin-bottom: calc(0px - var(--strokeWidth));
 			object-fit: cover;

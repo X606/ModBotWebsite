@@ -1,0 +1,116 @@
+/* This document styles buttons. */
+
+/* A div that contains several buttons,
+to make sure they are next to each other. */
+div.buttonHolder {
+	bottom: 0px;
+	right: var(--spaceModifier);
+
+	user-select: none;
+	position: absolute;
+}
+
+/* Workaround to stop button backgrounds from twitching
+when pressed on firefox or edge. */
+div.buttonHolder button:active {
+	margin-bottom: calc(0px - var(--strokeWidth));
+}
+
+/* Makes a general button template with slight 3D effect. */
+button {
+	margin: 0px;
+	padding: 0.3em;
+
+	border: none;
+	outline: none;
+
+	color: var(--primaryLight);
+	background-color: var(--secondaryGrey);
+
+	border-bottom: solid var(--strokeWidth) var(--primaryGrey);
+	border-radius: 0px;
+	
+	vertical-align: text-top;
+	cursor: pointer;
+
+	font-size: 0.9em;
+	transition-duration: 0.05s;
+}
+
+button i.material-icons {
+	margin-top: -0.3em;
+	margin-bottom: -0.3em;
+
+	vertical-align: middle;
+	font-size: 1.5em;
+}
+
+button:hover {
+	background-color: var(--teritaryGrey);
+	border-color: var(--secondaryGrey);
+
+	text-decoration: underline;
+}
+
+button:active {
+	margin-top: var(--strokeWidth);
+	border-bottom-width: 0px;
+
+	transition-duration: 0.05s;
+}
+
+/* Sets diffrent shades of colors on buttons,
+depending on if they are being hovered on or not. */
+button.green, button.yellow, button.blue, button.red {
+	color: var(--primaryDark);
+}
+
+button.green {
+	background-color: var(--secondaryGreen);
+	border-color: var(--primaryGreen);
+}
+
+button.yellow {
+	background-color: var(--secondaryYellow);
+	border-color: var(--primaryYellow);
+}
+
+button.blue {
+	background-color: var(--secondaryBlue);
+	border-color: var(--primaryBlue);
+}
+
+button.orange {
+	background-color: var(--secondaryOrange);
+	border-color: var(--primaryOrange);
+}
+
+button.red {
+	background-color: var(--secondaryRed);
+	border-color: var(--primaryRed);
+}
+
+button.green:hover {
+	background-color: var(--tertiaryGreen);
+	border-color: var(--secondaryGreen);
+}
+
+button.yellow:hover {
+	background-color: var(--tertiaryYellow);
+	border-color: var(--secondaryYellow);
+}
+
+button.blue:hover {
+	background-color: var(--tertiaryBlue);
+	border-color: var(--secondaryBlue);
+}
+
+button.orange:hover {
+	background-color: var(--tertiaryOrange);
+	border-color: var(--secondaryOrange);
+}
+
+button.red:hover {
+	background-color: var(--tertiaryRed);
+	border-color: var(--secondaryRed);
+}

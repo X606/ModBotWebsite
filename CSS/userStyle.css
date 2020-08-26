@@ -1,3 +1,6 @@
+/* This document specifies how all
+user related elements should look. */
+
 div.commentBackground {
 	max-height: 10em;
 
@@ -37,6 +40,10 @@ div.commentBackground div.commentActions {
 	text-align: right;
 
 	position: absolute;
+}
+
+img.userAvatar {
+	object-fit: cover;
 }
 
 div.commentBackground button {

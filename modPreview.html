@@ -7,11 +7,10 @@
 
 	<link rel="icon" href="Assets/Icon.png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="CSS/style.css">
 	
-	<link rel="stylesheet" href="modStyle.css">
-	<link rel="stylesheet" href="userStyle.css">
-	<link rel="stylesheet" href="dropdownStyle.css">
+	<link rel="stylesheet" href="CSS/userStyle.css">
+	<link rel="stylesheet" href="CSS/dropdownStyle.css">
 
 	<title>Mod-Bot</title>
 
@@ -75,6 +74,10 @@
 
 			margin: calc(0px - var(--spaceModifier));
 			margin-bottom: calc(var(--spaceModifier) / 2);
+
+			border-bottom: solid var(--strokeWidth) var(--primaryColor);
+			border-bottom-left-radius: var(--strokeWidth);
+			border-bottom-right-radius: var(--strokeWidth);
 
 			object-fit: contain;
 			float: right;
@@ -151,7 +154,9 @@
 		
 		<!-- Background div with main content inside. -->
 		<div class="frame" id="mainHolder">
+			<!-- Basically bigger mod box with full description and more actions. -->
 			<div class="modBackground">
+				<!-- General information -->
 				<img class="modImage" src="" alt="Mod image">
 				<h1 class="modTitle">Spine</h1>
 				<hr>
@@ -176,8 +181,12 @@
 					<span class="date" id="uploadDate">1969-12-31</span><!--
 					-->, latest update
 					<span class="date" id="updateDate">1969-12-31</span><!--
-					-->. (Times formatted as
-					<a class="hiddenLink" href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO-8601)</a>
+					-->.
+					<br>
+					<span style="font-size: 0.8em;">
+						(Times formatted as
+						<a class="hiddenLink" href="https://www.iso.org/iso-8601-date-and-time-format.html" target="_blank">ISO-8601)</a>
+					</span>
 				</p>
 			</div>
 

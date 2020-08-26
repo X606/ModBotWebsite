@@ -314,9 +314,14 @@ function createBanner(content, header, icon, autoClose) {
 	if(autoClose) {
 		setTimeout(function() {
 			if(banner != null) {
-				banner.style = "transition-duration: 0.5s; opacity: 0%; max-height: 0px; padding: 0px;"
+				banner.style = "transition-duration: 0.4s; opacity: 0%; max-height: 0px;"
 			}
 		}, autoClose);
+		setTimeout(function() {
+			if(banner != null) {
+				banner.style = "transition-duration: 0.1s; opacity: 0%; max-height: 0px; margin: 0px; padding: 0px;"
+			}
+		}, autoClose + 400);
 		setTimeout(removeBanner, autoClose + 500, banner);
 	}
 }

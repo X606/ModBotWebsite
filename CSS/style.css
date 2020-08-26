@@ -1,0 +1,228 @@
+@import "textStyle.css";
+@import "buttonStyle.css";
+@import "popupStyle.css";
+
+* {
+	/* General colors being used on site,
+	brace yourselves for some really fancy variable names. */
+	--primaryColor: #ff6800;
+
+	--primaryDark: #121212;
+	--secondaryDark: #161616;
+	--tertiaryDark: #1a1a1a;
+
+	--primaryGrey: #262626;
+	--secondaryGrey: #313131;
+	--teritaryGrey: #414141;
+
+	--primaryLight: #eeeeee;
+	--secondaryLight: #aaaaaa;
+	--tertiaryLight: #777777;
+	--quaternaryLight: #555555;
+
+	--primaryHighlight: #ffffff11;
+	--secondaryHighlight: #000000aa;
+
+	/* Color shades being used on buttons. */
+	--primaryGreen: #006600;
+	--secondaryGreen: #118811;
+	--tertiaryGreen: #22aa22;
+
+	--primaryYellow: #bbbb00;
+	--secondaryYellow: #dddd11;
+	--tertiaryYellow: #ffff22;
+
+	--primaryBlue: #0066aa;
+	--secondaryBlue: #1188cc;
+	--tertiaryBlue: #22aaee;
+
+	--primaryOrange: #bb2400;
+	--secondaryOrange: #dd4600;
+	--tertiaryOrange: #ff6800;
+
+	--primaryRed: #aa0000;
+	--secondaryRed: #cc1111;
+	--tertiaryRed: #ee2222;
+
+	/* Width of most decorative divs, all borders and some border radiuses. */
+	--strokeWidth: 3px;
+
+	--sidebarWidth: calc(10em + 10vw);
+
+	/* Height of background image and gradient.*/
+	--backgroundHeight: 15vw;
+
+	/* A value that affects margin/padding on all elements. */
+	--spaceModifier: calc(3vw + 1em);
+
+	font-family: Arial, Helvetica, sans-serif;
+	scroll-behavior: smooth;
+}
+
+/* Sets some frequently used default parameters. */
+body {
+	margin: 0px;
+	padding: 0px;
+
+	color: var(--primaryLight);
+	overflow-y: unset;
+
+	position: relative;
+}
+
+/* Background body, leaves space for sidebar iframe. */
+body.frame {
+	max-width: 100%;
+	padding: var(--spaceModifier);
+	padding-right: calc(var(--spaceModifier) + var(--sidebarWidth));
+
+	background-color: var(--primaryDark);
+}
+
+/* Background div, leaves space for top background image. */
+div.frame {
+	width: calc(100% - (var(--spaceModifier) + var(--strokeWidth)) * 2);
+
+	margin-top: calc(var(--backgroundHeight) - (var(--spaceModifier) * 2));
+	
+	padding: var(--spaceModifier);
+	background-color: var(--secondaryDark);
+
+	border: var(--strokeWidth) var(--primaryColor);
+	border-radius: var(--strokeWidth);
+
+	border-left-style: solid;
+	border-right-style: solid;
+
+	/* New fancy 'clearfix hack' */
+	content: "";
+	clear: both;
+	display: table;
+
+	position: relative;
+}
+
+/* Gradient at bottom of top background image, purely decorative. */
+div.backgroundGradient {
+	left: 0px;
+	width: calc(100% - var(--sidebarWidth));
+
+	top: calc(var(--backgroundHeight) - (var(--spaceModifier) * 2));
+	height: calc(var(--spaceModifier) * 2);
+
+	background-image: linear-gradient(#00000000, var(--primaryDark));
+
+	z-index: -1;
+	position: absolute;
+}
+
+img, i.material-icons, iframe, button {
+	user-select: none;
+}
+
+img.logo {
+	width: calc(100% - (var(--spaceModifier) / 2));
+	margin: calc(var(--spaceModifier) / 4);
+
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+/* Wide background image at top of layot.*/
+img.backgroundImage {
+	width: calc(100vw - var(--sidebarWidth));
+	height: calc(var(--backgroundHeight) - 1px);
+	margin: calc(0px - var(--spaceModifier));
+
+	z-index: -1;
+	
+	position: absolute;
+	object-fit: cover;
+}
+
+/* Locks sidebar in place on the right. */
+iframe.sidebar {
+	right: 0px;
+	width: var(--sidebarWidth);
+
+	top: 0px;
+	height: 100vh;
+	
+	position: fixed;
+}
+
+iframe.popup {
+	width: 100vw;
+	height: 100vh;
+	
+	left: 0px;
+	right: 0px;
+
+	top: 0px;
+	bottom: 0px;
+
+	z-index: 5;
+	position: fixed;
+}
+
+/* Sets size of iframes used for mod previews.*/
+iframe.modBox {
+	width: 15em;
+	height: 25em;
+
+	margin: calc(var(--spaceModifier) / 10);
+}
+
+/* Sets size of iframes used for previews of user profiles.*/
+iframe.userHeader {
+	width: 100%;
+	height: 2em;
+}
+
+/* Makes general forms good looking. */
+textArea, input[type=text], input[type=password], input[type=email], input[type=url], input[type=search] {
+	padding: calc(var(--spaceModifier) / 4);
+
+	color: var(--primaryLight);
+	background-color: var(--primaryGrey);
+	
+	font-size: 0.9em;
+
+	border: none;
+	resize: none;
+}
+
+select {
+	margin-bottom: calc(var(--spaceModifier) / 4);
+	padding: 0.2em;
+
+	color: var(--primaryLight);
+	background-color: var(--secondaryGrey);
+}
+
+input[type=color] {
+	background-color: var(--primaryGrey);
+	border: none;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px var(--primaryGrey) inset;
+}
+
+input:-webkit-autofill:first-line {
+	color: var(--primaryLight);
+}
+
+/* Oooh, fancy custom scrollbar. */
+::-webkit-scrollbar {
+	width: 1em;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--tertiaryDark);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--quaternaryLight);
+	border: solid var(--strokeWidth) var(--tertiaryDark);
+}
