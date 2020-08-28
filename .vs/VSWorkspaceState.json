@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Javascript",
+    "\\Javascript\\Modules",
+    "\\Javascript\\Modules\\API",
+    "\\Javascript\\Modules\\API\\Auth"
   ],
-  "SelectedNode": "\\modBrowsing.html",
+  "SelectedNode": "\\Javascript\\Modules\\API\\Auth\\SignInOut.js",
   "PreviewInSolutionExplorer": false
 }
