@@ -1,0 +1,128 @@
+/* This document makes popups and banners
+functional and good looking. */
+
+/* Dark background to popups. */
+div.popupBackground {
+	width: 100vw;
+	height: 100vh;
+	
+	left: 0px;
+	right: 0px;
+
+	top: 0px;
+	bottom: 0px;
+
+	background-color: var(--secondaryHighlight);
+
+	justify-content: center;
+	align-items: center;
+
+	z-index: 5;
+	overflow: hidden;
+	
+	display: flex;
+	position: fixed;
+}
+
+div.popupFrame {
+	width: max-content;
+	height: max-content;
+
+	max-height: calc(100% - var(--spaceModifier));
+	overflow-y: auto;
+
+	margin: calc(var(--spaceModifier) / 2);
+	padding: calc(var(--spaceModifier) / 2);
+	padding-top: 0px;
+
+	background-color: var(--tertiaryDark);
+	border-bottom: solid var(--strokeWidth) var(--primaryColor);
+
+	border-bottom-left-radius: var(--strokeWidth);
+	border-bottom-right-radius: var(--strokeWidth);
+
+	position: relative;
+}
+
+div.popupFrame button {
+	padding: 0.4em;
+	font-size: 1em;
+}
+
+/* Bottom banner that appears when user needs to be informed of something. */
+div.bannerHolder {
+	width: calc(100vw - 1em);
+	height: max-content;
+
+	left: 0px;
+	bottom: 0px;
+
+	z-index: 6;
+	position: fixed;
+}
+
+div.bannerFrame {
+	height: max-content;
+	max-height: 100vh;
+
+	margin: calc(var(--spaceModifier) / 4);
+	padding: calc(var(--spaceModifier) / 8);
+	
+	margin-left: calc(var(--spaceModifier) * 2);
+	margin-right: calc(var(--spaceModifier) * 2);
+
+	padding-right: var(--spaceModifier);
+
+	background-color: var(--tertiaryDark);
+	box-shadow: 0px 0px 2em var(--primaryDark);
+
+	border: solid var(--strokeWidth) var(--primaryColor);
+	border-radius: var(--strokeWidth);
+
+	overflow: hidden;
+	position: relative;
+}
+
+div.bannerFrame i.material-icons {
+	margin: calc(var(--spaceModifier) / 4);
+	font-size: 2.5em;
+	float: left;
+
+	display: flex;
+	flex-flow: column;
+}
+
+div.bannerFrame h2 {
+	margin-bottom: -0.5em;
+}
+
+/* EXit button on popups and banners that the user can click on to close. */
+button#xit {
+	width: 1.5em;
+	height: 1.5em;
+
+	right: calc(var(--spaceModifier) / 2);;
+	top: calc(var(--spaceModifier) / 2);
+
+	padding: 0px;
+	font-weight: bold;
+
+	justify-content: center;
+	align-items: center;
+
+	cursor: pointer;
+	position: absolute;
+}
+
+div.bannerFrame button#xit {
+	font-size: 1.2em;
+}
+
+/* Adjusts popup form element margins. */
+div.popupFrame textArea, div.popupFrame input {
+	margin-bottom: calc(var(--spaceModifier) / 2);
+}
+
+textArea, div.popupFrame input[type=text], div.popupFrame input[type=password], div.popupFrame input[type=email], div.popupFrame input[type=url] {
+	width: calc(100% - (var(--spaceModifier) / 2));
+}
