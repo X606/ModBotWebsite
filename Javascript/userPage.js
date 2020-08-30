@@ -10,6 +10,29 @@ var asyncOnStart = async function () {
 		return;
 	}
 
+	const asyncGetData = async function () {
+		var searchRequest = new API.SearchRequest();
+		searchRequest.userID = userID;
+		searchRequest.sortOrder = API.searchSortTypes.Liked;
+		var mods = await searchRequest.Send();
+
+		var generatedHTML = "";
+
+		for (var i = 0; i < mods.length; i++) {
+			const mod = mods[i];
+
+			var href = "mod.html?modID=" + mod;
+
+			generatedHTML += `<iframe class="modBox" src="${href}" frameborder="0"></iframe>`;
+		}
+
+		if (mods.length != 0) {
+			document.getElementById("modsHolder").innerHTML = generatedHTML;
+		}
+
+	}
+	asyncGetData();
+
 	var userData = await API.getUser(userID);
 	const usernameDisplay = document.getElementsByClassName("userName")[0];
 	usernameDisplay.innerHTML = userData.username;

@@ -65,22 +65,12 @@ const searchSortTypes = {
 	PostDate: "postedDate",
 	EditedDate: "editedDate"
 };
-function SearchRequest(callback) {
+function SearchRequest() {
 	this.searchString = null;
 	this.includeDescriptionsInSearch = false;
 	this.userID = null;
-
+	this.modID = null;
 	this.sortOrder = "liked";
-
-	this.setSortOrder = function (sortOrder) {
-		this.sortOrder = sortOrder;
-	}
-	this.setUserId = function (userId) {
-		this.userID = userId;
-	}
-	this.setSearchString = function (searchString) {
-		this.searchString = searchString;
-	}
 
 	this.Send = function () {
 		return new Promise(async resolve => {
@@ -90,8 +80,11 @@ function SearchRequest(callback) {
 					searchString: this.searchString,
 					includeDescriptionsInSearch: this.includeDescriptionsInSearch,
 					userID: this.userID,
-					sortOrder: this.sortOrder
+					sortOrder: this.sortOrder,
+					modID: this.modID
 				});
+			result = JSON.parse(result);
+
 			resolve(result);
 
 		});

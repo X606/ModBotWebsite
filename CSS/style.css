@@ -172,6 +172,13 @@ iframe.modBox {
 
 	margin: calc(var(--spaceModifier) / 10);
 }
+div.modBox {
+	width: 15em;
+	height: 25em;
+	margin: calc(var(--spaceModifier) / 10);
+	display: inline-block;
+	background-color: var(--tertiaryDark);
+}
 
 /* Sets size of iframes used for previews of user profiles.*/
 iframe.userHeader {
