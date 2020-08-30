@@ -1,12 +1,16 @@
-CallOnLoad(function () {
+import { API } from "./Modules/API/Api.js";
+
+async function asyncOnLoad() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const modID = urlParams.get("modID");
 
 	if (!modID)
 		return;
 
-	API.GetModData(modID, function (modData) {
-		API.SetImageElementToModImage(document.getElementsByClassName("modImage")[0], modID);
+	var asyncGetModData = async function () {
+		var modData = await API.getModData(modID);
+
+		API.setImageElementToModImage(document.getElementsByClassName("modImage")[0], modID);
 
 		document.getElementsByClassName("modTitle")[0].innerHTML = modData.DisplayName;
 
@@ -28,12 +32,18 @@ CallOnLoad(function () {
 		setTimeout(function () {
 			document.body.style = "transition-duration: 1s; transition-property: opacity;";
 		}, 2);
-	});
-	API.GetSpecialModData(modID, function (modData) {
-		document.getElementsByClassName("userHeader")[0].src += "?userID=" + modData.OwnerID;
-	});
+	};
+	asyncGetModData();
+	var asyncGetSpecialModData = async function () {
+		var modData = await API.getSpecialModData(modID);
 
-});
+		document.getElementsByClassName("userHeader")[0].src += "?userID=" + modData.OwnerID;
+	};
+	asyncGetSpecialModData();
+	
+
+}
+asyncOnLoad();
 
 function copyToClipboard(str) {
 	const el = document.createElement('textarea');

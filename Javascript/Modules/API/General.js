@@ -5,7 +5,7 @@ function Post(url, data) {
 	xhr.send(JSON.stringify(data));
 
 	return new Promise(resolve => {
-		xhr.onload = function() {
+		xhr.onload = function () {
 			resolve(xhr.responseText);
 		}
 	});

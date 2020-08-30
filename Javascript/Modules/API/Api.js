@@ -1,24 +1,40 @@
 // Auth
-import { isValidSessionId } from "./Auth/IsValidSessionId.js";
-import { createAccount } from "./Auth/CreateAccount.js";
-import { getCurrentSessionId, setCurrentSessionId } from "./Auth/Sessions.js";
-import { hasLikedMod } from "./Auth/ModLiking.js";
-import { hasLikedComment, isCommentMine, postComment, deleteComment, likeComment } from "./Auth/Comments.js";
-import { isSignedIn, signIn, signOut } from "./Auth/SignInOut.js";
-import { downloadModTemplate } from "./Auth/DownloadTemplate.js"
+import {
+	isValidSessionId,
+	createAccount,
+	getCurrentSessionId,
+	setCurrentSessionId,
+	hasLikedMod,
+	hasLikedComment,
+	isCommentMine,
+	postComment,
+	deleteComment,
+	likeComment,
+	isSignedIn,
+	signIn,
+	signOut,
+	downloadModTemplate,
+	getCurrentUser,
+	getUser,
+	setLikedMod
+} from "./Auth.js";
 
 
 // Unauth
-import { getAllModIds } from "./Unauth/GetAllMods.js";
-import { getAllModInfos } from "./Unauth/GetAllModInfos.js";
-import { setImageElementToModImage, setImageElementToProfilePicture } from "./Unauth/Images.js"
-import { getModData, getSpecialModData } from "./Unauth/GetModData.js";
-import { SearchRequest, searchSortTypes } from "./Unauth/Search.js";
-
+import {
+	getAllModIds,
+	getAllModInfos,
+	setImageElementToModImage,
+	setImageElementToProfilePicture,
+	getModData,
+	getSpecialModData,
+	SearchRequest,
+	searchSortTypes,
+	getProfilePictureLink
+} from "./Unauth.js";
 
 // other
 import { downloadMod, downloadTempFile } from "./Files.js";
-import { getCurrentUser, getUser } from "./Auth/User";
 
 
 const API = {};
@@ -38,6 +54,7 @@ API.deleteComment = deleteComment;
 API.likeComment = likeComment;
 API.downloadModTemplate = downloadModTemplate;
 API.getCurrentUser = getCurrentUser;
+API.setLikedMod = setLikedMod;
 
 API.getAllModIds = getAllModIds;
 API.getAllModInfos = getAllModInfos;
@@ -48,6 +65,7 @@ API.getSpecialModData = getSpecialModData;
 API.getUser = getUser;
 API.SearchRequest = SearchRequest;
 API.searchSortTypes = searchSortTypes;
+API.getProfilePictureLink = getProfilePictureLink;
 
 API.downloadMod = downloadMod;
 API.downloadTempFile = downloadTempFile;

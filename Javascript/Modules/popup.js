@@ -342,3 +342,5 @@ function isNullOrWhitespace( input ) {
 
     return input.replace(/\s/g, '').length < 1;
 }
+
+export { createPopup, createBanner, FormData };

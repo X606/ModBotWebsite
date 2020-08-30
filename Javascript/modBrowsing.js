@@ -1,31 +1,33 @@
-CallOnLoad(function () {
-	API.GetAllModIds(function (modIds) {
-		const element = document.getElementById("modsHolder");
+import { createPopup, FormData } from "./Modules/popup.js";
+import { API } from "./Modules/API/Api.js";
 
-		var innerHTML = "";
-		for (var i = 0; i < modIds.length; i++) {
-			innerHTML += "<iframe class=\"modBox fade\" src=\"mod.html?modID=" + modIds[i] + "\" frameborder=\"0\"></iframe>\n";
-		}
+async function onLoadAsync() {
+	const sessionId = await API.getCurrentSessionId();
 
-		element.innerHTML = innerHTML;
-		
-	});
+	if (sessionId == "") {
+		document.getElementById("signInText").style = "";
+	} else {
+		var uploadButton = document.getElementById("uploadButton");
+		uploadButton.style = "";
+		uploadButton.addEventListener("click", function () {
+			createPopup(function (popup) {
+				popup.createTitle("Upload mod");
+				popup.createFileInput("modFile", ".zip", "file");
+				popup.createHidden(API.SessionID, "session");
+				popup.createSubmitInput("Upload mod");
+			}, new FormData("/api/?operation=uploadMod", "multipart/form-data", "post"));
+		});
+	}
 
-});
+	var modIds = await API.getAllModIds();
 
-RunOnLoadedWhenSignedIn(function () {
-	var uploadButton = document.getElementById("uploadButton");
-	uploadButton.style = "";
-	uploadButton.addEventListener("click", function () {
-		createPopup(function (popup) {
-			popup.createTitle("Upload mod");
-			popup.createFileInput("modFile", ".zip", "file");
-			popup.createHidden(API.SessionID, "session");
-			popup.createSubmitInput("Upload mod");
-		}, new FormData("/api/?operation=uploadMod", "multipart/form-data", "post"));
-	});
-});
+	const element = document.getElementById("modsHolder");
 
-RunOnLoadedWhenNotSignedIn(function() {
-	document.getElementById("signInText").style = "";
-});
+	var innerHTML = "";
+	for (var i = 0; i < modIds.length; i++) {
+		innerHTML += "<iframe class=\"modBox fade\" src=\"mod.html?modID=" + modIds[i] + "\" frameborder=\"0\"></iframe>\n";
+	}
+
+	element.innerHTML = innerHTML;
+}
+onLoadAsync();
