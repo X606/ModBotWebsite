@@ -18,12 +18,17 @@ var asyncOnStart = async function () {
 
 		var generatedHTML = "";
 
-		for (var i = 0; i < mods.length; i++) {
+		var items = Math.max(4, mods.length);
+
+		for (var i = 0; i < items; i++) {
 			const mod = mods[i];
+			if (mod == null) {
+				generatedHTML += "<div class=\"modBox\"></div>";
+			} else {
+				var href = "mod.html?modID=" + mod;
 
-			var href = "mod.html?modID=" + mod;
-
-			generatedHTML += `<iframe class="modBox" src="${href}" frameborder="0"></iframe>`;
+				generatedHTML += `<iframe class="modBox" src="${href}" frameborder="0"></iframe>`;
+			}
 		}
 
 		if (mods.length != 0) {
