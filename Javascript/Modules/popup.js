@@ -10,15 +10,17 @@ function htmlToElem(html) {
 	return temp.content;
 }
   
-function createPopup(onPopupCreated, formData)
+async function createPopup(onPopupCreated, formData)
 {
+	await createCssIfDoesntExist();
+
 	if(hasCreatedPopup)
 	{
 		console.error("Failed to open new popup since one already exists.");
 		return;
 	}
 	hasCreatedPopup = true;
-	document.body.style.overflowY = "hidden"
+	window.top.document.body.style.overflowY = "hidden"
 
 	var generatedElement = htmlToElem(basePopupHtml);
 	var form = null;
@@ -32,17 +34,17 @@ function createPopup(onPopupCreated, formData)
 		generatedElement.getElementById("popupFrame").appendChild(form);
 	}
 
-	document.body.insertBefore(generatedElement, document.body.firstChild);
+	window.top.document.body.insertBefore(generatedElement, window.top.document.body.firstChild);
 
-	var targetFrame = document.getElementById("popupFrame");
+	var targetFrame = window.top.document.getElementById("popupFrame");
 	if(formData) {
 		targetFrame = form;
 	}
 	
-	var popup = new Popup(document.getElementById("popupBackground"), targetFrame, formData);
+	var popup = new Popup(window.top.document.getElementById("popupBackground"), targetFrame, formData);
 	onPopupCreated(popup);
 
-	document.getElementById("xit").addEventListener("click", function() {
+	window.top.document.getElementById("xit").addEventListener("click", function() {
 		popup.close();
 	});
 }
@@ -244,22 +246,24 @@ function Popup(popupBackground, popupFrame, formData)
 
 	this.close = function() {
 		popupBackground.remove();
-		document.body.style.overflowY = "scroll"
+		window.top.document.body.style.overflowY = "scroll"
 		hasCreatedPopup = false;
 	}
 }
 
-function createBanner(content, header, icon, autoClose) {
+async function createBanner(content, header, icon, autoClose) {
+	await createCssIfDoesntExist();
+
 	if(currentBanners <= 0) {
 		var newDiv = document.createElement("div");
 		newDiv.id = "bannerHolder";
 		newDiv.className = "bannerHolder";
-		document.body.insertBefore(newDiv, document.body.firstChild);
+		window.top.document.body.insertBefore(newDiv, window.top.document.body.firstChild);
 	}
 	currentBanners++;
 	
-	document.getElementById("bannerHolder").appendChild(htmlToElem(baseBannerHtml))
-	var allBanners = document.getElementsByClassName("bannerFrame");
+	window.top.document.getElementById("bannerHolder").appendChild(htmlToElem(baseBannerHtml))
+	var allBanners = window.top.document.getElementsByClassName("bannerFrame");
 	var banner = allBanners[allBanners.length - 1];
 	var itemToAdd = "";
 
@@ -304,7 +308,7 @@ function createBanner(content, header, icon, autoClose) {
 		itemToAdd = "";
 	}
 
-	document.getElementById("bannerHolder").appendChild(banner);
+	window.top.document.getElementById("bannerHolder").appendChild(banner);
 
 	banner.firstChild.addEventListener("click", function() {
 		
@@ -327,11 +331,11 @@ function createBanner(content, header, icon, autoClose) {
 }
 
 function removeBanner(banner) {
-	if(banner != null && document.getElementById("bannerHolder") != null) {
+	if(banner != null && window.top.document.getElementById("bannerHolder") != null) {
 		banner.remove();
 		currentBanners--;
 		if(currentBanners <= 0) {
-			document.getElementById("bannerHolder").remove();
+			window.top.document.getElementById("bannerHolder").remove();
 		}
 	}
 }
@@ -341,6 +345,29 @@ function isNullOrWhitespace( input ) {
     if (typeof input === 'undefined' || input == null) return true;
 
     return input.replace(/\s/g, '').length < 1;
+}
+
+const CSS_ID = "popupStyleCss";
+
+function createCssIfDoesntExist() {
+	return new Promise(resolve => {
+		if (window.top.document.getElementById(CSS_ID) != null)
+			resolve(false);
+
+		var head = window.top.document.head;
+
+		var link = document.createElement("link");
+		link.id = CSS_ID;
+		link.rel = "stylesheet";
+		link.type = "text/css";
+		link.href = "/CSS/popupStyle.css";
+		link.media = "all";
+		head.appendChild(link);
+
+		link.addEventListener("load", function () {
+			resolve(true);
+		});
+	});
 }
 
 export { createPopup, createBanner, FormData };

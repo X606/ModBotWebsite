@@ -1,6 +1,5 @@
 @import "textStyle.css";
 @import "buttonStyle.css";
-@import "popupStyle.css";
 
 * {
 	/* General colors being used on site,
@@ -232,4 +231,8 @@ input:-webkit-autofill:first-line {
 ::-webkit-scrollbar-thumb {
 	background-color: var(--quaternaryLight);
 	border: solid var(--strokeWidth) var(--tertiaryDark);
+}
+
+textArea, div.popupFrame input[type=text], div.popupFrame input[type=password], div.popupFrame input[type=email], div.popupFrame input[type=url] {
+	width: calc(100% - (var(--spaceModifier) / 2));
 }

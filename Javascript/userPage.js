@@ -1,5 +1,6 @@
 import { API } from "./Modules/API/Api.js";
-import { getImageDimentions } from "./Modules/imageHandeling.js";
+import { copyToClipboard } from "./Modules/API/General.js";
+import { createBanner } from "./Modules/popup.js";
 
 var asyncOnStart = async function () {
 	const urlParams = new URLSearchParams(window.location.search);
@@ -61,17 +62,3 @@ var asyncOnStart = async function () {
 	document.getElementById("hideElements").innerHTML = "#mainHolder > * { opacity: 1; transition-duration: 1s; transition-property: opacity;}";
 }
 asyncOnStart();
-
-function copyToClipboard(str) {
-	const el = document.createElement('textarea');
-	el.value = str;
-	el.setAttribute('readonly', '');
-	el.style.position = 'absolute';
-	el.style.left = '-9999px';
-	document.body.appendChild(el);
-	el.select();
-	document.execCommand('copy');
-	document.body.removeChild(el);
-
-	createBanner("Copied \"" + str + "\" to clipboard.", null, "check_circle", 1000);
-};

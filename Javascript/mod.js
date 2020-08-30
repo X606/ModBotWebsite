@@ -1,4 +1,5 @@
 import { API } from "./Modules/API/Api.js";
+import { copyToClipboard } from "./Modules/API/General.js";
 
 async function asyncOnLoad() {
 	const urlParams = new URLSearchParams(window.location.search);
@@ -23,7 +24,7 @@ async function asyncOnLoad() {
 		document.getElementsByClassName("previewLink")[0].href += "?modID=" + modID;
 
 		document.getElementById("downloadButton").addEventListener("click", function () {
-			API.DownloadMod(modID);
+			API.downloadMod(modID);
 		});
 		document.getElementById("copyButton").addEventListener("click", function () {
 			copyToClipboard(modID);
@@ -45,16 +46,3 @@ async function asyncOnLoad() {
 }
 asyncOnLoad();
 
-function copyToClipboard(str) {
-	const el = document.createElement('textarea');
-	el.value = str;
-	el.setAttribute('readonly', '');
-	el.style.position = 'absolute';
-	el.style.left = '-9999px';
-	document.body.appendChild(el);
-	el.select();
-	document.execCommand('copy');
-	document.body.removeChild(el);
-
-	alert("Copied \"" + str + "\" to clipboard.");
-};

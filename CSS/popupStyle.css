@@ -1,6 +1,6 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 /* This document makes popups and banners
 functional and good looking. */
-
 /* Dark background to popups. */
 div.popupBackground {
 	width: 100vw;
