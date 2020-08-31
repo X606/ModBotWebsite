@@ -51,7 +51,7 @@ function setImageElementToProfilePicture(element, userID) {
 		if (dimentions[0] < pixelCutoffSize || dimentions[1] < pixelCutoffSize) { // if the image is small, display the pixels
 			element.style = "image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;";
 		} else {
-			element.style = "border-radius: 50%;"
+			element.style = "border-radius: 25%;"
 		}
 
 		resolve(null);
