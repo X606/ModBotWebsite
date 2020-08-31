@@ -1,5 +1,5 @@
 import { API } from "./Modules/API/Api.js";
-import { createPopup } from "./Modules/popup.js";
+import { createPopup, FormData } from "./Modules/popup.js";
 
 async function asyncOnLoad() {
 	const sessionID = await API.getCurrentSessionId();
@@ -21,6 +21,14 @@ async function asyncOnLoad() {
 			sidebarDocument.getElementById("logoutButton").addEventListener("click", async function () {
 				await API.signOut();
 				window.location.reload();
+			});
+			sidebarDocument.getElementById("changeAvatarButton").addEventListener("click", async function () {
+				createPopup(function (popup) {
+					popup.createTitle("Upload profile picture");
+					popup.createFileInput("profile picture", ".png, .jpg, .gif", "file");
+					popup.createHidden(sessionID, "session");
+					popup.createSubmitInput("Upload mod");
+				}, new FormData("/api/?operation=uploadProfilePicture", "multipart/form-data", "post"));
 			});
 		};
 		sidebarIframe.src = sidebarIframe.src;

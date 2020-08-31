@@ -13,7 +13,7 @@ async function onLoadAsync() {
 			createPopup(function (popup) {
 				popup.createTitle("Upload mod");
 				popup.createFileInput("modFile", ".zip", "file");
-				popup.createHidden(API.SessionID, "session");
+				popup.createHidden(sessionId, "session");
 				popup.createSubmitInput("Upload mod");
 			}, new FormData("/api/?operation=uploadMod", "multipart/form-data", "post"));
 		});

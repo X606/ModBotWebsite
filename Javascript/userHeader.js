@@ -10,7 +10,7 @@ async function asyncOnLoad() {
 	var nameDisplay = document.getElementsByClassName("name")[0];
 	nameDisplay.innerHTML = userData.username;
 	nameDisplay.style = "color: " + userData.color;
-	await API.setImageElementToProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
+	API.setImageElementToProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
 
 	document.getElementById("link").href += "?userID=" + userID;
 
