@@ -77,10 +77,16 @@ function Popup(popupBackground, popupFrame, formData)
 		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
-	this.createLabel = function(text) {
+	this.createLabel = function(text, name) {
 		var itemToAdd = "";
 
-		itemToAdd += "<label>";
+		itemToAdd += "<label";
+		if(name) {
+			itemToAdd += "name='";
+			itemToAdd += name;
+			itemToAdd += "'";
+		}
+		itemToAdd += ">";
 		itemToAdd += text;
 		itemToAdd += "</label>";
 
@@ -194,6 +200,18 @@ function Popup(popupBackground, popupFrame, formData)
 
 		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
+
+	this.createRadioInput = function(name, value) {
+		var itemToAdd = "";
+
+		itemToAdd += "<input type='radio' name='";
+		itemToAdd += name;
+		itemToAdd += "' value='";
+		itemToAdd += value;
+		itemToAdd += "'>";
+
+		popupFrame.appendChild(htmlToElem(itemToAdd));
+	}
 
 	this.createColorInput = function(id, name) {
 		var itemToAdd = "";
