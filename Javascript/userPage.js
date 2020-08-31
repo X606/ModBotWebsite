@@ -6,8 +6,8 @@ var asyncOnStart = async function () {
 	const urlParams = new URLSearchParams(window.location.search);
 	const userID = urlParams.get("userID");
 
-	if (!userID) {
-		console.error("No user provided");
+	if (!userID || userID == "") {
+		window.location.replace("/404.html");
 		return;
 	}
 
@@ -40,6 +40,11 @@ var asyncOnStart = async function () {
 	asyncGetData();
 
 	var userData = await API.getUser(userID);
+	if (userData.isError) {
+		window.location.replace("/404.html");
+		return;
+	}
+
 	const usernameDisplay = document.getElementsByClassName("userName")[0];
 	usernameDisplay.innerHTML = userData.username;
 	usernameDisplay.style = "color: " + userData.color;

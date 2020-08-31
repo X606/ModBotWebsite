@@ -5,9 +5,12 @@ import { copyToClipboard } from "./Modules/API/General.js";
 const urlParams = new URLSearchParams(window.location.search);
 const modID = urlParams.get("modID");
 
-if (!modID) {
-	console.error("No mod provided");
+
+if (!modID || modID == "") {
+	window.location.replace("/404.html");
 }
+
+
 
 var selector = document.getElementById("commentSorting");
 var currentSort = urlParams.get("comments");
@@ -45,6 +48,11 @@ async function asyncOnLoad() {
 	
 	const asyncGetModData = async function () {
 		var modData = await API.getModData(modID);
+		if (modData == null) {
+			window.location.replace("/404.html");
+			return;
+		}
+
 		var image = document.getElementsByClassName("modImage")[0];
 		API.setImageElementToModImage(image, modID);
 
@@ -108,6 +116,8 @@ async function asyncOnLoad() {
 
 	const asyncGetSpecialModData = async function () {
 		var modData = await API.getSpecialModData(modID);
+		if (modData == null)
+			return;
 
 		document.getElementById("likedCount").innerHTML = modData.Likes;
 
