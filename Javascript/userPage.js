@@ -60,9 +60,25 @@ var asyncOnStart = async function () {
 	document.getElementById("reportButton").addEventListener("click", function () {
 		createBanner("Make the report button work.", "TODO", "warning", 2000);
 	});
-	
+
 	await API.setImageElementToProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
 	//document.getElementsByClassName("modsHolder")[0].innerHTML = ""; TODO: send request to get the featured mods
+
+	var mods = userData.favoritedMods;
+	var generatedHTML = "";
+	var items = Math.max(4, mods.length);
+	for (var i = 0; i < items; i++) {
+		const mod = mods[i];
+		if (mod == null) {
+			generatedHTML += "<div class=\"modBox\"></div>";
+		} else {
+			var href = "mod.html?modID=" + mod;
+			generatedHTML += `<iframe class="modBox" src="${href}" frameborder="0"></iframe>`;
+		}
+	}
+	if (mods.length != 0) {
+		document.getElementById("favoritedMod").innerHTML = generatedHTML;
+	}
 
 	document.getElementById("hideElements").innerHTML = "#mainHolder > * { opacity: 1; transition-duration: 1s; transition-property: opacity;}";
 }

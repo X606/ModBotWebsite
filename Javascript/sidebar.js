@@ -22,6 +22,10 @@ async function asyncOnLoad() {
 				await API.signOut();
 				window.location.reload();
 			});
+			sidebarDocument.getElementById("settingsButton").addEventListener("click", async function () {
+				window.location.replace("/updateUser.html");
+				return;
+			});
 			sidebarDocument.getElementById("changeAvatarButton").addEventListener("click", async function () {
 				createPopup(function (popup) {
 					popup.createTitle("Upload profile picture");
@@ -82,6 +86,7 @@ async function asyncOnLoad() {
 							return;
 						}
 
+						document.getElementById("signUpButton").style = "display: none";
 						const returnValue = await API.createAccount(username.value, password.value);
 
 						if (returnValue.isError) {
@@ -91,6 +96,7 @@ async function asyncOnLoad() {
 							} else {
 								genericError.innerHTML = error;
 							}
+							document.getElementById("signUpButton").style = "";
 							return;
 						}
 						popup.close();
@@ -98,9 +104,9 @@ async function asyncOnLoad() {
 						// Takes some time for firefox to save cookies.
 						setTimeout(function () {
 							window.location.reload();
-						}, 10);
+						}, 100);
 
-					});
+					}, "signUpButton");
 				});
 			});
 
@@ -133,10 +139,12 @@ async function asyncOnLoad() {
 							return;
 						}
 
+						document.getElementById("loginButton").style = "display: none";
 						const returnValue = await API.signIn(username.value, password.value);
 
 						if (returnValue.error) {
 							genericError.innerHTML = returnValue.error;
+							document.getElementById("loginButton").style = "";
 							return;
 						}
 						popup.close();
@@ -144,9 +152,9 @@ async function asyncOnLoad() {
 						// Takes some time for firefox to save cookies.
 						setTimeout(function () {
 							window.location.reload();
-						}, 10);
+						}, 100);
 
-					});
+					}, "loginButton");
 				});
 			});
 		};

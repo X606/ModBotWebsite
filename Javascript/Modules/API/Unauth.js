@@ -3,6 +3,14 @@ import { getImageDimentions } from "../imageHandeling.js";
 
 const pixelCutoffSize = 32;
 
+function getUser(userID) {
+	return new Promise(async resolve => {
+		var e = await Post("/api/?operation=getUser&id=" + userID, {});
+		e = JSON.parse(e);
+		resolve(e);
+	});
+}
+
 function getAllModInfos() {
 	return new Promise(async resolve => {
 		var e = await Post("/api/?operation=getAllModInfos", {});
@@ -42,17 +50,37 @@ function getSpecialModData(modId) {
 function setImageElementToModImage(element, modID) {
 	element.src = "/api/?operation=getModImage&id=" + modID;
 };
+
+const BorderStyle = {
+	Square: 0,
+	Rounded: 1,
+	Round: 2
+}
+
 function setImageElementToProfilePicture(element, userID) {
 	return new Promise(async resolve => {
 		element.src = getProfilePictureLink(userID);
 
 		let dimentions = await getImageDimentions(getProfilePictureLink(userID));
 
+		var style = "";
 		if (dimentions[0] < pixelCutoffSize || dimentions[1] < pixelCutoffSize) { // if the image is small, display the pixels
-			element.style = "image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;";
-		} else {
-			element.style = "border-radius: 25%;"
+			style = "image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges; ";
+			element.style = style;
+			 
 		}
+		var asyncSetBorderRadius = async function () {
+			var userData = await getUser(userID);
+
+			if (userData.borderStyle == BorderStyle.Square) {
+				element.style = style + "border-radius: 1%;"
+			} else if (userData.borderStyle == BorderStyle.Rounded) {
+				element.style = style + "border-radius: 20%;"
+			} else if (userData.borderStyle == BorderStyle.Round) {
+				element.style = style + "border-radius: 50%;"
+			}
+		}
+		asyncSetBorderRadius();
 
 		resolve(null);
 	});
@@ -102,5 +130,7 @@ export {
 	setImageElementToProfilePicture,
 	getModData,
 	getSpecialModData,
-	getProfilePictureLink
+	getProfilePictureLink,
+	getUser,
+	BorderStyle
 };

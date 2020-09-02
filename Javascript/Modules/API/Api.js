@@ -15,8 +15,8 @@ import {
 	signOut,
 	downloadModTemplate,
 	getCurrentUser,
-	getUser,
-	setLikedMod
+	setLikedMod,
+	updateUserData
 } from "./Auth.js";
 
 
@@ -30,7 +30,9 @@ import {
 	getSpecialModData,
 	SearchRequest,
 	searchSortTypes,
-	getProfilePictureLink
+	getProfilePictureLink,
+	getUser,
+	BorderStyle
 } from "./Unauth.js";
 
 // other
@@ -55,6 +57,7 @@ API.likeComment = likeComment;
 API.downloadModTemplate = downloadModTemplate;
 API.getCurrentUser = getCurrentUser;
 API.setLikedMod = setLikedMod;
+API.updateUserData = updateUserData;
 
 API.getAllModIds = getAllModIds;
 API.getAllModInfos = getAllModInfos;
@@ -66,6 +69,7 @@ API.getUser = getUser;
 API.SearchRequest = SearchRequest;
 API.searchSortTypes = searchSortTypes;
 API.getProfilePictureLink = getProfilePictureLink;
+API.BorderStyle = BorderStyle;
 
 API.downloadMod = downloadMod;
 API.downloadTempFile = downloadTempFile;

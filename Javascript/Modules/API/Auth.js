@@ -265,14 +265,6 @@ function isSignedIn() {
 	});
 };
 
-function getUser(userID) {
-	return new Promise(async resolve => {
-		var e = await Post("/api/?operation=getUser&id=" + userID, {});
-		e = JSON.parse(e);
-		resolve(e);
-	});
-}
-
 function getCurrentUser() {
 	return new Promise(async resolve => {
 		const sessionID = await getCurrentSessionId();
@@ -324,9 +316,32 @@ function setLikedMod(modID, state) {
 	});
 }
 
+function updateUserData(sessionID, password, username, bio, newPassword, borderStyle) {
+	return new Promise(async resolve => {
+		const sessionId = await getCurrentSessionId();
+		if (sessionId == "") {
+			resolve(false);
+			return;
+		}
+
+		var e = await Post("/api/?operation=updateUserData",
+			{
+				sessionID: sessionID,
+				password: password,
+
+				username: username,
+				bio: bio,
+				newPassword: newPassword,
+				borderStyle: borderStyle
+			});
+		e = JSON.parse(e);
+		resolve(e);
+
+	});
+}
+
 export {
 	hasLikedMod,
-	getUser,
 	getCurrentUser,
 	signIn,
 	signOut,
@@ -341,5 +356,6 @@ export {
 	isValidSessionId,
 	getCurrentSessionId,
 	setCurrentSessionId,
-	setLikedMod
+	setLikedMod,
+	updateUserData
 };

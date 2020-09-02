@@ -237,10 +237,16 @@ function Popup(popupBackground, popupFrame, formData)
 		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
-	this.createButtonInput = function(text, callback) {
+	this.createButtonInput = function(text, callback, id) {
 		var itemToAdd = "";
 
-		itemToAdd += "<button class='green'>";
+		itemToAdd += "<button ";
+		if (id) {
+			itemToAdd += "id=\"";
+			itemToAdd += id;
+			itemToAdd += "\" ";
+		}
+		itemToAdd += "class='green'>";
 		itemToAdd += text;
 		itemToAdd += "</button>";
 
