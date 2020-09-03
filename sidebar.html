@@ -22,6 +22,11 @@
 			position: relative;
 		}
 
+		/* Forces sidebar to use full height,
+		to allow for elements to be positioned at bottom. */
+		html, body {
+			height: 100%;
+		}
 
 		div.currentUser {
 			margin-left: 1em;
@@ -55,6 +60,17 @@
 
 			transition-duration: 0.2s;
 			transition-timing-function: ease;
+		}
+
+		img.swordBot {
+			left: calc(1em + 10vw);
+			bottom: calc(1em + 10vw);
+
+			width: calc(100% - 2em - 20vw);
+			animation: hueLoop 60s infinite;
+
+			position: absolute;
+			z-index: -1;
 		}
 
 		iframe.userHeader {
@@ -123,6 +139,14 @@
 			border-bottom-left-radius: var(--strokeWidth);
 		}
 
+		@keyframes hueLoop {
+			0% {filter: opacity(10%) hue-rotate(0deg);}
+			25% {filter: opacity(10%) hue-rotate(90deg);}
+			50% {filter: opacity(10%) hue-rotate(180deg);}
+			75% {filter: opacity(10%) hue-rotate(270deg);}
+			100% {filter: opacity(10%) hue-rotate(360deg);}
+		}
+
 		/* One scrollbar is enough, thank you. */
 		::-webkit-scrollbar {
 			display: none;
@@ -155,9 +179,11 @@
 		<!-- The first button's span needs to have the 'first' class, so that the top corners are rounded. -->
 		<a href="index.html" target="_parent"><span class="first"><div class="extend"></div><p>Home Page</p></span></a>
 		<a href="modBrowsing.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
-		<a href="errorPage.html" target="_parent"><span><div class="extend"></div><p>How to...</p></span></a>
+		<a href="errorPage.html" target="_parent"><span><div class="extend"></div><p>How to download</p></span></a>
 
 		<!-- The last button's span needs to have the 'last' class, so that the bottom corners are rounded. -->
 		<a href="404.html" target="_parent"><span class="last"><div class="extend"></div><p>Credits</p></span></a>
+
+		<img src="Assets/SwordBot.png" class="swordBot" alt="Sword wielding bot">
 	</body>
 </html>

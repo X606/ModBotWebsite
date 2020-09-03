@@ -1,8 +1,12 @@
 /* This documents sets some
 basic text formatting rules. */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5, h6 {
 	font-weight: normal;
+}
+
+h6 {
+	font-style: italic;
 }
 
 hr {
@@ -16,6 +20,26 @@ a {
 
 	outline: none;
 	text-decoration: none;
+}
+
+.generalList {
+	width: min-content;
+
+	padding: calc(var(--spaceModifier) / 4);
+	padding-left: calc(var(--spaceModifier) / 2);
+
+	background-color: var(--tertiaryDark);
+	display: inline-block;
+}
+
+.generalList li {
+	width: min-content;
+	margin: calc(var(--spaceModifier) / 4);
+}
+
+.generalList li img {
+	width: 20em;
+	margin: 0.5em;
 }
 
 /* Changes color of texts and links when needed. */

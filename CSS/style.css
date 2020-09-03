@@ -171,6 +171,12 @@ iframe.modBox {
 
 	margin: calc(var(--spaceModifier) / 10);
 }
+
+iframe.discordWidget {
+	width: 20em;
+	height: 30em;
+}
+
 div.modBox {
 	width: 15em;
 	height: 25em;
