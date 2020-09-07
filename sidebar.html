@@ -62,17 +62,6 @@
 			transition-timing-function: ease;
 		}
 
-		img.swordBot {
-			left: calc(1em + 10vw);
-			bottom: calc(1em + 10vw);
-
-			width: calc(100% - 2em - 20vw);
-			animation: hueLoop 60s infinite;
-
-			position: absolute;
-			z-index: -1;
-		}
-
 		iframe.userHeader {
 			width: calc(100% - 3em);
 			vertical-align: bottom;
@@ -139,14 +128,6 @@
 			border-bottom-left-radius: var(--strokeWidth);
 		}
 
-		@keyframes hueLoop {
-			0% {filter: opacity(10%) hue-rotate(0deg);}
-			25% {filter: opacity(10%) hue-rotate(90deg);}
-			50% {filter: opacity(10%) hue-rotate(180deg);}
-			75% {filter: opacity(10%) hue-rotate(270deg);}
-			100% {filter: opacity(10%) hue-rotate(360deg);}
-		}
-
 		/* One scrollbar is enough, thank you. */
 		::-webkit-scrollbar {
 			display: none;
@@ -183,7 +164,5 @@
 
 		<!-- The last button's span needs to have the 'last' class, so that the bottom corners are rounded. -->
 		<a href="404.html" target="_parent"><span class="last"><div class="extend"></div><p>Credits</p></span></a>
-
-		<img src="Assets/SwordBot.png" class="swordBot" alt="Sword wielding bot">
 	</body>
 </html>
