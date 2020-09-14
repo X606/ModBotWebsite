@@ -62,25 +62,31 @@ function setImageElementToProfilePicture(element, userID) {
 		element.src = getProfilePictureLink(userID);
 
 		let dimentions = await getImageDimentions(getProfilePictureLink(userID));
-
+		
 		var style = "";
 		if (dimentions[0] < pixelCutoffSize || dimentions[1] < pixelCutoffSize) { // if the image is small, display the pixels
 			style = "image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges; ";
 			element.style = style;
 			 
 		}
-		var asyncSetBorderRadius = async function () {
+
+		var asyncSetImageStyle = async function () {
 			var userData = await getUser(userID);
 
 			if (userData.borderStyle == BorderStyle.Square) {
-				element.style = style + "border-radius: 1%;"
+				element.style = style + "border-radius: 0px; ";
 			} else if (userData.borderStyle == BorderStyle.Rounded) {
-				element.style = style + "border-radius: 20%;"
+				element.style = style + "border-radius: 25%; ";
 			} else if (userData.borderStyle == BorderStyle.Round) {
-				element.style = style + "border-radius: 50%;"
+				element.style = style + "border-radius: 50%; ";
+			}
+
+			if (userData.showFull) {
+				element.style = style + "object-fit: contain; ";
 			}
 		}
-		asyncSetBorderRadius();
+
+		asyncSetImageStyle();
 
 		resolve(null);
 	});

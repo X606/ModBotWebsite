@@ -212,6 +212,11 @@ select {
 	background-color: var(--secondaryGrey);
 }
 
+/* General input formatting. */
+div.popupFrame textArea, input {
+	margin-bottom: calc(var(--spaceModifier) / 4);
+}
+
 input[type=color] {
 	background-color: var(--primaryGrey);
 	border: none;

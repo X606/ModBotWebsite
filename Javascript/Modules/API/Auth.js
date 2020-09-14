@@ -316,7 +316,7 @@ function setLikedMod(modID, state) {
 	});
 }
 
-function updateUserData(sessionID, password, username, bio, newPassword, borderStyle) {
+function updateUserData(sessionID, password, username, bio, newPassword, borderStyle, showFull) {
 	return new Promise(async resolve => {
 		const sessionId = await getCurrentSessionId();
 		if (sessionId == "") {
@@ -332,7 +332,8 @@ function updateUserData(sessionID, password, username, bio, newPassword, borderS
 				username: username,
 				bio: bio,
 				newPassword: newPassword,
-				borderStyle: borderStyle
+				borderStyle: borderStyle,
+				showFull: showFull
 			});
 		e = JSON.parse(e);
 		resolve(e);

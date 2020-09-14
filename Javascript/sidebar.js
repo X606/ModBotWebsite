@@ -29,9 +29,11 @@ async function asyncOnLoad() {
 			sidebarDocument.getElementById("changeAvatarButton").addEventListener("click", async function () {
 				createPopup(function (popup) {
 					popup.createTitle("Upload profile picture");
+					popup.createParagraph("Allowed file formats: .png, .jpg, .gif");
 					popup.createFileInput("profile picture", ".png, .jpg, .gif", "file");
 					popup.createHidden(sessionID, "session");
-					popup.createSubmitInput("Upload mod");
+					popup.createBreak();
+					popup.createSubmitInput("Upload image");
 				}, new FormData("/api/?operation=uploadProfilePicture", "multipart/form-data", "post"));
 			});
 		};

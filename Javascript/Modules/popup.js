@@ -77,6 +77,18 @@ function Popup(popupBackground, popupFrame, formData)
 		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
+	this.createLink = function(text, href) {
+		var itemToAdd = "";
+
+		itemToAdd += "<a href='";
+		itemToAdd += href;
+		itemToAdd += "'>";
+		itemToAdd += text;
+		itemToAdd += "</a>";
+
+		popupFrame.appendChild(htmlToElem(itemToAdd));
+	}
+
 	this.createLabel = function(text, name) {
 		var itemToAdd = "";
 
