@@ -19,7 +19,6 @@ async function asyncOnLoad() {
 	document.getElementById("newPassword1").value = "";
 	document.getElementById("newPassword2").value = "";
 
-	document.getElementById("password").value = "";
 
 	document.getElementById("doneButton").addEventListener("click", async function () {
 

@@ -10,8 +10,7 @@ function Post(url, data) {
 		xhr.onload = function () {
 			resolve(xhr.responseText);
 		}
-	});
-	
+	});	
 }
 
 function copyToClipboard(str) {

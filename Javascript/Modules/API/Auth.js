@@ -340,6 +340,26 @@ function updateUserData(sessionID, password, username, bio, newPassword, borderS
 	});
 }
 
+function favoriteMod(modID, favorite) {
+	return new Promise(async resolve => {
+		const sessionId = await getCurrentSessionId();
+		if (sessionId == "") {
+			resolve({isError:true, message:"you're not logged in"});
+			return;
+		}
+
+		var e = await Post("/api/?operation=favoriteMod",
+			{
+				sessionID: sessionId,
+				modID: modID,
+				favorite: favorite
+			});
+		e = JSON.parse(e);
+		resolve(e);
+
+	});
+}
+
 export {
 	hasLikedMod,
 	getCurrentUser,
@@ -357,5 +377,6 @@ export {
 	getCurrentSessionId,
 	setCurrentSessionId,
 	setLikedMod,
-	updateUserData
+	updateUserData,
+	favoriteMod
 };

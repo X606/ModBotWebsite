@@ -16,7 +16,8 @@ import {
 	downloadModTemplate,
 	getCurrentUser,
 	setLikedMod,
-	updateUserData
+	updateUserData,
+	favoriteMod
 } from "./Auth.js";
 
 
@@ -58,6 +59,7 @@ API.downloadModTemplate = downloadModTemplate;
 API.getCurrentUser = getCurrentUser;
 API.setLikedMod = setLikedMod;
 API.updateUserData = updateUserData;
+API.favoriteMod = favoriteMod;
 
 API.getAllModIds = getAllModIds;
 API.getAllModInfos = getAllModInfos;
