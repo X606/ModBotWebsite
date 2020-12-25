@@ -1,6 +1,7 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 /* This document makes popups and banners
 functional and good looking. */
+
 /* Dark background to popups. */
 div.popupBackground {
 	width: 100vw;
@@ -101,8 +102,8 @@ button#xit {
 	width: 1.5em;
 	height: 1.5em;
 
-	right: calc(var(--spaceModifier) / 2);;
-	top: calc(var(--spaceModifier) / 2);
+	right: calc(var(--spaceModifier) / 4);;
+	top: calc(var(--spaceModifier) / 4);
 
 	padding: 0px;
 	font-weight: bold;
@@ -118,11 +119,15 @@ div.bannerFrame button#xit {
 	font-size: 1.2em;
 }
 
-/* Adjusts popup form element margins. */
-div.popupFrame textArea, div.popupFrame input {
-	margin-bottom: calc(var(--spaceModifier) / 2);
-}
-
 textArea, div.popupFrame input[type=text], div.popupFrame input[type=password], div.popupFrame input[type=email], div.popupFrame input[type=url] {
 	width: calc(100% - (var(--spaceModifier) / 2));
+}
+
+div.popupFrame a {
+	color: var(--secondaryLight);
+}
+
+div.popupFrame a:hover {
+	color: var(--primaryLight);
+	text-decoration: underline;
 }

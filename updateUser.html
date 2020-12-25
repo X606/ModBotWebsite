@@ -33,14 +33,6 @@
 		position: relative;
 	}
 
-
-	div.modsHolder {
-		width: calc(100vw - (var(--sidebarWidth) + (var(--spaceModifier) * 3) + (var(--strokeWidth) * 2)));
-		text-align: left;
-		white-space: nowrap;
-		overflow-x: scroll;
-	}
-
 	img.userAvatar {
 		width: calc(1em + 10vw);
 		height: calc(1em + 10vw);
@@ -48,34 +40,14 @@
 		float: left;
 	}
 
-	h2.userName {
-		margin-bottom: 0px;
+	button {
+		font-size: 1.2em;
 	}
 
-	h3 {
-		margin-top: 2em;
-		margin-bottom: 0px;
-	}
-
-	p.userDescription {
+	label[for=password] {
 		font-size: 0.8em;
 	}
-
-	p ~ input, p ~ textarea, p ~ select {
-		margin-top: -1em !important;
-		margin-bottom: 1em !important;
-	}
-
-	note {
-		font-size: 11px;
-		margin: 0px;
-		padding: 0px;
-		padding-bottom: 1em;
-		display: block;
-	}
-	p.error {
-		color: red;
-	}
+	
 	#mainHolder > * {
 		transition-duration: 1s;
 		transition-property: opacity;
@@ -97,28 +69,42 @@
 	<!-- Background div with main content inside. -->
 	<div class="frame" id="mainHolder">
 		<h2>User settings</h2>
-		<p>Password</p>
-		<note>*required</note>
-		<input type="password" id="password" /><br />
 
-		<p>Username</p>
+		<h3>Change general info</h3>
+		<label for="usernameInput">Username</label>
+		<br>
 		<input type="text" id="usernameInput" />
-		<p>Bio</p>
+		<br>
+		<label for="bioInput">Bio</label>
+		<br>
 		<textarea id="bioInput" rows="7"></textarea>
-		<p>Profile picture border style</p>
+
+		<h3>Profile picture style</h3>
+		<label for="borderStyleInput">Border roundness </label>
 		<select id="borderStyleInput">
 			<option value="0">Square</option>
 			<option value="1">Rounded</option>
-			<option value="2">Round</option>
+			<option value="2">Circle</option>
 		</select>
-		<p>Update password</p>
-		<note>New password</note>
+		<br>
+		<label for="showFull">Show full image<br>(custom aspect ratio instead of square).</label>
+		<input type="checkbox" id="showFull">
+
+		<h3>Update password</h3>
+		<label for="newPassword1">New password</label>
+		<br>
 		<input type="password" id="newPassword1" /><br />
-		<note>Confirm password</note>
+		<label for="newPassword1">Confirm password</label>
+		<br>
 		<input type="password" id="newPassword2" />
 
-		<p class="error" id="error"></p>
-		<button class="green" id="doneButton">Done</button>
+		<h3>Current password</h3>
+		<label for="password">*required for any change</h6>
+		<br>
+		<input type="password" id="password" /><br />
+		<p class="errorText" id="error"></p>
+
+		<button class="green" id="doneButton">Save changes</button>
 	</div>
 </body>
 </html>

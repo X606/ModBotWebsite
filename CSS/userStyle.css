@@ -43,7 +43,7 @@ div.commentBackground div.commentActions {
 }
 
 img.userAvatar {
-	object-fit: contain;
+	object-fit: cover;
 }
 
 div.commentBackground button {

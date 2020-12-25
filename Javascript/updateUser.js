@@ -4,7 +4,7 @@ import { createBanner } from "./Modules/popup.js";
 async function asyncOnLoad() {
 	const sessionID = await API.getCurrentSessionId();
 	if (sessionID == "") {
-		createBanner("You are not signed in :/", "", "", 3000);
+		createBanner(":/", "You are not signed in.", "error", 3000);
 		setTimeout(() => window.location.replace("/"), 3200);
 		return;
 	}
@@ -15,6 +15,7 @@ async function asyncOnLoad() {
 	var bio = user.bio.split("<br>").join("\n");
 	document.getElementById("bioInput").value = bio;
 	document.getElementById("borderStyleInput").value = user.borderStyle;
+	document.getElementById("showFull").checked = user.showFull;
 
 	document.getElementById("newPassword1").value = "";
 	document.getElementById("newPassword2").value = "";
@@ -32,6 +33,8 @@ async function asyncOnLoad() {
 
 		var borderstyle = document.getElementById("borderStyleInput").value;
 		borderstyle = borderstyle != "" ? borderstyle : null;
+
+		var showFull = document.getElementById("showFull").checked;
 
 		var password1 = document.getElementById("newPassword1").value;
 		password1 = password1 != "" ? password1 : null;
@@ -53,7 +56,7 @@ async function asyncOnLoad() {
 			return;
 		}
 
-		var result = await API.updateUserData(await API.getCurrentSessionId(), password, username, bio, password1, borderstyle);
+		var result = await API.updateUserData(await API.getCurrentSessionId(), password, username, bio, password1, borderstyle, showFull);
 		if (result.isError) {
 			document.getElementById("error").innerHTML = result.message;
 			document.getElementById("doneButton").style = "";

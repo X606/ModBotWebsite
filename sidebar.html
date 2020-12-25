@@ -22,6 +22,11 @@
 			position: relative;
 		}
 
+		/* Forces sidebar to use full height,
+		to allow for elements to be positioned at bottom. */
+		html, body {
+			height: 100%;
+		}
 
 		div.currentUser {
 			margin-left: 1em;
@@ -155,7 +160,7 @@
 		<!-- The first button's span needs to have the 'first' class, so that the top corners are rounded. -->
 		<a href="index.html" target="_parent"><span class="first"><div class="extend"></div><p>Home Page</p></span></a>
 		<a href="modBrowsing.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
-		<a href="errorPage.html" target="_parent"><span><div class="extend"></div><p>How to...</p></span></a>
+		<a href="errorPage.html" target="_parent"><span><div class="extend"></div><p>How to download</p></span></a>
 
 		<!-- The last button's span needs to have the 'last' class, so that the bottom corners are rounded. -->
 		<a href="404.html" target="_parent"><span class="last"><div class="extend"></div><p>Credits</p></span></a>

@@ -17,7 +17,7 @@ div.buttonHolder button:active {
 }
 
 /* Makes a general button template with slight 3D effect. */
-button {
+button, input[type=submit] {
 	margin: 0px;
 	padding: 0.3em;
 
@@ -37,7 +37,7 @@ button {
 	transition-duration: 0.05s;
 }
 
-button i.material-icons {
+button i.material-icons, input[type=submit] i.material-icons {
 	margin-top: -0.3em;
 	margin-bottom: -0.3em;
 
@@ -45,14 +45,14 @@ button i.material-icons {
 	font-size: 1.5em;
 }
 
-button:hover {
+button:hover, input[type=submit]:hover {
 	background-color: var(--teritaryGrey);
 	border-color: var(--secondaryGrey);
 
 	text-decoration: underline;
 }
 
-button:active {
+button:active, input[type=submit]:active {
 	margin-top: var(--strokeWidth);
 	border-bottom-width: 0px;
 
@@ -61,56 +61,56 @@ button:active {
 
 /* Sets diffrent shades of colors on buttons,
 depending on if they are being hovered on or not. */
-button.green, button.yellow, button.blue, button.red {
+button.green, button.yellow, button.blue, button.red, input[type=submit].green, input[type=submit].yellow, input[type=submit].blue, input[type=submit].red {
 	color: var(--primaryDark);
 }
 
-button.green {
+button.green, input[type=submit].green {
 	background-color: var(--secondaryGreen);
 	border-color: var(--primaryGreen);
 }
 
-button.yellow {
+button.yellow, input[type=submit].yellow {
 	background-color: var(--secondaryYellow);
 	border-color: var(--primaryYellow);
 }
 
-button.blue {
+button.blue, input[type=submit].blue {
 	background-color: var(--secondaryBlue);
 	border-color: var(--primaryBlue);
 }
 
-button.orange {
+button.orange, input[type=submit].orange {
 	background-color: var(--secondaryOrange);
 	border-color: var(--primaryOrange);
 }
 
-button.red {
+button.red, input[type=submit].red {
 	background-color: var(--secondaryRed);
 	border-color: var(--primaryRed);
 }
 
-button.green:hover {
+button.green:hover, input[type=submit].green:hover {
 	background-color: var(--tertiaryGreen);
 	border-color: var(--secondaryGreen);
 }
 
-button.yellow:hover {
+button.yellow:hover, input[type=submit].yellow:hover {
 	background-color: var(--tertiaryYellow);
 	border-color: var(--secondaryYellow);
 }
 
-button.blue:hover {
+button.blue:hover, input[type=submit].blue:hover {
 	background-color: var(--tertiaryBlue);
 	border-color: var(--secondaryBlue);
 }
 
-button.orange:hover {
+button.orange:hover, input[type=submit].orange:hover {
 	background-color: var(--tertiaryOrange);
 	border-color: var(--secondaryOrange);
 }
 
-button.red:hover {
+button.red:hover, input[type=submit].red:hover {
 	background-color: var(--tertiaryRed);
 	border-color: var(--secondaryRed);
 }

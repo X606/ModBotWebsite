@@ -12,7 +12,11 @@ async function onLoadAsync() {
 		uploadButton.addEventListener("click", function () {
 			createPopup(function (popup) {
 				popup.createTitle("Upload mod");
+				popup.createLink("How to make and upload mods.", "404.html");
+				popup.createBreak();
+				popup.createBreak();
 				popup.createFileInput("modFile", ".zip", "file");
+				popup.createBreak();
 				popup.createHidden(sessionId, "session");
 				popup.createSubmitInput("Upload mod");
 			}, new FormData("/api/?operation=uploadMod", "multipart/form-data", "post"));
