@@ -45,6 +45,12 @@ button i.material-icons, input[type=submit] i.material-icons {
 	font-size: 1.5em;
 }
 
+button img {
+	height: 1em;
+	margin-right: 0.5em;
+	vertical-align: bottom;
+}
+
 button:hover, input[type=submit]:hover {
 	background-color: var(--teritaryGrey);
 	border-color: var(--secondaryGrey);
@@ -90,6 +96,11 @@ button.red, input[type=submit].red {
 	border-color: var(--primaryRed);
 }
 
+button.violet, input[type=submit].violet {
+	background-color: var(--secondaryViolet);
+	border-color: var(--primaryViolet);
+}
+
 button.green:hover, input[type=submit].green:hover {
 	background-color: var(--tertiaryGreen);
 	border-color: var(--secondaryGreen);
@@ -113,4 +124,9 @@ button.orange:hover, input[type=submit].orange:hover {
 button.red:hover, input[type=submit].red:hover {
 	background-color: var(--tertiaryRed);
 	border-color: var(--secondaryRed);
+}
+
+button.violet:hover, input[type=submit].violet:hover {
+	background-color: var(--tertiaryViolet);
+	border-color: var(--secondaryViolet);
 }

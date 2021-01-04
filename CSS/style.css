@@ -43,13 +43,17 @@
 	--secondaryRed: #cc1111;
 	--tertiaryRed: #ee2222;
 
+	--primaryViolet: #2e4596;
+	--secondaryViolet: #5067b8;
+	--tertiaryViolet: #7289da;
+
 	/* Width of most decorative divs, all borders and some border radiuses. */
 	--strokeWidth: 3px;
 
 	--sidebarWidth: calc(10em + 10vw);
 
 	/* Height of background image and gradient.*/
-	--backgroundHeight: 15vw;
+	--backgroundHeight: 25vw;
 
 	/* A value that affects margin/padding on all elements. */
 	--spaceModifier: calc(3vw + 1em);
@@ -99,6 +103,15 @@ div.frame {
 	display: table;
 
 	position: relative;
+}
+
+div.outline {
+	margin: calc(var(--spaceModifier) / -2);
+	margin-top: calc(var(--spaceModifier) / 4);
+	margin-bottom: calc(var(--spaceModifier) / 4);
+
+	padding: calc(var(--spaceModifier) / 4);
+	background-color: var(--tertiaryDark);
 }
 
 /* Gradient at bottom of top background image, purely decorative. */
@@ -172,11 +185,6 @@ iframe.modBox {
 	margin: calc(var(--spaceModifier) / 10);
 }
 
-iframe.discordWidget {
-	width: 20em;
-	height: 30em;
-}
-
 div.modBox {
 	width: 15em;
 	height: 25em;
@@ -193,7 +201,7 @@ iframe.userHeader {
 
 /* Makes general forms good looking. */
 textArea, input[type=text], input[type=password], input[type=email], input[type=url], input[type=search] {
-	padding: calc(var(--spaceModifier) / 4);
+	padding: 0.5em;
 
 	color: var(--primaryLight);
 	background-color: var(--primaryGrey);

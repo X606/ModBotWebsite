@@ -17,13 +17,13 @@
 	<script></script>
 </head>
 	<style>
+		div.buttonHolder {
+			position: static;
+		}
+
 		button {
 			padding: 0.6em;
 			font-size: 1.2em;
-		}
-
-		.centered {
-			text-align: center;
 		}
 
 		li {
@@ -39,25 +39,25 @@
 		<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
 		
 		<!-- Background image at top with gradient at bottom. -->
-		<img class="backgroundImage" src="Assets//BackgroundImage.jpg">
+		<img class="backgroundImage" src="Assets/Screenshots/4.png">
 		<div class="backgroundGradient"></div>
 
 		<!-- Background div with main content inside. -->
 		<div class="frame">
-			<h3 class="centered">Clone drone Mod-Bot is a mod loader and manager for <i>Clone Drone In The Danger Zone</i> that adds lots of cool new stuff to the game.</h3>
-			<button id="downloadButton" class="orange"><i class="material-icons">get_app</i>Download Mod-Bot</button>
+			<h3>Clone drone Mod-Bot is a mod loader and manager for <i>Clone Drone In The Danger Zone</i> that adds lots of cool new stuff to the game.</h3>
+			<div class="buttonHolder">
+				<button id="downloadButton" class="orange"><i class="material-icons">get_app</i>Download Mod-Bot</button>
+				<button class="violet" onclick="window.open('https://discord.gg/Em4n6gB')"><img src="Assets/discord.png">Join our Discord server</button>
+			</div>
 			<br>
-			<ul class="generalList">
-				<h2>What does it add exactly?</h2>
-				<li>A nice UI for downloading community made mods in-game.<br><img src="Assets/FeatureExample1.png" alt="Mod-Bot in-game download UI"></li>
-				<li>Easier way to manage the mods you choose to use.<br><img src="Assets/FeatureExample2.png" alt="Mod-Bot in-game mod manager"></li>
-				<li>Multiple pages for modded upgrades.<br><img src="Assets/FeatureExample3.png" alt="Mod-Bot extra upgrade screen"></li>
-			</ul>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<hr>
-			<h2>Join our discord server</h2>
-			<h4>Discuss Mod-Bot with the devs and over 500 other players.</h4>
-			<iframe class="discordWidget" src="https://discordapp.com/widget?id=470290570154082315&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+			<div class="outline">
+				<ul class="generalList">
+					<h2>What does it add exactly?</h2>
+					<li>A nice UI for downloading community made mods in-game.<br><img src="Assets/FeatureExample1.png" alt="Mod-Bot in-game download UI"></li>
+					<li>Easier way to manage the mods you choose to use.<br><img src="Assets/FeatureExample2.png" alt="Mod-Bot in-game mod manager"></li>
+					<li>Multiple pages for modded upgrades.<br><img src="Assets/FeatureExample3.png" alt="Mod-Bot extra upgrade screen"></li>
+				</ul>
+			</div>
 		</div>
 	</body>
 </html>

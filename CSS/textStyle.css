@@ -26,14 +26,8 @@ a {
 	text-decoration: none;
 }
 
-.generalList {
-	width: min-content;
-
-	padding: calc(var(--spaceModifier) / 4);
-	padding-left: calc(var(--spaceModifier) / 2);
-
-	background-color: var(--tertiaryDark);
-	display: inline-block;
+ul.generalList {
+	list-style-image: url("../Assets/Icon.png");
 }
 
 .generalList li {

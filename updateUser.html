@@ -43,10 +43,6 @@
 	button {
 		font-size: 1.2em;
 	}
-
-	label[for=password] {
-		font-size: 0.8em;
-	}
 	
 	#mainHolder > * {
 		transition-duration: 1s;
@@ -63,48 +59,52 @@
 	<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
 
 	<!-- Background image at top with gradient at bottom. -->
-	<img class="backgroundImage" src="Assets/BackgroundImage.jpg">
+	<img class="backgroundImage" src="Assets/Screenshots/2.jpg">
 	<div class="backgroundGradient"></div>
 
 	<!-- Background div with main content inside. -->
 	<div class="frame" id="mainHolder">
 		<h2>User settings</h2>
+		<div class="outline">
+			<h3>Change general info</h3>
+			<label for="usernameInput">Username</label>
+			<br>
+			<input type="text" id="usernameInput" />
+			<br>
+			<label for="bioInput">Bio</label>
+			<br>
+			<textarea id="bioInput" rows="7"></textarea>
+		</div>
+		<div class="outline">
+			<h3>Set profile picture style</h3>
+			<label for="borderStyleInput">Border roundness </label>
+			<select id="borderStyleInput">
+				<option value="0">Square</option>
+				<option value="1">Rounded</option>
+				<option value="2">Circle</option>
+			</select>
+			<br>
+			<label for="showFull">Show full image<br>(custom aspect ratio instead of square).</label>
+			<input type="checkbox" id="showFull">
+		</div>
+		<div class="outline">
+			<h3>Update password</h3>
+			<label for="newPassword1">New password</label>
+			<br>
+			<input type="password" id="newPassword1" /><br />
+			<label for="newPassword1">Confirm password</label>
+			<br>
+			<input type="password" id="newPassword2" />
+		</div>
+		<div class="outline">
+			<h3>Current password</h3>
+			<label for="password">Required for any change</h6>
+			<br>
+			<input type="password" id="password" /><br />
+			<p class="errorText" id="error"></p>
 
-		<h3>Change general info</h3>
-		<label for="usernameInput">Username</label>
-		<br>
-		<input type="text" id="usernameInput" />
-		<br>
-		<label for="bioInput">Bio</label>
-		<br>
-		<textarea id="bioInput" rows="7"></textarea>
-
-		<h3>Profile picture style</h3>
-		<label for="borderStyleInput">Border roundness </label>
-		<select id="borderStyleInput">
-			<option value="0">Square</option>
-			<option value="1">Rounded</option>
-			<option value="2">Circle</option>
-		</select>
-		<br>
-		<label for="showFull">Show full image<br>(custom aspect ratio instead of square).</label>
-		<input type="checkbox" id="showFull">
-
-		<h3>Update password</h3>
-		<label for="newPassword1">New password</label>
-		<br>
-		<input type="password" id="newPassword1" /><br />
-		<label for="newPassword1">Confirm password</label>
-		<br>
-		<input type="password" id="newPassword2" />
-
-		<h3>Current password</h3>
-		<label for="password">*required for any change</h6>
-		<br>
-		<input type="password" id="password" /><br />
-		<p class="errorText" id="error"></p>
-
-		<button class="green" id="doneButton">Save changes</button>
+			<button class="green" id="doneButton">Save changes</button>
+		</div>
 	</div>
 </body>
 </html>
