@@ -119,6 +119,7 @@ async function asyncOnLoad() {
 		if (modData == null)
 			return;
 
+		document.getElementById("modAuthor").src += "?userID=" + modData.OwnerID;
 		document.getElementById("likedCount").innerHTML = modData.Likes;
 
 		const asyncHasLikedMod = async function () {
