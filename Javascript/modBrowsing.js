@@ -1,6 +1,10 @@
 import { createPopup, FormData } from "./Modules/popup.js";
 import { API } from "./Modules/API/Api.js";
 
+var searchBox = document.getElementById("search");
+var sortingType = document.getElementById("modSortingType");
+var sortingDirection = document.getElementById("modSortingDirection");
+
 async function onLoadAsync() {
 	const sessionId = await API.getCurrentSessionId();
 
@@ -22,16 +26,38 @@ async function onLoadAsync() {
 			}, new FormData("/api/?operation=uploadMod", "multipart/form-data", "post"));
 		});
 	}
+	resort();
+}
 
-	var modIds = await API.getAllModIds();
+async function resort() {
+	var searchRequest = new API.SearchRequest();
+	searchRequest.sortOrder = sortingType.value;
+	searchRequest.searchString = searchBox.value;
+
+	var modIds = await searchRequest.Send();
+	
+	if (sortingDirection.value == "low") {
+		modIds = modIds.reverse();
+	}
 
 	const element = document.getElementById("modsHolder");
-
 	var innerHTML = "";
 	for (var i = 0; i < modIds.length; i++) {
 		innerHTML += "<iframe class=\"modBox fade\" src=\"mod.html?modID=" + modIds[i] + "\" frameborder=\"0\"></iframe>\n";
 	}
-
 	element.innerHTML = innerHTML;
 }
+
+searchBox.addEventListener("change", function() {
+	resort();
+});
+
+sortingType.addEventListener("change", function() {
+	resort();
+});
+
+sortingDirection.addEventListener("change", function() {
+	resort();
+});
+
 onLoadAsync();
