@@ -29,6 +29,7 @@ function getMyAuthenticationLevel() {
 	return new Promise(async resolve => {
 		var e = await Post("/api/?operation=getMyAuth", {});
 
+		e = JSON.parse(e);
 		resolve(e);
 	});
 }
