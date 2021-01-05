@@ -32,6 +32,13 @@ function getMyAuthenticationLevel() {
 		resolve(e);
 	});
 }
+function adminCommand(message) {
+	return new Promise(async resolve => {
+		var e = await Post("/api/?operation=adminCommand", {Message: message});
+
+		resolve(e);
+	});
+}
 
 function postComment(targetModID, commentBody) {
 	return new Promise(async resolve => {
@@ -289,6 +296,7 @@ export {
 	isSignedIn,
 	hasLikedComment,
 	getMyAuthenticationLevel,
+	adminCommand,
 	isCommentMine,
 	postComment,
 	deleteComment,

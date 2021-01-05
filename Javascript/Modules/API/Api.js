@@ -7,6 +7,7 @@ import {
 	hasLikedMod,
 	hasLikedComment,
 	getMyAuthenticationLevel,
+	adminCommand,
 	isCommentMine,
 	postComment,
 	deleteComment,
@@ -50,6 +51,7 @@ API.setCurrentSessionId = setCurrentSessionId;
 API.hasLikedMod = hasLikedMod;
 API.hasLikedComment = hasLikedComment;
 API.getMyAuthenticationLevel = getMyAuthenticationLevel;
+API.adminCommand = adminCommand;
 API.isCommentMine = isCommentMine;
 API.isSignedIn = isSignedIn;
 API.signIn = signIn;
