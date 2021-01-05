@@ -7,6 +7,15 @@ const userID = urlParams.get("userID");
 async function asyncOnLoad() {
 	const userData = await API.getUser(userID);
 
+	if (userData.isError) {
+		var nameDisplay = document.getElementsByClassName("name")[0];
+		nameDisplay.innerHTML = "[Deleted user]";
+		
+		document.getElementsByClassName("userAvatar")[0].remove();
+		document.body.style = "transition-duration: 1s; transition-property: opacity;";
+		return;
+	}
+
 	var nameDisplay = document.getElementsByClassName("name")[0];
 	nameDisplay.innerHTML = userData.username;
 	nameDisplay.style = "color: " + userData.color;
