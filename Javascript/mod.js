@@ -23,11 +23,15 @@ async function asyncOnLoad() {
 		document.getElementsByClassName("modDescription")[0].innerHTML = description;
 		document.getElementsByClassName("previewLink")[0].href += "?modID=" + modID;
 
-		document.getElementById("downloadButton").addEventListener("click", function () {
-			API.downloadMod(modID);
+		document.getElementById("rateButton").addEventListener("click", function() {
+			window.top.location.href = document.getElementsByClassName("previewLink")[0].href;
 		});
-		document.getElementById("copyButton").addEventListener("click", function () {
+		document.getElementById("copyButton").addEventListener("click", function() {
 			copyToClipboard(modID);
+		});
+
+		document.getElementById("downloadButton").addEventListener("click", function() {
+			API.downloadMod(modID);
 		});
 
 		setTimeout(function () {
@@ -39,10 +43,11 @@ async function asyncOnLoad() {
 		var modData = await API.getSpecialModData(modID);
 
 		document.getElementsByClassName("userHeader")[0].src += "?userID=" + modData.OwnerID;
+		document.getElementById("likedCount").innerHTML = modData.Likes;
+		document.getElementById("downloadCount").innerHTML = modData.Downloads;
 	};
 	asyncGetSpecialModData();
 	
 
 }
 asyncOnLoad();
-

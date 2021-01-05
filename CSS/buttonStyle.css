@@ -51,6 +51,12 @@ button img {
 	vertical-align: bottom;
 }
 
+button span {
+	padding: 0.2em;
+	border-radius: 0.2em;
+	background-color: var(--primaryHighlight);
+}
+
 button:hover, input[type=submit]:hover {
 	background-color: var(--teritaryGrey);
 	border-color: var(--secondaryGrey);
@@ -130,3 +136,11 @@ button.violet:hover, input[type=submit].violet:hover {
 	background-color: var(--tertiaryViolet);
 	border-color: var(--secondaryViolet);
 }
+
+/*button.green span {
+	background-color: var(--tertiaryGreen);
+}
+
+button.blue span {
+	background-color: var(--tertiaryBlue);
+}*/

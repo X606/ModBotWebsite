@@ -20,10 +20,10 @@ async function asyncOnLoad() {
 	document.getElementById("newPassword1").value = "";
 	document.getElementById("newPassword2").value = "";
 
+	var doneButton = document.getElementById("doneButton")
+	doneButton.addEventListener("click", async function () {
 
-	document.getElementById("doneButton").addEventListener("click", async function () {
-
-		document.getElementById("doneButton").style = "display: none";
+		doneButton.style = "display: none";
 
 		var username = document.getElementById("usernameInput").value;
 		username = username != "" ? username : null;
@@ -35,15 +35,15 @@ async function asyncOnLoad() {
 		borderstyle = borderstyle != "" ? borderstyle : null;
 
 		var showFull = document.getElementById("showFull").checked;
-
 		var password1 = document.getElementById("newPassword1").value;
 		password1 = password1 != "" ? password1 : null;
+
 		var password2 = document.getElementById("newPassword2").value;
 		password2 = password2 != "" ? password2 : null;
 
 		if ((password1 != null || password2 != null) && password1 != password2) {
 			document.getElementById("error").innerHTML = "The new passwords do not match";
-			document.getElementById("doneButton").style = "";
+			doneButton.style = "";
 			return;
 		}
 
@@ -52,14 +52,14 @@ async function asyncOnLoad() {
 
 		if (password == null) {
 			document.getElementById("error").innerHTML = "You have to provide a password to change your user data";
-			document.getElementById("doneButton").style = "";
+			doneButton.style = "";
 			return;
 		}
 
 		var result = await API.updateUserData(await API.getCurrentSessionId(), password, username, bio, password1, borderstyle, showFull);
 		if (result.isError) {
 			document.getElementById("error").innerHTML = result.message;
-			document.getElementById("doneButton").style = "";
+			doneButton.style = "";
 			return;
 		}
 		var currentUserID = await API.getCurrentUser();

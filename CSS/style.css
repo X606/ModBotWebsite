@@ -182,7 +182,7 @@ iframe.popup {
 /* Sets size of iframes used for mod previews.*/
 iframe.modBox {
 	width: 15em;
-	height: 25em;
+	height: 30em;
 
 	margin: calc(var(--spaceModifier) / 10);
 }

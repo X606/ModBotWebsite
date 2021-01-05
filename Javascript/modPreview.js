@@ -121,6 +121,7 @@ async function asyncOnLoad() {
 
 		document.getElementById("modAuthor").src += "?userID=" + modData.OwnerID;
 		document.getElementById("likedCount").innerHTML = modData.Likes;
+		document.getElementById("downloadCount").innerHTML = modData.Downloads;
 
 		const asyncHasLikedMod = async function () {
 			const hasLikedMod = await API.hasLikedMod(modID);

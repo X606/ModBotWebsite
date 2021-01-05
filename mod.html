@@ -29,16 +29,17 @@
 			left: 0px;
 			right: 0px;
 
-			height: calc(6.5em);
+			height: calc(9em);
 			bottom: 0px;
 
-			background-image: linear-gradient(#ffffff00, var(--tertiaryDark) 30%);
+			background-image: linear-gradient(#ffffff00, var(--tertiaryDark) 25%);
 			
 			z-index: 0;
 			position: absolute;
 		}
 
 		div.buttonHolder {
+			bottom: 2.4em;
 			left: 0px;
 			right: 0px;
 
@@ -62,7 +63,7 @@
 		iframe.userHeader {
 			height: clamp(1.5em, 5vh, 5vh);
 			left: 0.5em;
-			bottom: 2.8em;
+			bottom: 5em;
 			position: absolute;
 		}
 
@@ -70,6 +71,13 @@
 			width: calc(50% - 0.5em);
 			margin-right: 0.5em;
 			font-size: 1em;
+		}
+
+		button#downloadButton {
+			width: calc(100vw - 1em);
+			bottom: 0.5em;
+			left: 0.5em;
+			position: absolute;
 		}
 
 		h1.modTitle {
@@ -125,8 +133,9 @@
 		<div class="descriptionGradient"></div>
 		<iframe class="userHeader" src="userHeader.html" frameborder="0"></iframe>
 		<div class="buttonHolder">
-			<button id="downloadButton" class="green"><i class="material-icons">get_app</i>Download</button><!--
+			<button id="rateButton" class="blue"><i class="material-icons">thumb_up</i> Like <span id="likedCount">...</span></button><!--
 			--><button id="copyButton" class="yellow"><i class="material-icons">content_paste</i>Copy ID</button>
 		</div>
+		<button id="downloadButton" class="green"><i class="material-icons">get_app</i>Download <span id="downloadCount">...</span></button>
 	</body>
 </html>
