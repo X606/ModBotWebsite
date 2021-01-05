@@ -245,9 +245,11 @@ function SpawnNextComments() {
 		});
 
 		var asyncIsCommentMine = async function () {
-			const isCommentMine = await API.isCommentMine(modID, comment.CommentID);
+			const arr = await Promise.all([API.isCommentMine(modID, comment.CommentID), API.getMyAuthenticationLevel()]);
+			const isCommentMine = arr[0];
+			const isAdmin = arr[1] == 4;
 
-			if (isCommentMine) {
+			if (isCommentMine || isAdmin) {
 				deleteButton.style = "";
 			}
 		}
