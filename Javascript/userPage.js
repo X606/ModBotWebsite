@@ -49,6 +49,22 @@ var asyncOnStart = async function () {
 	usernameDisplay.innerHTML = userData.username;
 	usernameDisplay.style = "color: " + userData.color;
 
+	var icon = document.getElementById("icon");
+	/*switch (userData.authenticationLevel) {
+		case 4:*/
+			icon.innerHTML = "miscellaneous_services";
+			icon.style = "color: var(--tertiaryRed)";
+			/*break;
+		case 3:
+			icon.innerHTML = "construction";
+			icon.style = "color: var(--tertiaryOrange)";
+			break;
+		case 2:
+			icon.innerHTML = "verified";
+			icon.style = "color: var(--tertiaryBlue)";
+			break;
+	}*/
+
 	document.getElementsByClassName("userDescription")[0].innerHTML = userData.bio;
 
 	document.getElementById("copyButton").addEventListener("click", function () {
