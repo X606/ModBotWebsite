@@ -4,15 +4,8 @@ import { getCookie, setCookie, removeCookie } from "../Cookies.js";
 
 function hasLikedComment(modID, commentID) {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-		if (sessionID == "") {
-			resolve(false);
-			return;
-		}
-
 		var e = await Post("/api/?operation=hasLikedComment",
 			{
-				sessionId: sessionID,
 				modId: modID,
 				commentId: commentID
 			});
@@ -22,15 +15,9 @@ function hasLikedComment(modID, commentID) {
 };
 function isCommentMine(modID, commentID) {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-		if (sessionID == "") {
-			resolve(false);
-			return;
-		}
 
 		var e = await Post("/api/?operation=isCommentMine",
 			{
-				sessionId: sessionID,
 				modId: modID,
 				commentId: commentID
 			});
@@ -38,21 +25,20 @@ function isCommentMine(modID, commentID) {
 		resolve(e);
 	});
 };
+function getMyAuthenticationLevel() {
+	return new Promise(async resolve => {
+		var e = await Post("/api/?operation=getMyAuth", {});
+
+		resolve(e);
+	});
+}
 
 function postComment(targetModID, commentBody) {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-
-		if (sessionID == "") {
-			var message = { isError: true, message: "You are not signed in" };
-			resolve(message);
-			return;
-		}
 
 		var e = await Post("/api/?operation=postComment",
 			{
 				targetModId: targetModID,
-				sessionId: sessionID,
 				commentBody: commentBody
 			});
 
@@ -63,18 +49,10 @@ function postComment(targetModID, commentBody) {
 
 function deleteComment(targetModID, targetCommentId) {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-
-		if (sessionID == "") {
-			var message = { isError: true, message: "You are not signed in" };
-			resolve(message);
-			return;
-		}
 
 		var e = await Post("/api/?operation=deleteComment",
 			{
 				targetModId: targetModID,
-				sessionId: sessionID,
 				targetCommentId: targetCommentId
 			});
 
@@ -85,18 +63,9 @@ function deleteComment(targetModID, targetCommentId) {
 
 function likeComment(targetModID, targetCommentId, state) {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-
-		if (sessionID == "") {
-			var message = { isError: true, message: "You are not signed in" };
-			resolve(message);
-			return;
-		}
-
 		var e = await Post("/api/?operation=likeComment",
 			{
 				likeState: state,
-				sessionId: sessionID,
 				modId: targetModID,
 				commentId: targetCommentId
 			});
@@ -134,20 +103,11 @@ function createAccount(username, password) {
 
 function downloadModTemplate(modName, description, tags) {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-
-		if (sessionID == "") {
-			var message = { isError: true, message: "You are not signed in" };
-			resolve(message);
-			return;
-		}
-
 		var e = await Post("/api/?operation=getModTemplate",
 			{
 				modName: modName,
 				description: description,
-				tags: tags,
-				sessionId: sessionID
+				tags: tags
 			});
 
 		e = JSON.parse(e);
@@ -232,16 +192,8 @@ function signIn(username, password) {
 }
 function signOut() {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-		if (sessionID == "") {
-			var message = { isError: true, message: "You are not signed in" };
-			resolve(message);
-		}
 
-		var e = await Post("/api/?operation=signOut",
-			{
-				sessionID: sessionID
-			});
+		var e = await Post("/api/?operation=signOut", {});
 
 		e = JSON.parse(e);
 		if (e.sessionID != null) {
@@ -267,26 +219,13 @@ function isSignedIn() {
 
 function getCurrentUser() {
 	return new Promise(async resolve => {
-		const sessionID = await getCurrentSessionId();
-		if (sessionID == "") {
-			resolve("null");
-			return;
-		}
-
-		resolve(await Post("/api/?operation=getCurrentUser", { sessionId: sessionID }));
+		resolve(await Post("/api/?operation=getCurrentUser", { }));
 	});
 }
 function hasLikedMod(modID) {
 	return new Promise(async resolve => {
-		const sessionId = await getCurrentSessionId();
-		if (sessionId == "") {
-			resolve(false);
-			return;
-		}
-
 		var hasLikedMod = await Post("/api/?operation=hasLiked",
 			{
-				sessionId: sessionId,
 				modId: modID
 			});
 
@@ -299,15 +238,8 @@ function hasLikedMod(modID) {
 
 function setLikedMod(modID, state) {
 	return new Promise(async resolve => {
-		const sessionId = await getCurrentSessionId();
-		if (sessionId == "") {
-			resolve(false);
-			return;
-		}
-
 		var e = await Post("/api/?operation=like",
 			{
-				sessionId: sessionId,
 				likedModId: modID,
 				likeState: state
 			});
@@ -318,15 +250,9 @@ function setLikedMod(modID, state) {
 
 function updateUserData(sessionID, password, username, bio, newPassword, borderStyle, showFull) {
 	return new Promise(async resolve => {
-		const sessionId = await getCurrentSessionId();
-		if (sessionId == "") {
-			resolve(false);
-			return;
-		}
 
 		var e = await Post("/api/?operation=updateUserData",
 			{
-				sessionID: sessionID,
 				password: password,
 
 				username: username,
@@ -343,15 +269,9 @@ function updateUserData(sessionID, password, username, bio, newPassword, borderS
 
 function favoriteMod(modID, favorite) {
 	return new Promise(async resolve => {
-		const sessionId = await getCurrentSessionId();
-		if (sessionId == "") {
-			resolve({isError:true, message:"you're not logged in"});
-			return;
-		}
 
 		var e = await Post("/api/?operation=favoriteMod",
 			{
-				sessionID: sessionId,
 				modID: modID,
 				favorite: favorite
 			});
@@ -368,6 +288,7 @@ export {
 	signOut,
 	isSignedIn,
 	hasLikedComment,
+	getMyAuthenticationLevel,
 	isCommentMine,
 	postComment,
 	deleteComment,
