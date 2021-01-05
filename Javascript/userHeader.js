@@ -16,14 +16,17 @@ async function asyncOnLoad() {
 	switch (userData.authenticationLevel) {
 		case 4:
 			icon.innerHTML = "miscellaneous_services";
+			icon.title = "Admin"
 			icon.style = "color: var(--tertiaryRed)";
 			break;
 		case 3:
 			icon.innerHTML = "construction";
+			icon.title = "Modder"
 			icon.style = "color: var(--tertiaryOrange)";
 			break;
 		case 2:
 			icon.innerHTML = "verified";
+			icon.title = "Verified"
 			icon.style = "color: var(--tertiaryBlue)";
 			break;
 	}

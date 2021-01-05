@@ -50,20 +50,27 @@ var asyncOnStart = async function () {
 	usernameDisplay.style = "color: " + userData.color;
 
 	var icon = document.getElementById("icon");
-	/*switch (userData.authenticationLevel) {
-		case 4:*/
+	var authText = document.getElementById("userType");
+	switch (userData.authenticationLevel) {
+		case 4:
 			icon.innerHTML = "miscellaneous_services";
-			icon.style = "color: var(--tertiaryRed)";
-			/*break;
+			icon.style = "color: var(--tertiaryRed);";
+			authText.innerHTML = "Admin";
+			authText.style = "color: var(--tertiaryRed);"
+			break;
 		case 3:
 			icon.innerHTML = "construction";
-			icon.style = "color: var(--tertiaryOrange)";
+			icon.style = "color: var(--tertiaryOrange);";
+			authText.innerHTML = "Modder";
+			authText.style = "color: var(--tertiaryOrange);"
 			break;
 		case 2:
 			icon.innerHTML = "verified";
-			icon.style = "color: var(--tertiaryBlue)";
+			icon.style = "color: var(--tertiaryBlue);";
+			authText.innerHTML = "Verified";
+			authText.style = "color: var(--tertiaryBlue);"
 			break;
-	}*/
+	}
 
 	document.getElementsByClassName("userDescription")[0].innerHTML = userData.bio;
 
