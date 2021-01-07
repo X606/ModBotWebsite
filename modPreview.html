@@ -1,25 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="icon" href="Assets/Icon.png">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="CSS/style.css">
-	
-	<link rel="stylesheet" href="CSS/userStyle.css">
-	<link rel="stylesheet" href="CSS/dropdownStyle.css">
+		<link rel="icon" href="Assets/Icon.png">
+		<link rel="stylesheet" href="style.css">
 
-	<title>Mod-Bot</title>
+		<title>Mod-Bot Preview</title>
 
-	<script src="/Javascript/modPreview.js" type="module"></script>
-	<script src="/Javascript/sidebar.js" type="module"></script>
+		<script src="/Javascript/modPreview.js" type="module"></script>
+		<script src="/Javascript/sidebar.js" type="module"></script>
 
-	<!-- Workaround to fix transition bug on chrome. -->
-	<script></script>
-</head>
+		<!-- Workaround to fix transition bug on chrome. -->
+		<script></script>
+	</head>
 	<style>
 		div.modBackground {
 			width: calc(100% - (var(--spaceModifier) * 2));
@@ -28,10 +24,10 @@
 			padding-bottom: calc(var(--spaceModifier) + 2em);
 
 			background-color: var(--tertiaryDark);
-			border-bottom: solid var(--strokeWidth) var(--primaryColor);
+			border-bottom: solid var(--borderWidth) var(--primaryColor);
 
-			border-bottom-left-radius: var(--strokeWidth);
-			border-bottom-right-radius: var(--strokeWidth);
+			border-bottom-left-radius: var(--borderWidth);
+			border-bottom-right-radius: var(--borderWidth);
 
 			position: relative;
 		}
@@ -76,9 +72,9 @@
 			margin: calc(0px - var(--spaceModifier));
 			margin-bottom: calc(var(--spaceModifier) / 2);
 
-			border-bottom: solid var(--strokeWidth) var(--primaryColor);
-			border-bottom-left-radius: var(--strokeWidth);
-			border-bottom-right-radius: var(--strokeWidth);
+			border-bottom: solid var(--borderWidth) var(--primaryColor);
+			border-bottom-left-radius: var(--borderWidth);
+			border-bottom-right-radius: var(--borderWidth);
 
 			object-fit: contain;
 			float: right;

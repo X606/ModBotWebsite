@@ -1,17 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="CSS/style.css">
-	<link rel="stylesheet" href="CSS/dropdownStyle.css">
+		<link rel="stylesheet" href="style.css">
 
-	<!-- Workaround to fix transition bug on chrome. -->
-	<script></script>
-</head>
+		<!-- Workaround to fix transition bug on chrome. -->
+		<script></script>
+	</head>
 	<style>
 		/* Adjusts body to look nice aligned right. */
 		body {
@@ -45,14 +43,14 @@
 		div.menuItems p {
 			text-align: left;
 			padding: calc(var(--spaceModifier) / 4);
-			padding-left: calc(var(--spaceModifier) / 4 + var(--strokeWidth));
+			padding-left: calc(var(--spaceModifier) / 4 + var(--borderWidth));
 			font-size: 1em;
 		}
 
 		/* Extender div behind button texts, purely decorative. */
 		div.extend {
 			right: 0px;
-			width: calc(var(--strokeWidth));
+			width: calc(var(--borderWidth));
 			
 			margin-top: -1em;
 			height: 3em;
@@ -99,7 +97,7 @@
 		/* Adjusts paragraph margins and makes sure its on top of extender div. */
 		p {
 			margin: 0px;
-			margin-right: var(--strokeWidth);
+			margin-right: var(--borderWidth);
 
 			z-index: 1;
 
@@ -114,20 +112,20 @@
 
 		/* Gives first button (with 'first' class) rounded top corners. */
 		span.first, span.first div.extend {
-			border-top-right-radius: var(--strokeWidth);
+			border-top-right-radius: var(--borderWidth);
 		}
 
 		span.first, span.first:hover div.extend {
-			border-top-left-radius: var(--strokeWidth);
+			border-top-left-radius: var(--borderWidth);
 		}
 
 		/* Gives last button (with 'last' class) rounded bottom corners. */
 		span.last, span.last div.extend {
-			border-bottom-right-radius: var(--strokeWidth);
+			border-bottom-right-radius: var(--borderWidth);
 		}
 
 		span.last, span.last:hover div.extend {
-			border-bottom-left-radius: var(--strokeWidth);
+			border-bottom-left-radius: var(--borderWidth);
 		}
 
 		/* One scrollbar is enough, thank you. */

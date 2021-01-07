@@ -1,33 +1,27 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="icon" href="Assets/Icon.png">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="CSS/style.css">
+		<link rel="icon" href="Assets/Icon.png">
+		<link rel="stylesheet" href="style.css">
 
-	<script src="/Javascript/errorPage.js" type="module"></script>
-	<script src="/Javascript/sidebar.js" type="module"></script>
+		<title>Mod-Bot Error</title>
 
-	<title>Mod-Bot</title>
-</head>
+		<script src="/Javascript/errorPage.js" type="module"></script>
+		<script src="/Javascript/sidebar.js" type="module"></script>
+
+		<title>Mod-Bot</title>
+	</head>
 	<style>
+		/* Changes color and size of icons when needed. */
 		i.material-icons {
 			margin: 0px;
 			font-size: 2em;
 
 			vertical-align: sub;
-		}
-
-		h2.errorTitle i.material-icons {
-			color: var(--tertiaryRed);
-		}
-
-		h2.successTitle i.material-icons {
-			color: var(--tertiaryGreen);
 		}
 	</style>
 	<body class="frame">
@@ -40,8 +34,8 @@
 		
 		<!-- Background div with main content inside. -->
 		<div class="frame">
-			<h2 style="display:none;" class="errorTitle"><i class="material-icons">error</i> Error</h2>
-			<h2 style="display:none;" class="successTitle"><i class="material-icons">check_circle</i> Success</h2>
+			<h1 style="display:none;" class="errorTitle"><i class="material-icons">error</i> Error</h1>
+			<h1 style="display:none;" class="successTitle"><i class="material-icons">check_circle</i> Success</h1>
 			<p class="text">Looks like something went wrong.</p>
 			<br>
 			<p class="greyText">If you dont understand why this page comes up, please ask @X606 in the <a href="https://discord.gg/Em4n6gB" target="_blank">Mod-Bot discord</a>.</p>

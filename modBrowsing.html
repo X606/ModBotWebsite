@@ -1,70 +1,72 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="icon" href="Assets/Icon.png">
-	<link rel="stylesheet" href="CSS/style.css">
+		<link rel="icon" href="Assets/Icon.png">
+		<link rel="stylesheet" href="style.css">
 
-	<script src="/Javascript/modBrowsing.js" type="module"></script>
-	<script src="/Javascript/sidebar.js" type="module"></script>
+		<title>Mod-Bot Browsing</title>
 
-	<title>Mod-Bot</title>
-</head>
-<style>
-	div.modsHolder {
-		margin: calc(var(--spaceModifier) / 2);
-		margin-bottom: 0px;
+		<script src="/Javascript/modBrowsing.js" type="module"></script>
+		<script src="/Javascript/sidebar.js" type="module"></script>
 
-		text-align: center;
-		display: block;
-	}
+		<title>Mod-Bot</title>
+	</head>
+	<style>
+		div.modsHolder {
+			margin: calc(var(--spaceModifier) / 2);
+			margin-bottom: 0px;
 
-	button#uploadButton {
-		padding: 0.5em;
-		font-size: 1em;
-	}
+			text-align: center;
+			display: block;
+		}
 
-	input[type=search] {
-		width: 20em;
-		min-width: 50%;
+		button#uploadButton {
+			padding: 0.5em;
+			font-size: 1em;
+		}
 
-		margin-top: calc(var(--spaceModifier) / 4);
-		margin-bottom: calc(var(--spaceModifier) / 4);
-	}
-</style>
-<body class="frame">
-	<!-- Sidebar navigation menu. -->
-	<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
-	
-	<!-- Background image at top with gradient at bottom. -->
-	<img class="backgroundImage" src="Assets/Screenshots/5.jpg">
-	<div class="backgroundGradient"></div>
-	
-	<!-- Background div with main content inside. -->
-	<div class="frame">
-		<button id="uploadButton" class="orange" style="display:none;">Create or edit mod</button>
-		<p class="signInText" id="signInText" style="display: none;">You must be signed in to post mods.</p>
+		input[type=search] {
+			width: 20em;
+			min-width: 50%;
+
+			margin-top: calc(var(--spaceModifier) / 4);
+			margin-bottom: calc(var(--spaceModifier) / 4);
+		}
+	</style>
+	<body class="frame">
+		<!-- Sidebar navigation menu. -->
+		<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
 		
-		<div>
-			<input id="search" type="search" placeholder="Search term">
-			<br>
-			<label>Sort by:</label>
-			<select id="modSortingType">
-				<option value="liked">Likes</option>
-				<option value="downloads">Downloads</option>
-				<option value="postedDate">Upload time</option>
-				<option value="editedDate">Update time</option>
-			</select>
-			<select id="modSortingDirection">
-				<option value="high">From higher/newer</option>
-				<option value="low">From lower/older</option>
-			</select>
+		<!-- Background image at top with gradient at bottom. -->
+		<img class="backgroundImage" src="Assets/Screenshots/5.jpg">
+		<div class="backgroundGradient"></div>
+		
+		<!-- Background div with main content inside. -->
+		<div class="frame">
+			<button id="uploadButton" class="orange" style="display:none;">Create or edit mod</button>
+			<p class="signInText" id="signInText" style="display: none;">You must be signed in to post mods.</p>
+			
+			<div>
+				<input id="search" type="search" placeholder="Search term">
+				<br>
+				<label>Sort by:</label>
+				<select id="modSortingType">
+					<option value="liked">Likes</option>
+					<option value="downloads">Downloads</option>
+					<option value="postedDate">Upload time</option>
+					<option value="editedDate">Update time</option>
+				</select>
+				<select id="modSortingDirection">
+					<option value="high">From higher/newer</option>
+					<option value="low">From lower/older</option>
+				</select>
+			</div>
+			<!-- Contains all mod boxes. -->
+			<div class="modsHolder" id="modsHolder"></div>
 		</div>
-		<!-- Contains all mod boxes. -->
-		<div class="modsHolder" id="modsHolder"></div>
-	</div>
-</body>
+	</body>
 </html>

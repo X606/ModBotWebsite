@@ -1,0 +1,739 @@
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+* {
+	/* General colors being used on site,
+	brace yourselves for some really fancy variable names. */
+	--primaryColor: #ff6800;
+
+	--primaryDark: #121212;
+	--secondaryDark: #161616;
+	--tertiaryDark: #1a1a1a;
+
+	--primaryGrey: #262626;
+	--secondaryGrey: #313131;
+	--teritaryGrey: #414141;
+
+	--primaryLight: #eeeeee;
+	--secondaryLight: #aaaaaa;
+	--tertiaryLight: #777777;
+	--quaternaryLight: #555555;
+
+	--primaryHighlight: #ffffff11;
+	--secondaryHighlight: #000000aa;
+	--tertiaryHighlight: #ffffff22;
+
+	/* Color shades being used on buttons. */
+	--primaryGreen: #006600;
+	--secondaryGreen: #118811;
+	--tertiaryGreen: #22aa22;
+
+	--primaryYellow: #bbbb00;
+	--secondaryYellow: #dddd11;
+	--tertiaryYellow: #ffff22;
+
+	--primaryBlue: #0066aa;
+	--secondaryBlue: #1188cc;
+	--tertiaryBlue: #22aaee;
+
+	--primaryOrange: #bb2400;
+	--secondaryOrange: #dd4600;
+	--tertiaryOrange: #ff6800;
+
+	--primaryRed: #aa0000;
+	--secondaryRed: #cc1111;
+	--tertiaryRed: #ee2222;
+
+	--primaryViolet: #2e4596;
+	--secondaryViolet: #5067b8;
+	--tertiaryViolet: #7289da;
+
+	--borderWidth: 3px;
+	--sidebarWidth: calc(10em + 10vw);
+
+	--backgroundImageHeight: 15vw;
+
+	/* A value that affects margin/padding on all elements. */
+	--spaceModifier: calc(3vw + 1em);
+
+	font-family: Arial, Helvetica, sans-serif;
+	scroll-behavior: smooth;
+}
+
+/* Layout styling. */
+
+/* General element defaults. */
+body {
+	margin: 0px;
+	padding: 0px;
+
+	color: var(--primaryLight);
+	position: relative;
+}
+
+/* Background body, leaves space for sidebar iframe. */
+body.frame {
+	max-width: 100%;
+	padding: var(--spaceModifier);
+	padding-right: calc(var(--spaceModifier) + var(--sidebarWidth));
+
+	background-color: var(--primaryDark);
+}
+
+/* Background div, leaves space for top background image. */
+div.frame {
+	width: calc(100% - (var(--spaceModifier) + var(--borderWidth)) * 2);
+
+	margin-top: calc(var(--backgroundImageHeight) - (var(--spaceModifier) * 2));
+	
+	padding: var(--spaceModifier);
+	background-color: var(--secondaryDark);
+
+	border: var(--borderWidth) var(--primaryColor);
+	border-radius: var(--borderWidth);
+
+	border-left-style: solid;
+	border-right-style: solid;
+
+	/* New fancy 'clearfix hack' */
+	content: "";
+	clear: both;
+	display: table;
+
+	position: relative;
+}
+
+/* Brighter box used to separate parts clearly. */
+div.outline {
+	margin: calc(var(--spaceModifier) / -2);
+	margin-top: calc(var(--spaceModifier) / 4);
+	margin-bottom: calc(var(--spaceModifier) / 4);
+
+	padding: calc(var(--spaceModifier) / 4);
+	background-color: var(--tertiaryDark);
+}
+
+/* Wide background image at top of layot.*/
+img.backgroundImage {
+	width: calc(100vw - var(--sidebarWidth));
+	height: calc(var(--backgroundImageHeight) - 1px);
+
+	margin: calc(0px - var(--spaceModifier));
+	z-index: -1;
+
+	filter: blur(3px);
+	
+	position: absolute;
+	object-fit: cover;
+}
+
+/* Gradient at bottom of top background image, purely decorative. */
+div.backgroundGradient {
+	left: 0px;
+	width: calc(100% - var(--sidebarWidth));
+
+	top: calc(var(--backgroundImageHeight) - (var(--spaceModifier) * 2));
+	height: calc(var(--spaceModifier) * 4);
+
+	background-image: linear-gradient(#00000000, var(--primaryDark) 50%);
+
+	z-index: -1;
+	position: absolute;
+}
+
+div.commentBackground {
+	max-height: 10em;
+
+	margin-bottom: calc(var(--spaceModifier) / 2);
+
+	padding: calc(var(--spaceModifier) / 4);
+	padding-bottom: calc(var(--spaceModifier) / 2 + var(--borderWidth) + 0.8em);
+
+	background-color: var(--primaryDark);
+
+	overflow: hidden;
+	position: relative;
+
+	transition-duration: 1s;
+	transition-property: max-height;
+}
+
+div.commentBackground div.commentGradient {
+	width: calc(100% - (var(--spaceModifier) / 4));
+	height: 3em;
+
+	left: 0px;
+	bottom: 0px;
+
+	background-image: linear-gradient(#ffffff00, var(--primaryDark) 1.5em);
+	position: absolute;
+}
+
+div.commentBackground div.commentActions {
+	width: 100%;
+	height: min-content;
+
+	left: 0px;
+	bottom: 0px;
+
+	padding: calc(var(--spaceModifier) / 8);
+	text-align: right;
+
+	position: absolute;
+}
+
+img.userAvatar {
+	object-fit: cover;
+}
+
+div.commentBackground button {
+	font-size: 0.8em;
+}
+
+div.commentBackground button.showMore {
+	left: 0px;
+	bottom: 0px;
+	position: absolute;
+}
+
+/* Things that aren't meant to be selected. */
+img, i.material-icons, iframe, button {
+	user-select: none;
+}
+
+/* Iframe styling. */
+
+iframe.sidebar {
+	right: 0px;
+	width: var(--sidebarWidth);
+
+	top: 0px;
+	height: 100vh;
+	
+	position: fixed;
+}
+
+iframe.popup {
+	width: 100vw;
+	height: 100vh;
+	
+	left: 0px;
+	right: 0px;
+
+	top: 0px;
+	bottom: 0px;
+
+	z-index: 5;
+	position: fixed;
+}
+
+iframe.modBox {
+	width: 15em;
+	height: 30em;
+
+	margin: calc(var(--spaceModifier) / 10);
+}
+
+iframe.userHeader {
+	width: 100%;
+	height: 2em;
+}
+
+/* Sidebar styling. */
+
+/* Logo on top of sidebar. */
+img.logo {
+	width: calc(100% - (var(--spaceModifier) / 2));
+	margin: calc(var(--spaceModifier) / 4);
+
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+/* Text styling. */
+
+/* Changes titles. */
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 0.5em;
+}
+h1, h2, h3, h5, h6 {
+	font-weight: normal;
+}
+
+h6 {
+	font-style: italic;
+}
+
+hr {
+	background-color: var(--primaryColor);
+	border: solid calc(var(--borderWidth) / 2) var(--primaryColor);
+	border-radius: calc(var(--borderWidth) / 2);
+}
+
+/* Fixes nicer looking links, underline is not always added with a:hover. */
+a {
+	color: var(--primaryLight);
+
+	outline: none;
+	text-decoration: none;
+}
+
+ul.generalList {
+	list-style-image: url("../Assets/Icon.png");
+}
+
+.generalList li {
+	width: min-content;
+	margin: calc(var(--spaceModifier) / 4);
+}
+
+.generalList li img {
+	width: 20em;
+	margin: 0.5em;
+}
+
+/* Changes color of text and links when needed. */
+.errorText {
+	color: var(--tertiaryRed);
+}
+
+.errorTitle i.material-icons {
+	color: var(--tertiaryRed);
+}
+
+.successTitle i.material-icons {
+	color: var(--tertiaryGreen);
+}
+
+.signInText {
+	color: var(--quaternaryLight);
+}
+
+.greyText {
+	color: var(--quaternaryLight);
+}
+
+.greyText a {
+	color: var(--secondaryLight);
+}
+
+.greyText a:hover {
+	color: var(--primaryLight);
+	text-decoration: underline;
+}
+
+.greyText a.hiddenLink {
+	color: var(--quaterniaryLight);
+}
+
+.greyText a:hover.hiddenLink {
+	color: var(--tertiaryLight);
+}
+
+/* Form and input styling. */
+textArea, input[type=text], input[type=password], input[type=email], input[type=url], input[type=search] {
+	padding: 0.5em;
+
+	color: var(--primaryLight);
+	background-color: var(--primaryGrey);
+	
+	font-size: 0.9em;
+
+	border: none;
+	resize: none;
+}
+
+select {
+	margin-bottom: calc(var(--spaceModifier) / 4);
+	padding: 0.2em;
+
+	color: var(--primaryLight);
+	background-color: var(--secondaryGrey);
+}
+
+div.popupFrame textArea, input {
+	margin-bottom: calc(var(--spaceModifier) / 4);
+}
+
+input[type=color] {
+	background-color: var(--primaryGrey);
+	border: none;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px var(--primaryGrey) inset;
+}
+
+input:-webkit-autofill:first-line {
+	color: var(--primaryLight);
+}
+
+/* Button styling. */
+
+/* A div that contains several buttons. */
+div.buttonHolder {
+	bottom: 0px;
+	right: var(--spaceModifier);
+
+	user-select: none;
+	position: absolute;
+}
+
+/* Workaround to stop button backgrounds from twitching
+when pressed on firefox or edge. */
+div.buttonHolder button:active {
+	margin-bottom: calc(0px - var(--borderWidth));
+}
+
+/* Makes a general button template with slight 3D effect. */
+button, input[type=submit] {
+	margin: 0px;
+	padding: 0.3em;
+
+	border: none;
+	outline: none;
+
+	color: var(--primaryLight);
+	background-color: var(--secondaryGrey);
+
+	border-bottom: solid var(--borderWidth) var(--primaryGrey);
+	border-radius: 0px;
+	
+	vertical-align: text-top;
+	cursor: pointer;
+
+	font-size: 0.9em;
+	transition-duration: 0.05s;
+
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+button i.material-icons, input[type=submit] i.material-icons {
+	margin-top: -0.3em;
+	margin-bottom: -0.3em;
+
+	vertical-align: middle;
+	font-size: 1.5em;
+}
+
+button img {
+	height: 1em;
+	margin-right: 0.5em;
+	vertical-align: bottom;
+}
+
+button span {
+	margin-left: 0.5em;
+	padding: 0.2em;
+
+	border-radius: 0.2em;
+	font-weight: bold;
+	
+	background-color: var(--tertiaryHighlight);
+}
+
+button:hover, input[type=submit]:hover {
+	background-color: var(--teritaryGrey);
+	border-color: var(--secondaryGrey);
+
+	text-decoration: underline;
+}
+
+button:active, input[type=submit]:active {
+	margin-top: var(--borderWidth);
+	border-bottom-width: 0px;
+
+	transition-duration: 0.05s;
+}
+
+/* EXit button on popups and banners that the user can click on to close. */
+button#xit {
+	width: 1.5em;
+	height: 1.5em;
+
+	right: calc(var(--spaceModifier) / 4);;
+	top: calc(var(--spaceModifier) / 4);
+
+	padding: 0px;
+	font-weight: bold;
+
+	justify-content: center;
+	align-items: center;
+
+	cursor: pointer;
+	position: absolute;
+}
+
+div.bannerFrame button#xit {
+	font-size: 1.2em;
+}
+
+/* Dropdown styling. */
+
+div.menu {
+	user-select: none;
+	z-index: 2;
+
+	position: absolute;
+}
+
+div.menuItems {
+	width: max-content;
+
+	background-color: var(--secondaryGrey);
+	box-shadow: 0px calc(var(--borderWidth) * 4) calc(var(--borderWidth) * 4) var(--secondaryDark);
+
+	border-radius: var(--borderWidth);
+	display: none;
+}
+
+div.menuItems p {
+	/* For some reason, calc(max-content) seems to give the right results
+	while only max-content doesn't. */
+	width: calc(max-content);
+	margin: 0px;
+
+	padding: calc(var(--spaceModifier) / 8);
+	padding-left: calc(var(--spaceModifier) / 8 + var(--borderWidth));
+
+	border-left: solid var(--borderWidth) var(--primaryColor);
+	font-size: 0.9em;
+}
+
+div.menuItems p.first {
+	border-top-left-radius: var(--borderWidth);
+	border-top-right-radius: var(--borderWidth);
+}
+
+div.menuItems p.last {
+	border-bottom-left-radius: var(--borderWidth);
+	border-bottom-right-radius: var(--borderWidth);
+}
+
+div.menuItems p:hover {
+	background-color: var(--primaryHighlight);
+
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+div.menuItems i.material-icons {
+	font-size: 1em;
+	margin-right: calc(var(--spaceModifier) / 8);
+}
+
+i.material-icons#menuButton {
+	bottom: 0px;
+	vertical-align: middle;
+
+	padding: 0.1em;
+	background-color: var(--primaryGrey);
+
+	border-left: solid var(--borderWidth) var(--primaryColor);
+	border-radius: var(--borderWidth);
+
+	font-size: 1.5em;
+}
+
+div.menu:hover div.menuItems {
+	display: block;
+}
+
+div.menu:hover i.material-icons#menuButton {
+	display: none;
+}
+
+/* Popup styling. */
+
+div.popupBackground {
+	width: 100vw;
+	height: 100vh;
+	
+	left: 0px;
+	right: 0px;
+
+	top: 0px;
+	bottom: 0px;
+
+	background-color: var(--secondaryHighlight);
+
+	justify-content: center;
+	align-items: center;
+
+	z-index: 5;
+	overflow: hidden;
+	
+	display: flex;
+	position: fixed;
+}
+
+div.popupFrame {
+	width: max-content;
+	height: max-content;
+
+	max-height: calc(100% - var(--spaceModifier));
+	overflow-y: auto;
+
+	margin: calc(var(--spaceModifier) / 2);
+	padding: calc(var(--spaceModifier) / 2);
+	padding-top: 0px;
+
+	background-color: var(--tertiaryDark);
+	border-bottom: solid var(--borderWidth) var(--primaryColor);
+
+	border-bottom-left-radius: var(--borderWidth);
+	border-bottom-right-radius: var(--borderWidth);
+
+	position: relative;
+}
+
+div.popupFrame button {
+	padding: 0.4em;
+	font-size: 1em;
+}
+
+div.popupFrame a {
+	color: var(--secondaryLight);
+}
+
+div.popupFrame a:hover {
+	color: var(--primaryLight);
+	text-decoration: underline;
+}
+
+/* Banner styling. */
+
+div.bannerHolder {
+	width: calc(100vw - 1em);
+	height: max-content;
+
+	left: 0px;
+	bottom: 0px;
+
+	z-index: 6;
+	position: fixed;
+}
+
+div.bannerFrame {
+	height: max-content;
+	max-height: 100vh;
+
+	margin: calc(var(--spaceModifier) / 4);
+	padding: calc(var(--spaceModifier) / 8);
+	
+	margin-left: calc(var(--spaceModifier) * 2);
+	margin-right: calc(var(--spaceModifier) * 2);
+
+	padding-right: var(--spaceModifier);
+
+	background-color: var(--tertiaryDark);
+	box-shadow: 0px 0px 2em var(--primaryDark);
+
+	border: solid var(--borderWidth) var(--primaryColor);
+	border-radius: var(--borderWidth);
+
+	overflow: hidden;
+	position: relative;
+}
+
+div.bannerFrame i.material-icons {
+	margin: calc(var(--spaceModifier) / 4);
+	font-size: 2.5em;
+	float: left;
+
+	display: flex;
+	flex-flow: column;
+}
+
+div.bannerFrame h2 {
+	margin-bottom: -0.5em;
+}
+
+textArea, div.popupFrame input[type=text], div.popupFrame input[type=password], div.popupFrame input[type=email], div.popupFrame input[type=url] {
+	width: calc(100% - (var(--spaceModifier) / 2));
+}
+/* Oooh, fancy custom scrollbar. */
+
+::-webkit-scrollbar {
+	width: 1em;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--tertiaryDark);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--quaternaryLight);
+	border: solid var(--borderWidth) var(--tertiaryDark);
+}
+
+textArea, div.popupFrame input[type=text], div.popupFrame input[type=password], div.popupFrame input[type=email], div.popupFrame input[type=url] {
+	width: calc(100% - (var(--spaceModifier) / 2));
+}
+
+/* Sets diffrent shades of colors on buttons,
+depending on if they are being hovered on or not. */
+
+button.green, button.yellow, button.blue, button.red, input[type=submit].green, input[type=submit].yellow, input[type=submit].blue, input[type=submit].red {
+	color: var(--primaryDark);
+}
+
+button.green, input[type=submit].green {
+	background-color: var(--secondaryGreen);
+	border-color: var(--primaryGreen);
+}
+
+button.yellow, input[type=submit].yellow {
+	background-color: var(--secondaryYellow);
+	border-color: var(--primaryYellow);
+}
+
+button.blue, input[type=submit].blue {
+	background-color: var(--secondaryBlue);
+	border-color: var(--primaryBlue);
+}
+
+button.orange, input[type=submit].orange {
+	background-color: var(--secondaryOrange);
+	border-color: var(--primaryOrange);
+}
+
+button.red, input[type=submit].red {
+	background-color: var(--secondaryRed);
+	border-color: var(--primaryRed);
+}
+
+button.violet, input[type=submit].violet {
+	background-color: var(--secondaryViolet);
+	border-color: var(--primaryViolet);
+}
+
+button.green:hover, input[type=submit].green:hover {
+	background-color: var(--tertiaryGreen);
+	border-color: var(--secondaryGreen);
+}
+
+button.yellow:hover, input[type=submit].yellow:hover {
+	background-color: var(--tertiaryYellow);
+	border-color: var(--secondaryYellow);
+}
+
+button.blue:hover, input[type=submit].blue:hover {
+	background-color: var(--tertiaryBlue);
+	border-color: var(--secondaryBlue);
+}
+
+button.orange:hover, input[type=submit].orange:hover {
+	background-color: var(--tertiaryOrange);
+	border-color: var(--secondaryOrange);
+}
+
+button.red:hover, input[type=submit].red:hover {
+	background-color: var(--tertiaryRed);
+	border-color: var(--secondaryRed);
+}
+
+button.violet:hover, input[type=submit].violet:hover {
+	background-color: var(--tertiaryViolet);
+	border-color: var(--secondaryViolet);
+}

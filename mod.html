@@ -1,22 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="icon" href="Assets/Icon.png">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	
-	<link rel="stylesheet" href="CSS/style.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="/Javascript/mod.js" type="module"></script>
 
-	<title>Mod-Bot</title>
-
-	<script src="/Javascript/mod.js" type="module"></script>
-
-	<!-- Workaround to fix transition bug on chrome. -->
-	<script></script>
-</head>
+		<!-- Workaround to fix transition bug on chrome. -->
+		<script></script>
+	</head>
 	<style>
 		body {
 			height: 100vh;
@@ -52,11 +46,11 @@
 			width: 100vw;
 			height: 50vh;
 
-			border-bottom: solid var(--strokeWidth) var(--primaryColor);
-			border-bottom-left-radius: var(--strokeWidth);
-			border-bottom-right-radius: var(--strokeWidth);
+			border-bottom: solid var(--borderWidth) var(--primaryColor);
+			border-bottom-left-radius: var(--borderWidth);
+			border-bottom-right-radius: var(--borderWidth);
 
-			margin-bottom: calc(0px - var(--strokeWidth));
+			margin-bottom: calc(0px - var(--borderWidth));
 			object-fit: cover;
 		}
 
@@ -82,7 +76,7 @@
 
 		h1.modTitle {
 			margin: 0px;
-			margin-top: calc(0px - var(--strokeWidth));
+			margin-top: calc(0px - var(--borderWidth));
 			padding: 0.5em;
 			font-size: 1.6em;
 		}
