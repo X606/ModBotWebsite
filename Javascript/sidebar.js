@@ -14,7 +14,8 @@ async function asyncOnLoad() {
 
 			const getCurrentUserAsync = async function () {
 				const currentUserID = await API.getCurrentUser();
-				sidebarDocument.getElementById("userHeader").src += "?userID=" + currentUserID;
+				let userHeader = sidebarDocument.getElementById("userHeader");
+				userHeader.contentWindow.location.replace("/api?operation=getUserHeader&userID=" + currentUserID); // redirect iframe to new url without making the 
 			};
 			getCurrentUserAsync();
 
