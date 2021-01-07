@@ -10,10 +10,6 @@
 
 	<link rel="stylesheet" href="CSS/style.css">
 	<link rel="stylesheet" href="CSS/userStyle.css">
-
-	<script src="/Javascript/userHeader.js" type="module"></script>
-
-	<title>Mod-Bot</title>
 </head>
 	<style>
 		body {
@@ -60,11 +56,13 @@
 			display: none;
 		}
 	</style>
-	<body style="opacity: 0; transition-duration: 1s; transition-property: opacity;">
-		<a id="link" href="userPage.html" target="_top">
-			<img class="userAvatar" src="Assets/DefaultAvatar.png">
-			<p class="name">Loading user...</p>
-			<i id="icon" class="material-icons"></i>
+	<body>
+		<a id="link" href="{0}" target="_top">
+			<!---->
+			<img class="userAvatar" style="{4}" src="{1}">
+			<p class="name">{2}</p>
+			{3}
+			<!---->
 		</a>
 	</body>
 </html>
