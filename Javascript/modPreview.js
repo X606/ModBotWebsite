@@ -119,7 +119,7 @@ async function asyncOnLoad() {
 		if (modData == null)
 			return;
 
-		document.getElementById("modAuthor").src += "?userID=" + modData.OwnerID;
+		document.getElementById("modAuthor").src = "/api?operation=getUserHeader&userID=" + modData.OwnerID;
 		document.getElementById("likedCount").innerHTML = modData.Likes;
 		document.getElementById("downloadCount").innerHTML = modData.Downloads;
 
@@ -194,7 +194,7 @@ function SpawnNextComments() {
 
 		const cloned = commentPrefab.cloneNode(true);
 		cloned.id = "";
-		cloned.querySelector(".userHeader").src += "?userID=" + comment.PosterUserId;
+		let userHeader = cloned.querySelector(".userHeader").src ="/api?operation=getUserHeader&userID=" + comment.PosterUserId;
 		cloned.querySelector("#postTime").innerHTML = timeDifference(new Date().getTime(), comment.PostedUTCTime*1000);
 		var content = cloned.querySelector(".commentContent");
 		content.innerHTML = comment.CommentBody;

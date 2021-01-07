@@ -41,8 +41,9 @@ async function asyncOnLoad() {
 	asyncGetModData();
 	var asyncGetSpecialModData = async function () {
 		var modData = await API.getSpecialModData(modID);
-
-		document.getElementsByClassName("userHeader")[0].src += "?userID=" + modData.OwnerID;
+		
+		let userHeader = document.getElementsByClassName("userHeader")[0];
+		userHeader.contentWindow.location.replace("/api?operation=getUserHeader&userID=" + modData.OwnerID); // redirect iframe to new url without making the browser add a back step
 		document.getElementById("likedCount").innerHTML = modData.Likes;
 		document.getElementById("downloadCount").innerHTML = modData.Downloads;
 	};
