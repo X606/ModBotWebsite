@@ -35,6 +35,9 @@ button, input[type=submit] {
 
 	font-size: 0.9em;
 	transition-duration: 0.05s;
+
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 button i.material-icons, input[type=submit] i.material-icons {
