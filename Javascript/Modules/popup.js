@@ -12,7 +12,7 @@ function htmlToElem(html) {
   
 async function createPopup(onPopupCreated, formData)
 {
-	await createCssIfDoesntExist();
+	//await createCssIfDoesntExist();
 
 	if(hasCreatedPopup)
 	{
@@ -288,7 +288,7 @@ function Popup(popupBackground, popupFrame, formData)
 }
 
 async function createBanner(content, header, icon, autoClose) {
-	await createCssIfDoesntExist();
+	//await createCssIfDoesntExist();
 
 	if(currentBanners <= 0) {
 		var newDiv = document.createElement("div");
@@ -385,7 +385,7 @@ function isNullOrWhitespace( input ) {
 
 const CSS_ID = "popupStyleCss";
 
-function createCssIfDoesntExist() {
+/*function createCssIfDoesntExist() {
 	return new Promise(resolve => {
 		if (window.top.document.getElementById(CSS_ID) != null)
 			resolve(false);
@@ -404,6 +404,6 @@ function createCssIfDoesntExist() {
 			resolve(true);
 		});
 	});
-}
+}*/
 
 export { createPopup, createBanner, FormData };
