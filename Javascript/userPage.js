@@ -1,6 +1,19 @@
-import { API } from "./Modules/API/Api.js";
-import { copyToClipboard } from "./Modules/API/General.js";
+import { API } from "https://modbot.org/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
+
+function copyToClipboard(str) {
+	const el = document.createElement('textarea');
+	el.value = str;
+	el.setAttribute('readonly', '');
+	el.style.position = 'absolute';
+	el.style.left = '-9999px';
+	document.body.appendChild(el);
+	el.select();
+	document.execCommand('copy');
+	document.body.removeChild(el);
+
+	createBanner("Copied \"" + str + "\" to clipboard.", null, "check_circle", 1000);
+};
 
 var asyncOnStart = async function () {
 	const urlParams = new URLSearchParams(window.location.search);
@@ -12,9 +25,9 @@ var asyncOnStart = async function () {
 	}
 
 	const asyncGetData = async function () {
-		var searchRequest = new API.SearchRequest();
+		var searchRequest = new API.search();
 		searchRequest.userID = userID;
-		searchRequest.sortOrder = API.searchSortTypes.Liked;
+		searchRequest.sortOrder = searchRequest.Liked;
 		var mods = await searchRequest.Send();
 
 		var generatedHTML = "";
@@ -41,7 +54,8 @@ var asyncOnStart = async function () {
 
 	var userData = await API.getUser(userID);
 	if (userData.isError) {
-		window.location.replace("/404.html");
+		console.log(userData);
+		//window.location.replace("/404.html");
 		return;
 	}
 
@@ -84,7 +98,7 @@ var asyncOnStart = async function () {
 		createBanner("Make the report button work.", "TODO", "warning", 2000);
 	});
 
-	await API.setImageElementToProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
+	API.getProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
 	//document.getElementsByClassName("modsHolder")[0].innerHTML = ""; TODO: send request to get the featured mods
 
 	var mods = userData.favoritedMods;

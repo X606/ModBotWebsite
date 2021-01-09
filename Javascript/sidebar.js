@@ -1,10 +1,10 @@
-import { API } from "./Modules/API/Api.js";
+import { API } from "https://modbot.org/api?operation=getAPI";
 import { createPopup, FormData } from "./Modules/popup.js";
 
 async function asyncOnLoad() {
 	const sessionID = await API.getCurrentSessionId();
 
-	if (sessionID != "") { // if is signed in
+	if (sessionID != "" && await API.isValidSession(sessionID)) { // if is signed in
 		var sidebarIframe = document.getElementsByClassName("sidebar")[0];
 
 		var onLoad = function () {

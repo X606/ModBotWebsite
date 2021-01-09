@@ -1,4 +1,4 @@
-import { API } from "./Modules/API/Api.js";
+import { API } from "https://modbot.org/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
 
 async function asyncOnLoad() {
@@ -56,7 +56,7 @@ async function asyncOnLoad() {
 			return;
 		}
 
-		var result = await API.updateUserData(await API.getCurrentSessionId(), password, username, bio, password1, borderstyle, showFull);
+		var result = await API.updateUserData(password, username, bio, password1, borderstyle, showFull);
 		if (result.isError) {
 			document.getElementById("error").innerHTML = result.message;
 			doneButton.style = "";

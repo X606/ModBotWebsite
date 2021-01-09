@@ -1,6 +1,19 @@
-import { API } from "./Modules/API/Api.js";
+import { API } from "https://modbot.org/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
-import { copyToClipboard } from "./Modules/API/General.js";
+
+function copyToClipboard(str) {
+	const el = document.createElement('textarea');
+	el.value = str;
+	el.setAttribute('readonly', '');
+	el.style.position = 'absolute';
+	el.style.left = '-9999px';
+	document.body.appendChild(el);
+	el.select();
+	document.execCommand('copy');
+	document.body.removeChild(el);
+
+	createBanner("Copied \"" + str + "\" to clipboard.", null, "check_circle", 1000);
+};
 
 const urlParams = new URLSearchParams(window.location.search);
 const modID = urlParams.get("modID");

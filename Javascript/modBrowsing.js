@@ -1,5 +1,5 @@
 import { createPopup, FormData } from "./Modules/popup.js";
-import { API } from "./Modules/API/Api.js";
+import { API } from "https://modbot.org/api?operation=getAPI";
 
 var searchBox = document.getElementById("search");
 var sortingType = document.getElementById("modSortingType");
@@ -30,7 +30,7 @@ async function onLoadAsync() {
 }
 
 async function resort() {
-	var searchRequest = new API.SearchRequest();
+	var searchRequest = new API.search();
 	searchRequest.sortOrder = sortingType.value;
 	searchRequest.searchString = searchBox.value;
 
