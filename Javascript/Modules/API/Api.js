@@ -143,7 +143,7 @@ function createAccount(username, password) {
 		if (e.isError == false) {
 			const success = await setCurrentSessionId(e.sessionID);
 			if (!success) {
-				console.error("The id we got back from the server when creating the accout was invalid");
+				console.error('The id we got back from the server when creating the accout was invalid');
 			}
 
 			resolve(e);

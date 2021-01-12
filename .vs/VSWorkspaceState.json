@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CSS",
     "\\Javascript",
     "\\Javascript\\Modules",
     "\\Javascript\\Modules\\API"
   ],
-  "SelectedNode": "\\Javascript\\Modules\\popup.js",
+  "SelectedNode": "\\Javascript\\modPreview.js",
   "PreviewInSolutionExplorer": false
 }

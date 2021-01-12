@@ -46,16 +46,18 @@ selector.addEventListener("change", function () {
 });
 
 var sessionID = "";
+var isSingnedIn = false;
 
 async function asyncOnLoad() {
 	sessionID = await API.getCurrentSessionId();
+	isSingnedIn = await API.isValidSession(sessionID);
 
-	if (sessionID == "") { // is not signed in
-		document.getElementById("signInText").style = "";
-	}
-	else // is signed in
-	{
+	if (isSingnedIn) { // is signed in
 		document.getElementById("commentPoster").style = "";
+	}
+	else  // is not signed in
+	{
+		document.getElementById("signInText").style = "";
 	}
 
 	
@@ -67,7 +69,7 @@ async function asyncOnLoad() {
 		}
 
 		var image = document.getElementsByClassName("modImage")[0];
-		API.setImageElementToModImage(image, modID);
+		API.getModImage(image, modID);
 
 		document.getElementsByClassName("modTitle")[0].innerHTML = modData.DisplayName;
 
@@ -84,9 +86,8 @@ async function asyncOnLoad() {
 			API.downloadMod(modID);
 		});
 		document.getElementById("rateButton").addEventListener("click", async function () {
-			var isSingnedIn = sessionID != "";
 			if (isSingnedIn) {
-				var hasLikedMod = await API.hasLikedMod(modID);
+				var hasLikedMod = await API.hasLiked(modID);
 
 				var likes = Number.parseInt(document.getElementById("likedCount").innerHTML);
 
@@ -97,7 +98,7 @@ async function asyncOnLoad() {
 					document.getElementById("rateButton").style = "";
 					likes--;
 				}
-				API.setLikedMod(modID, !hasLikedMod);
+				API.like(modID, !hasLikedMod);
 
 				document.getElementById("likedCount").innerHTML = likes;
 			} else {
@@ -137,10 +138,12 @@ async function asyncOnLoad() {
 		document.getElementById("downloadCount").innerHTML = modData.Downloads;
 
 		const asyncHasLikedMod = async function () {
-			const hasLikedMod = await API.hasLikedMod(modID);
+			if (isSingnedIn) {
+				const hasLikedMod = await API.hasLiked(modID);
 
-			if (hasLikedMod) {
-				document.getElementById("rateButton").style = "color: var(--primaryColor);";
+				if (hasLikedMod) {
+					document.getElementById("rateButton").style = "color: var(--primaryColor);";
+				}
 			}
 		}
 		asyncHasLikedMod();
@@ -150,36 +153,46 @@ async function asyncOnLoad() {
 
 		const sort = urlParams.get("comments");
 		if (sort == "newest") {
-			var localuser = await API.getCurrentUser();
-			DownloadedNonSpawnedComments = modData.Comments.sort(function (a, b) { // put the current users comments first, otherwise sort after posted time
-				var aIsUser = a.PosterUserId == localuser;
-				var bIsUser = b.PosterUserId == localuser;
-				if (aIsUser == bIsUser) {
-					return a.PostedUTCTime - b.PostedUTCTime;
-				}
+			
+			
+			DownloadedNonSpawnedComments = modData.Comments.sort(async function (a, b) { // put the current users comments first, otherwise sort after posted time
+				if(isSingnedIn) {
+					var localuser = await API.getCurrentUser();
+					var aIsUser = a.PosterUserId == localuser;
+					var bIsUser = b.PosterUserId == localuser;
+					if (aIsUser == bIsUser) {
+						return a.PostedUTCTime - b.PostedUTCTime;
+					}
 
-				if (aIsUser) {
-					return 1;
-				}
-				else if (bIsUser) {
-					return -1;
+					if (aIsUser) {
+						return 1;
+					}
+					else if (bIsUser) {
+						return -1;
+					}
+				} else {
+					return a.PostedUTCTime - b.PostedUTCTime;
 				}
 			});
 		}
 		else {
-			var localuser = await API.getCurrentUser();
-			DownloadedNonSpawnedComments = modData.Comments.sort(function (a, b) { // put the current users comments first, otherwise sort after likes
-				var aIsUser = a.PosterUserId == localuser;
-				var bIsUser = b.PosterUserId == localuser;
-				if (aIsUser == bIsUser) {
-					return a.UsersWhoLikedThis.length - b.UsersWhoLikedThis.length;
-				}
+			DownloadedNonSpawnedComments = modData.Comments.sort(async function (a, b) { // put the current users comments first, otherwise sort after likes
+				if(isSingnedIn) {
+					var localuser = await API.getCurrentUser();
+					var aIsUser = a.PosterUserId == localuser;
+					var bIsUser = b.PosterUserId == localuser;
+					if (aIsUser == bIsUser) {
+						return a.UsersWhoLikedThis.length - b.UsersWhoLikedThis.length;
+					}
 
-				if (aIsUser) {
-					return 1;
-				}
-				else if (bIsUser) {
-					return -1;
+					if (aIsUser) {
+						return 1;
+					}
+					else if (bIsUser) {
+						return -1;
+					}
+				} else {
+					return a.UsersWhoLikedThis.length - b.UsersWhoLikedThis.length;
 				}
 			});
 		}
@@ -216,6 +229,11 @@ function SpawnNextComments() {
 		const likeButton = cloned.querySelector(".likeButton");
 
 		const asyncHasLikedComment = async function () {
+			if(!isSingnedIn) {
+				likeButton.style = "";
+				return;
+			}
+
 			const hasLikedComment = await API.hasLikedComment(modID, comment.CommentID);
 			if (hasLikedComment) {
 				likeButton.style = "color: var(--primaryColor);";
@@ -226,9 +244,7 @@ function SpawnNextComments() {
 		asyncHasLikedComment();
 
 		likeButton.addEventListener("click", async function () {
-			const isSingedIn = sessionID != "";
-
-			if (isSingedIn) {
+			if (isSingnedIn) {
 				var hasLikedComment = await API.hasLikedComment(modID, comment.CommentID);
 				const commentLikedCountDisplay = likeButton.querySelector(".commentLikedCount");
 
@@ -258,7 +274,11 @@ function SpawnNextComments() {
 		});
 
 		var asyncIsCommentMine = async function () {
-			const arr = await Promise.all([API.isCommentMine(modID, comment.CommentID), API.getMyAuthenticationLevel()]);
+			if(!isSingnedIn) {
+				return;
+			}
+
+			const arr = await Promise.all([API.isCommentMine(modID, comment.CommentID), API.getMyAuth()]);
 			const isCommentMine = arr[0];
 			const isAdmin = arr[1] == 4;
 
