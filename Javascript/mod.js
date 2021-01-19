@@ -1,4 +1,5 @@
-import { API } from "https://modbot.org/api?operation=getAPI";
+import { API } from "/api?operation=getAPI";
+import {shortenNumber} from "./Modules/textHandeling.js"
 
 function copyToClipboard(str) {
 	const el = document.createElement('textarea');
@@ -57,8 +58,8 @@ async function asyncOnLoad() {
 		
 		let userHeader = document.getElementsByClassName("userHeader")[0];
 		userHeader.contentWindow.location.replace("/api?operation=getUserHeader&userID=" + modData.OwnerID); // redirect iframe to new url without making the browser add a back step
-		document.getElementById("likedCount").innerHTML = modData.Likes;
-		document.getElementById("downloadCount").innerHTML = modData.Downloads;
+		document.getElementById("likedCount").innerHTML = shortenNumber(modData.Likes);
+		document.getElementById("downloadCount").innerHTML = shortenNumber(modData.Downloads);
 	};
 	asyncGetSpecialModData();
 	

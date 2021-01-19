@@ -1,5 +1,6 @@
-import { API } from "https://modbot.org/api?operation=getAPI";
+import { API } from "/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
+import { shortenNumber } from "./Modules/textHandeling.js";
 
 function copyToClipboard(str) {
 	const el = document.createElement('textarea');
@@ -134,8 +135,8 @@ async function asyncOnLoad() {
 			return;
 
 		document.getElementById("modAuthor").src = "/api?operation=getUserHeader&userID=" + modData.OwnerID;
-		document.getElementById("likedCount").innerHTML = modData.Likes;
-		document.getElementById("downloadCount").innerHTML = modData.Downloads;
+		document.getElementById("likedCount").innerHTML = shortenNumber(modData.Likes);
+		document.getElementById("downloadCount").innerHTML = shortenNumber(modData.Downloads);
 
 		const asyncHasLikedMod = async function () {
 			if (isSingnedIn) {
@@ -225,7 +226,7 @@ function SpawnNextComments() {
 		var content = cloned.querySelector(".commentContent");
 		content.innerHTML = comment.CommentBody;
 
-		cloned.querySelector(".commentLikedCount").innerHTML = comment.UsersWhoLikedThis.length;
+		cloned.querySelector(".commentLikedCount").innerHTML = shortenNumber(comment.UsersWhoLikedThis.length);
 		const likeButton = cloned.querySelector(".likeButton");
 
 		const asyncHasLikedComment = async function () {
@@ -258,7 +259,7 @@ function SpawnNextComments() {
 				}
 
 				API.likeComment(modID, comment.CommentID, !hasLikedComment);
-				commentLikedCountDisplay.innerHTML = likes;
+				commentLikedCountDisplay.innerHTML = shortenNumber(likes);
 			} else {
 				createBanner("You have to be signed in to like comments.", null, "error", 2000);
 			}

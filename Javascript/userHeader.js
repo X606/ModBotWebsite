@@ -1,4 +1,4 @@
-import { API } from "https://modbot.org/api?operation=getAPI";
+import { API } from "/api?operation=getAPI";
 import { getImageDimentions } from "./Modules/imageHandeling.js";
 
 const urlParams = new URLSearchParams(window.location.search);

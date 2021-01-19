@@ -1,4 +1,4 @@
-import { API } from "https://modbot.org/api?operation=getAPI";
+import { API } from "/api?operation=getAPI";
 import { createPopup, FormData } from "./Modules/popup.js";
 
 async function asyncOnLoad() {

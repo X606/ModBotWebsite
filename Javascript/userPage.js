@@ -1,4 +1,4 @@
-import { API } from "https://modbot.org/api?operation=getAPI";
+import { API } from "/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
 
 function copyToClipboard(str) {

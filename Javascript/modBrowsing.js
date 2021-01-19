@@ -1,5 +1,5 @@
 import { createPopup, FormData } from "./Modules/popup.js";
-import { API } from "https://modbot.org/api?operation=getAPI";
+import { API } from "/api?operation=getAPI";
 
 var searchBox = document.getElementById("search");
 var sortingType = document.getElementById("modSortingType");
