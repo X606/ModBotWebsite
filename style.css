@@ -238,6 +238,46 @@ iframe.userHeader {
 	height: 2em;
 }
 
+/* Tag styling */
+div.tagBox {
+	margin-top: calc(var(--spaceModifier) / 4);
+	padding: calc(var(--spaceModifier) / 4);
+
+	background-color: var(--tertiaryDark);
+	position: relative;
+}
+
+div.tagBox span {
+	font-size: 1.5em;
+}
+
+div.tagBox div.rightHolder {
+	left: 0px;
+	right: 0px;
+
+	top: 0px;
+	bottom: 0px;
+
+	margin: calc(var(--spaceModifier) / 4);
+	margin-right: calc(var(--spaceModifier) / 2 + 2em);
+
+	text-align: right;
+	position: absolute;
+}
+
+div.tagBox h3.tagTitle {
+	margin-top: 0px;
+}
+
+div.tagBox div.rightHolder iframe.userHeader {
+	width: calc(10% + 5em);
+}
+
+div.tagBox div.menu {
+	top: calc(var(--spaceModifier) / 4);
+	left: calc(100% - 1em - var(--spaceModifier) / 2);
+}
+
 /* Sidebar styling. */
 
 /* Logo on top of sidebar. */
@@ -398,7 +438,7 @@ button, input[type=submit] {
 	border-bottom: solid var(--borderWidth) var(--primaryGrey);
 	border-radius: 0px;
 	
-	vertical-align: text-top;
+	vertical-align: top;
 	cursor: pointer;
 
 	font-size: 0.9em;
@@ -493,11 +533,11 @@ div.menuItems p {
 	width: calc(max-content);
 	margin: 0px;
 
-	padding: calc(var(--spaceModifier) / 8);
-	padding-left: calc(var(--spaceModifier) / 8 + var(--borderWidth));
+	padding: calc(0.4em);
+	padding-left: calc(0.4em + var(--borderWidth));
 
 	border-left: solid var(--borderWidth) var(--primaryColor);
-	font-size: 0.9em;
+	text-align: left;
 }
 
 div.menuItems p.first {

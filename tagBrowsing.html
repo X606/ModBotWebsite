@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<link rel="icon" href="Assets/Icon.png">
+		<link rel="stylesheet" href="style.css">
+
+		<title>Mod-Bot Tags</title>
+
+		<script src="/Javascript/tagBrowsing.js" type="module"></script>
+		<script src="/Javascript/sidebar.js" type="module"></script>
+	</head>
+	<style>
+		div.modsHolder {
+			margin: calc(var(--spaceModifier) / 2);
+			margin-bottom: 0px;
+
+			text-align: center;
+			display: block;
+		}
+
+		button#uploadButton {
+			padding: 0.5em;
+			font-size: 1em;
+		}
+
+		input[type=search] {
+			width: 20em;
+			min-width: 50%;
+
+			margin-top: calc(var(--spaceModifier) / 4);
+			margin-bottom: calc(var(--spaceModifier) / 4);
+		}
+	</style>
+	<body class="frame">
+		<!-- Sidebar navigation menu. -->
+		<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
+		
+		<!-- Background image at top with gradient at bottom. -->
+		<img class="backgroundImage" src="Assets/Screenshots/5.jpg">
+		<div class="backgroundGradient"></div>
+		
+		<!-- Background div with main content inside. -->
+		<div class="frame">
+			<button id="uploadButton" class="orange" style="display:none;"><i class="material-icons">local_offer</i> Create tag</button>
+			<p class="signInText" id="signInText" style="display: none;">You must be signed in <b>and verified</b> to create tags.</p>
+			<br>
+			<input id="search" type="search" placeholder="Search term">
+			<!-- Contains all tag boxes. -->
+			<div class="tagBox" id="tagBoxPrefab" style="display: none;">
+				<h3 class="tagTitle" id="tagTitle"></h3>
+				<div id="tagHolder"></div>
+				<div class="rightHolder">
+					<iframe class="userHeader" id="userHeader" frameborder="0"></iframe>
+					<button class="green"><i class="material-icons">local_offer</i> Use this tag</button>
+				</div>
+				<div class="menu">
+					<i id="menuButton" class="material-icons">more_horiz</i>
+					<div class="menuItems">
+						<a id="editTagButton"><p class="first"><i class="material-icons">settings</i>Edit tag</p></a>
+						<a id="deleteTagButton"><p><i class="material-icons">delete</i>Delete tag</p></a>
+					</div>
+				</div>
+			</div>
+			<div class="tagsHolder" id="tagsHolder">
+				
+			</div>
+		</div>
+	</body>
+</html>
