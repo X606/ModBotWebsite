@@ -186,7 +186,7 @@ img.userAvatar {
 }
 
 div.commentBackground button {
-	font-size: 0.8em;
+	font-size: 0.8rem;
 }
 
 div.commentBackground button.showMore {
@@ -248,7 +248,7 @@ div.tagBox {
 }
 
 div.tagBox span {
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 }
 
 div.tagBox div.rightHolder {
@@ -376,7 +376,7 @@ textArea, input[type=text], input[type=password], input[type=email], input[type=
 	color: var(--primaryLight);
 	background-color: var(--primaryGrey);
 	
-	font-size: 0.9em;
+	font-size: 0.9rem;
 
 	border: none;
 	resize: none;
@@ -441,7 +441,7 @@ button, input[type=submit] {
 	vertical-align: top;
 	cursor: pointer;
 
-	font-size: 0.9em;
+	font-size: 0.9rem;
 	transition-duration: 0.05s;
 
 	white-space: nowrap;
@@ -453,7 +453,7 @@ button i.material-icons, input[type=submit] i.material-icons {
 	margin-bottom: -0.3em;
 
 	vertical-align: middle;
-	font-size: 1.5em;
+	font-size: 1.5rem;
 }
 
 button img {
@@ -505,7 +505,7 @@ button#xit {
 }
 
 div.bannerFrame button#xit {
-	font-size: 1.2em;
+	font-size: 1.2rem;
 }
 
 /* Dropdown styling. */
@@ -558,7 +558,7 @@ div.menuItems p:hover {
 }
 
 div.menuItems i.material-icons {
-	font-size: 1em;
+	font-size: 1rem;
 	margin-right: calc(var(--spaceModifier) / 8);
 }
 
@@ -572,7 +572,7 @@ i.material-icons#menuButton {
 	border-left: solid var(--borderWidth) var(--primaryColor);
 	border-radius: var(--borderWidth);
 
-	font-size: 1.5em;
+	font-size: 1.5rem;
 }
 
 div.menu:hover div.menuItems {
@@ -629,7 +629,7 @@ div.popupFrame {
 
 div.popupFrame button {
 	padding: 0.4em;
-	font-size: 1em;
+	font-size: 1rem;
 }
 
 div.popupFrame a {
@@ -678,7 +678,7 @@ div.bannerFrame {
 
 div.bannerFrame i.material-icons {
 	margin: calc(var(--spaceModifier) / 4);
-	font-size: 2.5em;
+	font-size: 2.5rem;
 	float: left;
 
 	display: flex;

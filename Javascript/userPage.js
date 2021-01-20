@@ -91,12 +91,6 @@ var asyncOnStart = async function () {
 	document.getElementById("copyButton").addEventListener("click", function () {
 		copyToClipboard(userID);
 	});
-	document.getElementById("followButton").addEventListener("click", function () {
-		createBanner("Make the follow button work.", "TODO", "warning", 2000);
-	});
-	document.getElementById("reportButton").addEventListener("click", function () {
-		createBanner("Make the report button work.", "TODO", "warning", 2000);
-	});
 
 	API.getProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
 	//document.getElementsByClassName("modsHolder")[0].innerHTML = ""; TODO: send request to get the featured mods
