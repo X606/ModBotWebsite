@@ -34,6 +34,20 @@
 			margin-top: calc(var(--spaceModifier) / 4);
 			margin-bottom: calc(var(--spaceModifier) / 4);
 		}
+		.tagDisplayHolder {
+			height: 1.5em;
+			position: relative;
+		}
+		.tagDisplay {
+			background-color: var(--tertiaryDark);
+			padding: 0.5em;
+			border-radius: 0.5em;
+			user-select: none;
+			cursor: pointer;
+			position: absolute;
+			transition-property: left, background-color;
+			transition-duration: 0.2s;
+		}
 	</style>
 	<body class="frame">
 		<!-- Sidebar navigation menu. -->
@@ -45,17 +59,24 @@
 		
 		<!-- Background div with main content inside. -->
 		<div class="frame">
-			<button id="uploadButton" class="orange" style="display:none;"><i class="material-icons">local_offer</i> Create tag</button>
+			<button id="uploadButton" class="orange" style="display:none;" onclick="window.location = 'https://modbot.org/tagDesigner.html?tagID=';"><i class="material-icons">local_offer</i> Create new tag</button>
 			<p class="signInText" id="signInText" style="display: none;">You must be signed in <b>and verified</b> to create tags.</p>
 			<br>
-			<input id="search" type="search" placeholder="Search term">
+
+			<div id="tagOrderEditor" style="display:none;">
+				<p>My Tags:</p>
+				<div class="tagDisplayHolder" id="tagDisplayHolder">
+				</div>
+			</div>
+
+			<!--<input id="search" type="search" placeholder="Search term">-->
 			<!-- Contains all tag boxes. -->
 			<div class="tagBox" id="tagBoxPrefab" style="display: none;">
 				<h3 class="tagTitle" id="tagTitle"></h3>
 				<div id="tagHolder"></div>
 				<div class="rightHolder">
 					<iframe class="userHeader" id="userHeader" frameborder="0"></iframe>
-					<button class="green"><i class="material-icons">local_offer</i> Use this tag</button>
+					<button class="" id="useTagButton"><i class="material-icons">local_offer</i> Use this tag</button>
 				</div>
 				<div class="menu">
 					<i id="menuButton" class="material-icons">more_horiz</i>
@@ -66,7 +87,7 @@
 				</div>
 			</div>
 			<div class="tagsHolder" id="tagsHolder">
-				
+
 			</div>
 		</div>
 	</body>

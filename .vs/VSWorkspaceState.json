@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Javascript"
+    "\\Javascript",
+    "\\Javascript\\Modules",
+    "\\Javascript\\Modules\\API"
   ],
-  "SelectedNode": "\\Javascript\\sidebar.js",
+  "SelectedNode": "\\style.css",
   "PreviewInSolutionExplorer": false
 }
