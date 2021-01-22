@@ -11,7 +11,7 @@
 
 	--primaryGrey: #262626;
 	--secondaryGrey: #313131;
-	--teritaryGrey: #414141;
+	--tertiaryGrey: #414141;
 
 	--primaryLight: #eeeeee;
 	--secondaryLight: #aaaaaa;
@@ -238,17 +238,29 @@ iframe.userHeader {
 	height: 2em;
 }
 
-/* Tag styling */
-div.tagBox {
+/* Table styling. */
+
+table.layout {
+	width: 100%;
+	vertical-align: text-top;
+
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+table.layout tr td {
+	padding: calc(var(--spaceModifier) / 8);
+	vertical-align: top;
+}
+
+/* Tag and mod listing style. */
+
+div.tagBox, div.modListing {
 	margin-top: calc(var(--spaceModifier) / 4);
 	padding: calc(var(--spaceModifier) / 4);
 
 	background-color: var(--tertiaryDark);
 	position: relative;
-}
-
-div.tagBox span {
-	font-size: 1.8rem;
 }
 
 div.tagBox div.rightHolder {
@@ -259,7 +271,6 @@ div.tagBox div.rightHolder {
 	bottom: 0px;
 
 	margin: calc(var(--spaceModifier) / 4);
-	margin-right: calc(var(--spaceModifier) / 2 + 2em);
 
 	text-align: right;
 	position: absolute;
@@ -274,8 +285,21 @@ div.tagBox div.rightHolder iframe.userHeader {
 }
 
 div.tagBox div.menu {
-	top: calc(var(--spaceModifier) / 4);
+	top: calc(var(--spaceModifier) / 4 + 2.4em);
 	left: calc(100% - 1em - var(--spaceModifier) / 2);
+}
+
+div.tagBox div.tagHolder {
+	margin-bottom: calc(var(--spaceModifier) / 8);
+	font-size: 1.8rem;
+}
+
+div.modListing img.modImage {
+	width: 100%;
+	max-height: 25rem;
+
+	object-fit: contain;
+	object-position: left;
 }
 
 /* Sidebar styling. */
@@ -293,6 +317,7 @@ img.logo {
 
 /* Changes titles. */
 h1, h2, h3, h4, h5, h6 {
+	margin: 0px;
 	margin-bottom: 0.5em;
 }
 h1, h2, h3, h5, h6 {
@@ -473,7 +498,7 @@ button span {
 }
 
 button:hover, input[type=submit]:hover {
-	background-color: var(--teritaryGrey);
+	background-color: var(--tertiaryGrey);
 	border-color: var(--secondaryGrey);
 
 	text-decoration: underline;
