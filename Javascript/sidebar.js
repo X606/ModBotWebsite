@@ -1,6 +1,8 @@
 import { API } from "/api?operation=getAPI";
 import { createPopup, FormData } from "./Modules/popup.js";
 
+window.API = API;
+
 async function asyncOnLoad() {
 	const sessionID = await API.getCurrentSessionId();
 
