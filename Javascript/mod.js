@@ -19,6 +19,12 @@ async function asyncOnLoad() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const modID = urlParams.get("modID");
 
+	var likeButton = document.getElementById("rateButton");
+	var likeCount = document.getElementById("likedCount");
+
+	var downloadButton = document.getElementById("downloadButton");
+	var downloadCount = document.getElementById("downloadCount");
+
 	if (!modID)
 		return;
 
@@ -37,14 +43,14 @@ async function asyncOnLoad() {
 		document.getElementsByClassName("modDescription")[0].innerHTML = description;
 		document.getElementsByClassName("previewLink")[0].href += "?modID=" + modID;
 
-		document.getElementById("rateButton").addEventListener("click", function() {
+		likeButton.addEventListener("click", function() {
 			window.top.location.href = document.getElementsByClassName("previewLink")[0].href;
 		});
 		document.getElementById("copyButton").addEventListener("click", function() {
 			copyToClipboard(modID);
 		});
 
-		document.getElementById("downloadButton").addEventListener("click", function() {
+		downloadButton.addEventListener("click", function() {
 			API.downloadMod(modID);
 		});
 
@@ -58,8 +64,8 @@ async function asyncOnLoad() {
 		
 		let userHeader = document.getElementsByClassName("userHeader")[0];
 		userHeader.contentWindow.location.replace("/api?operation=getUserHeader&userID=" + modData.OwnerID); // redirect iframe to new url without making the browser add a back step
-		document.getElementById("likedCount").innerHTML = shortenNumber(modData.Likes);
-		document.getElementById("downloadCount").innerHTML = shortenNumber(modData.Downloads);
+		likeCount.innerHTML = shortenNumber(modData.Likes);
+		downloadCount.innerHTML = shortenNumber(modData.Downloads);
 	};
 	asyncGetSpecialModData();
 	
