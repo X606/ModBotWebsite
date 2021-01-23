@@ -21,6 +21,15 @@ async function asyncOnLoad() {
 			};
 			getCurrentUserAsync();
 
+			var getUserAuth = async function() {
+				var userAuth = await API.getMyAuth();
+				console.log(userAuth);
+				if(userAuth >= 4) {
+					sidebarDocument.getElementById("adminButton").style = "";
+				}
+			}
+			getUserAuth();
+
 			sidebarDocument.getElementById("logoutButton").addEventListener("click", async function () {
 				await API.signOut();
 				window.location.reload();
