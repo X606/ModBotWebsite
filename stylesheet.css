@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Edit Undo BRK';
+    src: url('Assets/Font/EditUndoBRK.eot');
+    src: url('Assets/Font/EditUndoBRK.eot?#iefix') format('embedded-opentype'),
+        url('Assets/Font/EditUndoBRK.woff') format('woff'),
+        url('Assets/Font/EditUndoBRK.ttf') format('truetype'),
+        url('Assets/Font/EditUndoBRK.svg#EditUndoBRK') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
