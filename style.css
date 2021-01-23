@@ -1,61 +1,58 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
+@font-face {
+	font-family: 'Editundo';
+	src: url('Assets/Font/EditUndoBRK.eot');
+	src: url('Assets/Font/editundo.eot?#iefix') format('embedded-opentype'), url('Assets/Font/editundo.woff') format('woff'), url('Assets/Font/editundo.ttf') format('truetype'), url('Assets/Font/editundo.svg#EditUndoBRK') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 * {
 	/* General colors being used on site,
 	brace yourselves for some really fancy variable names. */
 	--primaryColor: #ff6800;
-
 	--primaryDark: #121212;
 	--secondaryDark: #161616;
 	--tertiaryDark: #1a1a1a;
-
 	--primaryGrey: #262626;
 	--secondaryGrey: #313131;
 	--tertiaryGrey: #414141;
 
+	--teritaryGrey: #414141;
 	--primaryLight: #eeeeee;
 	--secondaryLight: #aaaaaa;
 	--tertiaryLight: #777777;
 	--quaternaryLight: #555555;
-
 	--primaryHighlight: #ffffff11;
 	--secondaryHighlight: #000000aa;
 	--tertiaryHighlight: #ffffff22;
-
 	/* Color shades being used on buttons. */
 	--primaryGreen: #006600;
 	--secondaryGreen: #118811;
 	--tertiaryGreen: #22aa22;
-
 	--primaryYellow: #bbbb00;
 	--secondaryYellow: #dddd11;
 	--tertiaryYellow: #ffff22;
-
 	--primaryBlue: #0066aa;
 	--secondaryBlue: #1188cc;
 	--tertiaryBlue: #22aaee;
-
 	--primaryOrange: #bb2400;
 	--secondaryOrange: #dd4600;
 	--tertiaryOrange: #ff6800;
-
 	--primaryRed: #aa0000;
 	--secondaryRed: #cc1111;
 	--tertiaryRed: #ee2222;
-
 	--primaryViolet: #2e4596;
 	--secondaryViolet: #5067b8;
 	--tertiaryViolet: #7289da;
-
 	--borderWidth: 3px;
 	--sidebarWidth: calc(10em + 10vw);
-
 	--backgroundImageHeight: 15vw;
-
 	/* A value that affects margin/padding on all elements. */
 	--spaceModifier: calc(3vw + 1em);
-
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Editundo, Arial, Helvetica, sans-serif;
 	scroll-behavior: smooth;
 }
 
