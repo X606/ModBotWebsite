@@ -50,6 +50,7 @@
 	--borderWidth: 3px;
 	--sidebarWidth: calc(10em + 10vw);
 	--backgroundImageHeight: 15vw;
+	
 	/* A value that affects margin/padding on all elements. */
 	--spaceModifier: calc(3vw + 1em);
 	font-family: Editundo, Arial, Helvetica, sans-serif;

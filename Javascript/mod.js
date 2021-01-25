@@ -1,4 +1,5 @@
 import { API } from "/api?operation=getAPI";
+import { createBanner } from "./Modules/popup.js";
 import {shortenNumber} from "./Modules/textHandeling.js"
 
 function copyToClipboard(str) {

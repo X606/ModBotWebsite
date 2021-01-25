@@ -23,7 +23,6 @@ async function asyncOnLoad() {
 
 			var getUserAuth = async function() {
 				var userAuth = await API.getMyAuth();
-				console.log(userAuth);
 				if(userAuth >= 4) {
 					sidebarDocument.getElementById("adminButton").style = "";
 				}

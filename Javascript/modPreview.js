@@ -47,13 +47,13 @@ selector.addEventListener("change", function () {
 });
 
 var sessionID = "";
-var isSingnedIn = false;
+var isSignedIn = false;
 
 async function asyncOnLoad() {
 	sessionID = await API.getCurrentSessionId();
-	isSingnedIn = await API.isValidSession(sessionID);
+	isSignedIn = (await API.isValidSession(sessionID) == "true"); // Returns a string "true" or "false"...
 
-	if (isSingnedIn) { // is signed in
+	if (isSignedIn) { // is signed in
 		document.getElementById("commentPoster").style = "";
 	}
 	else  // is not signed in
@@ -80,6 +80,49 @@ async function asyncOnLoad() {
 		}
 		document.getElementsByClassName("modDescription")[0].innerHTML = description;
 
+		var favoriteButton = document.getElementById("favoriteButton");
+		if(isSignedIn) {
+			async function getUserInfo() {
+				var userID = await API.getCurrentUser();
+				var userInfo = await API.getUser(userID);
+				var hasFavorited = userInfo.favoritedMods.includes(modID);;
+
+				var favoriteText = document.getElementById("favoriteText");
+				var favoriteIcon = document.getElementById("favoriteIcon");
+
+				function updateButton() {
+					if(hasFavorited) {
+						favoriteButton.style = "color: var(--primaryColor);";
+						favoriteText.childNodes[1].nodeValue = "Unfavorite mod";
+						favoriteIcon.innerHTML = "star_border";
+					} else {
+						favoriteButton.style = "";
+						favoriteText.childNodes[1].nodeValue = "Favorite mod";
+						favoriteIcon.innerHTML = "star";
+					}
+				}
+				updateButton();
+				
+				favoriteButton.addEventListener("click", function() {
+					hasFavorited = !hasFavorited;
+					API.favoriteMod(modID, hasFavorited);
+					updateButton();
+				});
+			}
+			getUserInfo();
+		} else {
+			favoriteButton.addEventListener("click", function() {
+				createBanner("You have to be signed in to favorite mods.", null, "error", 2000);
+			});
+		}
+
+		document.getElementById("linkButton").addEventListener("click", function () {
+			copyToClipboard("https://modbot.org/modPreview.html?modID=" + modID);
+		});
+		document.getElementById("embedButton").addEventListener("click", function () {
+			copyToClipboard("<iframe class=\"modBox fade\" src=\"mod.html?modID=" + modID + "\" frameborder=\"0\"></iframe>");
+		});
+
 		document.getElementById("copyButton").addEventListener("click", function () {
 			copyToClipboard(modID);
 		});
@@ -87,7 +130,7 @@ async function asyncOnLoad() {
 			API.downloadMod(modID);
 		});
 		document.getElementById("rateButton").addEventListener("click", async function () {
-			if (isSingnedIn) {
+			if (isSignedIn) {
 				var hasLikedMod = await API.hasLiked(modID);
 
 				var likes = Number.parseInt(document.getElementById("likedCount").innerHTML);
@@ -138,11 +181,11 @@ async function asyncOnLoad() {
 		document.getElementById("likedCount").innerHTML = shortenNumber(modData.Likes);
 		document.getElementById("downloadCount").innerHTML = shortenNumber(modData.Downloads);
 
-		const asyncHasLikedMod = async function () {
-			if (isSingnedIn) {
+		const asyncHasLikedMod = async function () { // Wait, can't this be moved outside asyncGetSpecialModData?
+			if(isSignedIn) {
 				const hasLikedMod = await API.hasLiked(modID);
 
-				if (hasLikedMod) {
+				if(hasLikedMod) {
 					document.getElementById("rateButton").style = "color: var(--primaryColor);";
 				}
 			}
@@ -154,10 +197,10 @@ async function asyncOnLoad() {
 
 		const sort = urlParams.get("comments");
 		if (sort == "newest") {
-			
+
 			
 			DownloadedNonSpawnedComments = modData.Comments.sort(async function (a, b) { // put the current users comments first, otherwise sort after posted time
-				if(isSingnedIn) {
+				if(isSignedIn) {
 					var localuser = await API.getCurrentUser();
 					var aIsUser = a.PosterUserId == localuser;
 					var bIsUser = b.PosterUserId == localuser;
@@ -178,7 +221,7 @@ async function asyncOnLoad() {
 		}
 		else {
 			DownloadedNonSpawnedComments = modData.Comments.sort(async function (a, b) { // put the current users comments first, otherwise sort after likes
-				if(isSingnedIn) {
+				if(isSignedIn) {
 					var localuser = await API.getCurrentUser();
 					var aIsUser = a.PosterUserId == localuser;
 					var bIsUser = b.PosterUserId == localuser;
@@ -230,7 +273,7 @@ function SpawnNextComments() {
 		const likeButton = cloned.querySelector(".likeButton");
 
 		const asyncHasLikedComment = async function () {
-			if(!isSingnedIn) {
+			if(!isSignedIn) {
 				likeButton.style = "";
 				return;
 			}
@@ -245,7 +288,7 @@ function SpawnNextComments() {
 		asyncHasLikedComment();
 
 		likeButton.addEventListener("click", async function () {
-			if (isSingnedIn) {
+			if (isSignedIn) {
 				var hasLikedComment = await API.hasLikedComment(modID, comment.CommentID);
 				const commentLikedCountDisplay = likeButton.querySelector(".commentLikedCount");
 
@@ -275,7 +318,7 @@ function SpawnNextComments() {
 		});
 
 		var asyncIsCommentMine = async function () {
-			if(!isSingnedIn) {
+			if(!isSignedIn) {
 				return;
 			}
 

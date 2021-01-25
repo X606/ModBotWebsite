@@ -288,8 +288,6 @@ function Popup(popupBackground, popupFrame, formData)
 }
 
 async function createBanner(content, header, icon, autoClose) {
-	//await createCssIfDoesntExist();
-
 	if(currentBanners <= 0) {
 		var newDiv = document.createElement("div");
 		newDiv.id = "bannerHolder";
@@ -336,11 +334,11 @@ async function createBanner(content, header, icon, autoClose) {
 	}
 
 	if(!isNullOrWhitespace(content)) {
-		itemToAdd += "<p class='bannerContent'>";
-		itemToAdd += content;
-		itemToAdd += "</p>";
+		var itemToAdd = document.createElement("p");
+		itemToAdd.className = "bannerContent";
+		itemToAdd.textContent = content;
 
-		banner.appendChild(htmlToElem(itemToAdd));
+		banner.appendChild(itemToAdd);
 		itemToAdd = "";
 	}
 
@@ -354,7 +352,7 @@ async function createBanner(content, header, icon, autoClose) {
 	if(autoClose) {
 		setTimeout(function() {
 			if(banner != null) {
-				banner.style = "transition-duration: 0.4s; opacity: 0%; max-height: 0px;"
+				banner.style = "transition-duration: 0.3s; opacity: 0%; max-height: 0px;"
 			}
 		}, autoClose);
 		setTimeout(function() {
