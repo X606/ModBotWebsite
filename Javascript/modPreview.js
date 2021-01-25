@@ -120,7 +120,7 @@ async function asyncOnLoad() {
 			copyToClipboard("https://modbot.org/modPreview.html?modID=" + modID);
 		});
 		document.getElementById("embedButton").addEventListener("click", function () {
-			copyToClipboard("<iframe class=\"modBox fade\" src=\"mod.html?modID=" + modID + "\" frameborder=\"0\"></iframe>");
+			copyToClipboard("<iframe src=\"https://modbot.org/mod.html?modID=" + modID + "\" frameborder=\"0\" style=\"width: 15em; height: 30em\"></iframe>");
 		});
 
 		document.getElementById("copyButton").addEventListener("click", function () {
