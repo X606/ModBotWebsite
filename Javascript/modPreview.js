@@ -1,6 +1,6 @@
 import { API } from "/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
-import { shortenNumber } from "./Modules/textHandeling.js";
+import { shortenNumber, processText } from "./Modules/textHandeling.js";
 
 function copyToClipboard(str) {
 	const el = document.createElement('textarea');
@@ -78,7 +78,7 @@ async function asyncOnLoad() {
 		if (!description) {
 			description = "";
 		}
-		document.getElementsByClassName("modDescription")[0].innerHTML = description;
+		document.getElementsByClassName("modDescription")[0].innerHTML = processText(description);
 
 		var favoriteButton = document.getElementById("favoriteButton");
 		if(isSignedIn) {
@@ -267,7 +267,7 @@ function SpawnNextComments() {
 		let userHeader = cloned.querySelector(".userHeader").src ="/api?operation=getUserHeader&userID=" + comment.PosterUserId;
 		cloned.querySelector("#postTime").innerHTML = timeDifference(new Date().getTime(), comment.PostedUTCTime*1000);
 		var content = cloned.querySelector(".commentContent");
-		content.innerHTML = comment.CommentBody;
+		content.innerHTML = processText(comment.CommentBody);
 
 		cloned.querySelector(".commentLikedCount").innerHTML = shortenNumber(comment.UsersWhoLikedThis.length);
 		const likeButton = cloned.querySelector(".likeButton");

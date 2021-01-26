@@ -1,5 +1,6 @@
 import { API } from "/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
+import {processText} from "./Modules/textHandeling.js"
 
 function copyToClipboard(str) {
 	const el = document.createElement('textarea');
@@ -86,7 +87,7 @@ var asyncOnStart = async function () {
 			break;
 	}
 
-	document.getElementsByClassName("userDescription")[0].innerHTML = userData.bio;
+	document.getElementsByClassName("userDescription")[0].innerHTML = processText(userData.bio);
 
 	document.getElementById("copyButton").addEventListener("click", function () {
 		copyToClipboard(userID);

@@ -1,6 +1,6 @@
 import { API } from "/api?operation=getAPI";
 import { createBanner } from "./Modules/popup.js";
-import {shortenNumber} from "./Modules/textHandeling.js"
+import {shortenNumber, processText} from "./Modules/textHandeling.js"
 
 function copyToClipboard(str) {
 	const el = document.createElement('textarea');
@@ -41,7 +41,7 @@ async function asyncOnLoad() {
 			description = "";
 		}
 
-		document.getElementsByClassName("modDescription")[0].innerHTML = description;
+		document.getElementsByClassName("modDescription")[0].innerHTML = processText(description);
 		document.getElementsByClassName("previewLink")[0].href += "?modID=" + modID;
 
 		likeButton.addEventListener("click", function() {

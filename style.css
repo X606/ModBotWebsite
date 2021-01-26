@@ -305,7 +305,7 @@ div.modListing img.modImage {
 	object-position: left;
 }
 
-div.modListing a.link {
+div.modListing a.modLink {
 	margin: calc(var(--spaceModifier) / -4);
 	margin-bottom: 0px;
 
@@ -313,7 +313,7 @@ div.modListing a.link {
 	display: block;
 }
 
-div.modListing a.link:hover {
+div.modListing a.modLink:hover {
 	background-color: var(--primaryGrey);
 	text-decoration: underline;
 }
@@ -356,6 +356,15 @@ a {
 
 	outline: none;
 	text-decoration: none;
+}
+
+a.link {
+	color: var(--secondaryBlue);
+}
+
+a.link:hover {
+	color: var(--tertiaryBlue);
+	text-decoration: underline;
 }
 
 ul.generalList {
