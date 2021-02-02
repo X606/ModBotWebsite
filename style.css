@@ -113,12 +113,12 @@ div.outline {
 /* Wide background image at top of layot.*/
 img.backgroundImage {
 	width: calc(100vw - var(--sidebarWidth));
-	height: calc(var(--backgroundImageHeight) - 1px);
+	height: calc(var(--backgroundImageHeight) - 5px);
 
-	margin: calc(0px - var(--spaceModifier));
+	margin: calc(0px - var(--spaceModifier) - 2.5px);
 	z-index: -1;
 
-	filter: blur(3px);
+	filter: blur(5px);
 	
 	position: absolute;
 	object-fit: cover;
@@ -207,6 +207,7 @@ iframe.sidebar {
 	top: 0px;
 	height: 100vh;
 	
+	background-color: var(--tertiaryDark);
 	position: fixed;
 }
 

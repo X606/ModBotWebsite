@@ -13,7 +13,6 @@ function shortenNumber(number) {
 }
 
 function processText(rawText) {
-	console.log(rawText)
 	return rawText.replace(/(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm, function(link) {
 		return "<a target='_blank' class='link' href='" + link + "'>" + link + "</a>";
 	});
