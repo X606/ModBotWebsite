@@ -42,7 +42,7 @@
 
 		/* Extender div behind button texts, purely decorative. */
 		div.extend {
-			right: 0px;
+			right: 1em;
 			width: calc(var(--borderWidth));
 			
 			margin-top: -1em;
@@ -67,16 +67,17 @@
 
 		/* Colors the button orange by extending div. */
 		span:hover div.extend {
-			width: calc(100% - 1em);
-			
+			width: calc(100% - 2em);
 		}
 		
 		/* Places span correctly in relation to other spans. */
 		span {
-			width: calc(100% - 3em);
+			width: calc(100% - 4em);
 			height: 1em;
 
 			padding: 1em;
+			margin-right: 1em;
+
 			background-color: var(--secondaryDark);
 			
 			text-align: right;
@@ -151,14 +152,14 @@
 
 		<!-- All buttons consist of a name paragraph next to an extend div, all inside a span inside a link. -->
 		<!-- The first button's span needs to have the 'first' class, so that the top corners are rounded. -->
-		<a href="/index.html" target="_parent"><span class="first"><div class="extend"></div><p>Home Page</p></span></a>
+		<a href="/index.html" target="_top"><span class="first"><div class="extend"></div><p>Home Page</p></span></a>
 
-		<a href="/modBrowsing.html" target="_parent"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
-		<a href="/tagBrowsing.html" target="_parent"><span><div class="extend"></div><p>Tag Browsing</p></span></a>
-		<a href="/errorPage.html" target="_parent"><span><div class="extend"></div><p>How to download</p></span></a>
-		<a href="/admin.html" target="_parent" style="display: none;" id="adminButton"><span><div class="extend"></div><p>Admin page</p></span></a>
+		<a href="/modBrowsing.html" target="_top"><span><div class="extend"></div><p>Mod Browsing</p></span></a>
+		<a href="/tagBrowsing.html" target="_top"><span><div class="extend"></div><p>Tag Browsing</p></span></a>
+		<a href="/Reference/installation.html" target="_top"><span><div class="extend"></div><p>Tutorials & References</p></span></a>
+		<a href="/admin.html" target="_top" style="display: none;" id="adminButton"><span><div class="extend"></div><p>Admin page</p></span></a>
 
 		<!-- The last button's span needs to have the 'last' class, so that the bottom corners are rounded. -->
-		<a href="/404.html" target="_parent"><span class="last"><div class="extend"></div><p>Credits</p></span></a>
+		<a href="/404.html" target="_top"><span class="last"><div class="extend"></div><p>Credits</p></span></a>
 	</body>
 </html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<link rel="icon" href="/Assets/Icon.png">
+		<link rel="stylesheet" href="/style.css">
+
+		<title>Mod-Bot Level Scripting</title>
+
+		<script src="/Javascript/sidebar.js" type="module"></script>
+		<script src="/Javascript/reference.js" type="module"></script>
+
+		<!-- Workaround to fix transition bug on chrome. -->
+		<script></script>
+	</head>
+	<body class="frame">
+		<!-- Sidebar navigation menu. -->
+		<iframe class="sidebar" src="/sidebar.html" frameborder="0"></iframe>
+		
+		<!-- Background image at top with gradient at bottom. -->
+		<img class="backgroundImage" id="backgroundImage">
+		<div class="backgroundGradient"></div>
+
+		<!-- Background div with main content inside. -->
+		<div class="frame">
+			<table class="layout">
+				<tr>
+					<td><a class="button" target="_top" href="/Reference/installation.html">Installation<div class="extender"></div></a></td>
+					<td><a class="button">Level editing<div class="extender"></div></a></td>
+					<td><a class="button" target="_top" href="/Reference/Modding/index.html">Modding<div class="extender"></div></a></td>
+				</tr>
+				<tr>
+					<td>
+						<ul class="contents">
+							<h3>Contents</h3>
+							<li><item href="levelScripting/index.html">A thing</item></li>
+							<li><item href="levelScripting/someOtherThing/index.html">Some other thing</item>
+								<ul>
+									<li><item href="levelScripting/someOtherThing/godILoveThisThing.html">God I love this thing</item></li>
+									<li><item href="levelScripting/someOtherThing/itsVeryGood/index.html">It's very good</item>
+										<ul>
+											<li><item href="levelScripting/someOtherThing/itsVeryGood/aaaa.html">AAAA</item></li>
+										</ul>
+									</li>
+									<li><item href="levelScripting/someOtherThing/fantastic.html">Fantastc</item></li>
+								</ul>
+							</li>
+							<li><item href="levelScripting/veryManyThings.html">Very many things</item></li>
+							<li><item href="levelScripting/aLotinFact">A lot in fact</item></li>
+						</ul>
+					</td>
+					<td colspan="2">
+						<iframe class="page" id="page" frameborder="0"></iframe>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
+
+
+
+

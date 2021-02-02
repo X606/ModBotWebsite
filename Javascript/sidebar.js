@@ -7,7 +7,7 @@ const images = ["arm.png", "armored.png", "beam.png", "beast.png", "bow.png", "b
 
 async function asyncOnLoad() {
 	var backgroundImage = document.getElementById("backgroundImage");
-	backgroundImage.src = "Assets/BackgroundImages/" + images[Math.floor(Math.random() * images.length)];
+	backgroundImage.src = "/Assets/BackgroundImages/" + images[Math.floor(Math.random() * images.length)];
 	backgroundImage.addEventListener("load", function() {
 		backgroundImage.style = "opacity: 100%; transition: opacity 1s;"
 	});

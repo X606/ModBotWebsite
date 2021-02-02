@@ -110,6 +110,55 @@ div.outline {
 	background-color: var(--tertiaryDark);
 }
 
+/* Additional buttons used for page navigations. */
+a.button {
+	padding: 1em;
+
+	background-color: var(--tertiaryDark);
+	border-radius: var(--borderWidth);
+
+	font-size: 1.6rem;
+	text-align: center;
+
+	display: block;
+	
+	position: relative;
+	z-index: 0;
+}
+
+a.button:not([href]) {
+	background-color: var(--tertiaryOrange);
+}
+
+div.extender {
+	width: 100%;
+	height: var(--borderWidth);
+
+	left: 0px;
+	bottom: 0px;
+
+	background-color: var(--tertiaryOrange);
+	border-bottom-left-radius: var(--borderWidth);
+	border-bottom-right-radius: var(--borderWidth);
+
+	position: absolute;
+	z-index: -1;
+
+	transition: 0.1s;
+	transition-timing-function: ease;
+}
+
+a.button[href]:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+a.button:hover div.extender {
+	height: 100%;
+	border-top-left-radius: var(--borderWidth);
+	border-top-right-radius: var(--borderWidth);
+}
+
 /* Wide background image at top of layot.*/
 img.backgroundImage {
 	width: calc(100vw - var(--sidebarWidth));
@@ -196,7 +245,7 @@ div.commentBackground button.showMore {
 }
 
 /* Things that aren't meant to be selected. */
-img, i.material-icons, iframe, button {
+img, i.material-icons, iframe, button, a.button, ul.contents {
 	user-select: none;
 }
 
@@ -242,6 +291,11 @@ iframe.userHeader {
 iframe.console {
 	width: 100%;
 	height: 30em;
+}
+
+iframe.page {
+	width: 100%;
+	transition: opacity 5s;
 }
 
 /* Table styling. */
@@ -420,6 +474,41 @@ ul.generalList {
 
 .greyText a:hover.hiddenLink {
 	color: var(--tertiaryLight);
+}
+
+/* Table of contents styling. */
+
+/* Trusted solution for numbering from stack overflow. */
+ul.contents, ul.contents ul {
+	list-style-type: none;
+	counter-reset: item
+}
+
+ul.contents item, ul.contents ul item {
+	display: block
+}
+
+ul.contents item:before, ul.contents ul item:before {
+	color: var(--tertiaryOrange);
+	font-weight: bold;
+
+	content: counters(item, ".") " ";
+	counter-increment: item
+}
+
+ul.contents {
+	padding: 1em;
+	background-color: var(--tertiaryDark);
+}
+
+ul.contents item {
+	padding: 0.3em;
+}
+
+ul.contents item:hover {
+	background-color: var(--primaryHighlight);
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 /* Form and input styling. */
