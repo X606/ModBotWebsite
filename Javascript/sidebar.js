@@ -3,10 +3,15 @@ import { createPopup, FormData } from "./Modules/popup.js";
 
 window.API = API;
 
-const images = ["arm.png", "armored.png", "bow.png", "bowing.png", "dino.jpg", "fire.png", "flying.png", "gather.png", "hammer.png", "headless.png", "host.png", "knight.png", "laser.png", "look.png", "messy.png", "neon.png", "shield.jpg", "sparks.png", "spidertaur.jpg", "statue.png", "sword.jpg"];
+const images = ["arm.png", "armored.png", "beam.png", "beast.png", "bow.png", "bowing.png", "dino.jpg", "fire.png", "flat.png", "flying.png", "gather.png", "glowing.png", "god.png", "hammer.png", "headless.png", "host.png", "knight.png", "laser.png", "look.png", "messy.png", "mighty.png", "neon.png", "shield.jpg", "sick.png", "sparks.png", "spidertaur.jpg", "statue.png", "sword.jpg"];
 
 async function asyncOnLoad() {
-	document.getElementById("backgroundImage").src = "Assets/BackgroundImages/" + images[Math.floor(Math.random() * images.length)];
+	var backgroundImage = document.getElementById("backgroundImage");
+	backgroundImage.src = "Assets/BackgroundImages/" + images[Math.floor(Math.random() * images.length)];
+	backgroundImage.addEventListener("load", function() {
+		backgroundImage.style = "opacity: 100%; transition: opacity 1s;"
+	});
+	
 	const sessionID = await API.getCurrentSessionId();
 
 	if (sessionID != "" && await API.isValidSession(sessionID)) { // if is signed in
