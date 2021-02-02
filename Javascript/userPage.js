@@ -55,8 +55,7 @@ var asyncOnStart = async function () {
 
 	var userData = await API.getUser(userID);
 	if (userData.isError) {
-		console.log(userData);
-		//window.location.replace("/404.html");
+		window.location.replace("/404.html");
 		return;
 	}
 
@@ -93,7 +92,16 @@ var asyncOnStart = async function () {
 		copyToClipboard(userID);
 	});
 
-	API.getProfilePicture(document.getElementsByClassName("userAvatar")[0], userID);
+	var userAvatar = document.getElementsByClassName("userAvatar")[0];
+	API.getProfilePicture(userAvatar, userID);
+	switch (userData.borderStyle) {
+		case 1:
+			userAvatar.style = "border-radius: 25%;";
+			break;
+		case 2:
+			userAvatar.style = "border-radius: 50%;";
+			break;
+	}
 	//document.getElementsByClassName("modsHolder")[0].innerHTML = ""; TODO: send request to get the featured mods
 
 	var mods = userData.favoritedMods;

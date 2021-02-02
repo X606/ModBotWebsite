@@ -3,7 +3,10 @@ import { createPopup, FormData } from "./Modules/popup.js";
 
 window.API = API;
 
+const images = ["arm.png", "armored.png", "bow.png", "bowing.png", "dino.jpg", "fire.png", "flying.png", "gather.png", "hammer.png", "headless.png", "host.png", "knight.png", "laser.png", "look.png", "messy.png", "neon.png", "shield.jpg", "sparks.png", "spidertaur.jpg", "statue.png", "sword.jpg"];
+
 async function asyncOnLoad() {
+	document.getElementById("backgroundImage").src = "Assets/BackgroundImages/" + images[Math.floor(Math.random() * images.length)];
 	const sessionID = await API.getCurrentSessionId();
 
 	if (sessionID != "" && await API.isValidSession(sessionID)) { // if is signed in

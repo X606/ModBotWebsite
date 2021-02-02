@@ -13,8 +13,6 @@
 	<script src="/Javascript/userPage.js" type="module"></script>
 	<script src="/Javascript/sidebar.js" type="module"></script>
 
-	<title>Mod-Bot</title>
-
 	<!-- Workaround to fix transition bug on chrome. -->
 	<script></script>
 </head>
@@ -78,12 +76,12 @@
 		<iframe class="sidebar" src="sidebar.html" frameborder="0"></iframe>
 
 		<!-- Background image at top with gradient at bottom. -->
-		<img class="backgroundImage" src="Assets/Screenshots/1.jpg">
+		<img class="backgroundImage" id="backgroundImage">
 		<div class="backgroundGradient"></div>
 
 		<!-- Background div with main content inside. -->
 		<div class="frame" id="mainHolder">
-			<img class="userAvatar" src="Assets/DefaultAvatar.png" alt="User avatar">
+			<img class="userAvatar" alt="User avatar">
 			<h2 class="userName">Loading name...</h2>
 			<i id="icon" class="material-icons"></i>
 			<p id="userType"></p>
