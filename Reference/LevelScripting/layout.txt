@@ -1,0 +1,8 @@
+"DEBUG" "LevelScripting/index.html"
+"Documentation" ""
+	"Global" "LevelScripting/Documentation/Global.html"
+		"Debug" "LevelScripting/Documentation/Global/Debug.html"
+		"Input" "LevelScripting/Documentation/Global/Input.html"
+		"LevelObjects" "LevelScripting/Documentation/Global/LevelObjects.html"
+	"Vector3" "LevelScripting/Documentation/Vector3.html"
+	"GameObject" "LevelScripting/Documentation/GameObject.html"

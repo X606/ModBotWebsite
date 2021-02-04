@@ -53,7 +53,6 @@
 	
 	/* A value that affects margin/padding on all elements. */
 	--spaceModifier: calc(3vw + 1em);
-	font-family: Arial, Helvetica, sans-serif;
 	scroll-behavior: smooth;
 }
 
@@ -66,6 +65,8 @@ body {
 
 	color: var(--primaryLight);
 	position: relative;
+
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Background body, leaves space for sidebar iframe. */
@@ -293,9 +294,8 @@ iframe.console {
 	height: 30em;
 }
 
-iframe.page {
+div.page {
 	width: 100%;
-	transition: opacity 5s;
 }
 
 /* Table styling. */
@@ -481,13 +481,14 @@ ul.generalList {
 /* Trusted solution for numbering from stack overflow. */
 ul.contents, ul.contents ul {
 	list-style-type: none;
-	counter-reset: item
+	/*counter-reset: item;*/
+	overflow-y: hidden;
 }
 
 ul.contents item, ul.contents ul item {
 	display: block
 }
-
+/*
 ul.contents item:before, ul.contents ul item:before {
 	color: var(--tertiaryOrange);
 	font-weight: bold;
@@ -495,6 +496,124 @@ ul.contents item:before, ul.contents ul item:before {
 	content: counters(item, ".") " ";
 	counter-increment: item
 }
+	*/
+
+
+.page {
+	font-family: Segoe UI,SegoeUI,Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}	
+	.page hr.tiny {
+		border: solid calc(var(--borderWidth) / 2) #1e1e1e;
+	}
+	.page a {
+		color: var(--primaryBlue);
+	}
+		.page a:hover {
+			text-decoration: underline;
+		}
+
+	.page li {
+		margin-top: 1em;
+		list-style-type: disc;
+	}
+
+	.page note {
+		background-color: #0b517b;
+		display: block;
+		padding: 0.7em;
+		padding-top: 0.7em;
+		padding-top: 3em;
+		border-radius: 4px;
+		margin-top: 1em;
+		position: relative;
+	}
+		.page note > div {
+			position: absolute;
+			left: 0.7em;
+			right: 0.7em;
+			top: 0.9em;
+			height: 1.5em;
+			font-size: 1.1em;
+			font-weight: bold;
+		}
+	.page warning {
+		background-color: #7b200b;
+		display: block;
+		padding: 0.7em;
+		padding-top: 0.7em;
+		padding-top: 3em;
+		border-radius: 4px;
+		margin-top: 1em;
+		position: relative;
+	}
+		.page warning > div {
+			position: absolute;
+			left: 0.7em;
+			right: 0.7em;
+			top: 0.9em;
+			height: 1.5em;
+			font-size: 1.1em;
+			font-weight: bold;
+		}
+
+	.page pre {
+		position: relative;
+		height: 230px;
+		background-color: #1e1e1e;
+		border-width: 2px;
+		border-style: solid;
+		border-color: #2e2e2e;
+	}
+		.page pre > .header {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			height: 30px;
+		}
+			.page .header > .headerItem {
+				width: 60px;
+				position: relative;
+				display: inline-block;
+				text-align: center;
+				height: 30px;
+				user-select: none;
+				cursor: pointer;
+			}
+				.page .headerItem.selectedItem {
+					background-color: var(--primaryBlue);
+				}
+				.page .header > .headerItem:hover {
+					text-decoration: underline;
+				}
+				.page .headerItem > span {
+					position: absolute;
+					top: 50%;
+					transform: translate(-50%,-50%);
+					left: 50%;
+					text-decoration: inherit;
+				}
+
+		.page pre > code {
+			font-family: Consolas;
+			tab-size: 4;
+			-moz-tab-size: 4;
+			border-top-style: solid;
+			border-color: #2e2e2e;
+			border-width: 2px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			position: absolute;
+			left: 0px;
+			right: 0px;
+			top: 30px;
+			bottom: 0px;
+		}
+
+		code * {
+			font-family: Consolas, Monaco, monospace !important;
+		}
 
 ul.contents {
 	padding: 1em;
@@ -503,6 +622,12 @@ ul.contents {
 
 ul.contents item {
 	padding: 0.3em;
+	position: relative;
+}
+item button {
+	position: absolute;
+	left: -15px;
+	top: 0px;
 }
 
 ul.contents item:hover {
