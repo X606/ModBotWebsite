@@ -187,8 +187,7 @@ function setPage(path) {
 			PRE.prepend(HEADER);
 
 			let overrideHeight = PRE.getAttribute("height");
-			if (overrideHeight != null)
-			{
+			if (overrideHeight != null) {
 				PRE.style.height = overrideHeight;
 			}
 			else {
