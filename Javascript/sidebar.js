@@ -3,7 +3,7 @@ import { createPopup, FormData } from "./Modules/popup.js";
 
 window.API = API;
 
-const images = ["arm.png", "armored.png", "beam.png", "beast.png", "bow.png", "bowing.png", "dino.jpg", "fire.png", "flat.png", "flying.png", "gather.png", "glowing.png", "god.png", "hammer.png", "headless.png", "host.png", "knight.png", "laser.png", "look.png", "messy.png", "mighty.png", "neon.png", "shield.jpg", "sick.png", "sparks.png", "spidertaur.jpg", "statue.png", "sword.jpg"];
+const images = ["arm.png", "armored.png", "beam.png", "beast.png", "behind.png", "bow.png", "bowing.png", "dino.jpg", "down.png", "fire.png", "flat.png", "flying.png", "gather.png", "glowing.png", "god.png", "hammer.png", "headless.png", "host.png", "knight.png", "laser.png", "look.png", "messy.png", "mighty.png", "neon.png", "no.png", "shield.jpg", "sick.png", "sparks.png", "spear.png", "spidertaur.jpg", "statue.png", "statuer.png", "sword.jpg"];
 
 async function asyncOnLoad() {
 	var backgroundImage = document.getElementById("backgroundImage");
