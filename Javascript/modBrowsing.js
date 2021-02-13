@@ -38,7 +38,7 @@ async function resort() {
 	searchRequest.sortOrder = sortingType.value;
 	searchRequest.searchString = searchBox.value;
 
-	var modIds = await searchRequest.Send();
+	var modIds = (await searchRequest.Send()).ModIds;
 	
 	if (sortingDirection.value == "low") {
 		modIds = modIds.reverse();

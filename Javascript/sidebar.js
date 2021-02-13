@@ -110,8 +110,8 @@ async function asyncOnLoad() {
 						document.getElementById("signUpButton").style = "display: none";
 						const returnValue = await API.createAccount(username.value, password.value);
 
-						if (returnValue.isError) {
-							var error = returnValue.error;
+						if (returnValue.Error != null) {
+							var error = returnValue.Error;
 							if (error == "That username is already taken") {
 								usernameError.innerHTML = error;
 							} else {
@@ -163,8 +163,8 @@ async function asyncOnLoad() {
 						document.getElementById("loginButton").style = "display: none";
 						const returnValue = await API.signIn(username.value, password.value);
 
-						if (returnValue.error) {
-							genericError.innerHTML = returnValue.error;
+						if (returnValue.Error != null) {
+							genericError.innerHTML = returnValue.Error;
 							document.getElementById("loginButton").style = "";
 							return;
 						}

@@ -29,7 +29,7 @@ var asyncOnStart = async function () {
 		var searchRequest = new API.search();
 		searchRequest.userID = userID;
 		searchRequest.sortOrder = searchRequest.Liked;
-		var mods = await searchRequest.Send();
+		var mods = (await searchRequest.Send()).ModIds;
 
 		var generatedHTML = "";
 
