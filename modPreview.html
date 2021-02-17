@@ -161,18 +161,18 @@
 				<iframe id="modAuthor" class="userHeader" frameborder="0"></iframe>
 
 				<div class="menu">
-					<i id="menuButton" class="material-icons">more_horiz</i>
+					<img class="menuButton" src="Assets/Icons/more.png">
 					<div class="menuItems">
-						<a id="favoriteButton"><p class="first" id="favoriteText"><i class="material-icons" id="favoriteIcon">star</i>Favorite mod</p></a>
-						<a id="linkButton"><p><i class="material-icons">link</i>Copy hyperlink</p></a>
-						<a id="embedButton"><p class="last"><i class="material-icons">code</i>Copy iframe embed</p></a>
+						<a id="favoriteButton"><p class="first" id="favoriteText"><img id="favoriteIcon" src="Assets/Icons/star.png">Favorite mod</p></a>
+						<a id="linkButton"><p><img src="Assets/Icons/link.png">Copy hyperlink</p></a>
+						<a id="embedButton"><p class="last"><img src="Assets/Icons/embed.png">code</i>Copy iframe embed</p></a>
 					</div>
 				</div>
 
 				<div class="buttonHolder">
-					<button id="downloadButton" class="orange"><i class="material-icons">get_app</i>Download <span id="downloadCount">...</span></button>
-					<button id="copyButton"><i class="material-icons">content_paste</i>Copy ID</button>
-					<button id="rateButton"><i class="material-icons">thumb_up</i> Like <span id="likedCount">...</span></button>
+					<button id="downloadButton" class="orange"><img src="Assets/Icons/download.png">Download <span id="downloadCount">...</span></button>
+					<button id="copyButton"><img src="Assets/Icons/copy.png">Copy ID</button>
+					<button id="rateButton"><img src="Assets/Icons/like.png">Like <span id="likedCount">...</span></button>
 				</div>
 				<p class="greyText">
 					Upload date:
@@ -193,7 +193,7 @@
 				<div id="commentPoster" class="commentPoster" style="display: none;">
 					<p id="commentError" class="errorText"></p>
 					<textarea id="commentTextArea" rows="5" placeholder="What are your thoughts on this mod?"></textarea>
-					<button id="postCommentButton" class="orange"><i class="material-icons">add_comment</i> Post comment</button>
+					<button id="postCommentButton" class="orange"><img src="Assets/Icons/comment.png">Post comment</button>
 				</div>
 				<label>Sort by:</label>
 				<select id="commentSorting">
@@ -202,14 +202,14 @@
 				</select>
 				<div class="commentBackground" id="commentPrefab" style="display: none;">
 					<iframe class="userHeader" src="" frameborder="0"></iframe>
-					<p style="opacity: 0; transition-duration: 1s; transition-property: opacity;" class="commentContent">Very good mod, I'd highly recommend.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+					<p style="opacity: 0; transition-duration: 1s; transition-property: opacity;" class="commentContent">Loading comment...</p>
 					
 					<div class="commentGradient">
 						<div class="commentActions">
-							<span class="greyText">Posted <span class="date" id="postTime">3 hours</span> ago.</span>
+							<span class="greyText">Posted <span class="date" id="postTime">... hours</span> ago.</span>
 							<button class="showButton">Show more</button>
-							<button class="likeButton"><i class="material-icons">thumb_up</i> Like <span class="commentLikedCount">...</span></button>
-							<button style="display: none;" class="deleteButton"><i class="material-icons">delete</i> Delete</button>
+							<button class="likeButton"><img src="Assets/Icons/like.png">Like <span class="commentLikedCount">...</span></button>
+							<button style="display: none;" class="deleteButton"><img src="Assets/Icons/delete.png">Delete</button>
 						</div>
 					</div>
 				</div>

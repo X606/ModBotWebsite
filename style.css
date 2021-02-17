@@ -725,10 +725,17 @@ button i.material-icons, input[type=submit] i.material-icons {
 	font-size: 1.5rem;
 }
 
-button img {
-	height: 1em;
+button img, a.button img, input[type=submit] img, div.menu img {
+	height: 1.2em;
+	width: 1.2em;
+	margin: -0.1em;
 	margin-right: 0.5em;
-	vertical-align: bottom;
+
+	vertical-align: middle;
+	object-fit: contain;
+
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
 }
 
 button span {
@@ -831,7 +838,7 @@ div.menuItems i.material-icons {
 	margin-right: calc(var(--spaceModifier) / 8);
 }
 
-i.material-icons#menuButton {
+.menuButton {
 	bottom: 0px;
 	vertical-align: middle;
 
@@ -848,7 +855,7 @@ div.menu:hover div.menuItems {
 	display: block;
 }
 
-div.menu:hover i.material-icons#menuButton {
+div.menu:hover .menuButton {
 	display: none;
 }
 
