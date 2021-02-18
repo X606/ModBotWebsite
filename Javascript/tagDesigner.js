@@ -16,9 +16,9 @@ var tagID = null;
 async function onStartup() {
 	tagID = urlParams.get('tagID');
 	if (tagID != null) {
-		let tag = await API.getTag(tagID);
+		let tag = (await API.getTag(tagID)).Tag;
 		console.log(tag);
-		if (tag == null) {
+		if(tag == null) {
 			setTagName("[New Tag]");
 			GenerateString(tagName);
 			tagID = null;
