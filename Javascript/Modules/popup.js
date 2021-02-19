@@ -242,7 +242,7 @@ function Popup(popupBackground, popupFrame, formData)
 	this.createSubmitInput = function(text) {
 		var itemToAdd = "";
 
-		itemToAdd += "<input class='green' value='";
+		itemToAdd += "<input class='orange' value='";
 		itemToAdd += text;
 		itemToAdd += "' type='submit'>";
 
@@ -258,7 +258,7 @@ function Popup(popupBackground, popupFrame, formData)
 			itemToAdd += id;
 			itemToAdd += "\" ";
 		}
-		itemToAdd += "class='green'>";
+		itemToAdd += "class='orange'>";
 		itemToAdd += text;
 		itemToAdd += "</button>";
 

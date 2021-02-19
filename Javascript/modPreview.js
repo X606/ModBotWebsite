@@ -61,6 +61,8 @@ async function asyncOnLoad() {
 		document.getElementById("signInText").style = "";
 	}
 
+	const likeButton = document.getElementById("rateButton");
+	const likeImage = likeButton.querySelector("img");
 	
 	const asyncGetModData = async function () {
 		var modData = await API.getModData(modID);
@@ -87,18 +89,18 @@ async function asyncOnLoad() {
 				var userInfo = await API.getUser(userID);
 				var hasFavorited = userInfo.favoritedMods.includes(modID);;
 
-				var favoriteText = document.getElementById("favoriteText");
-				var favoriteIcon = document.getElementById("favoriteIcon");
+				const favoriteText = document.getElementById("favoriteText");
+				const favoriteImage = document.getElementById("favoriteImage");
 
 				function updateButton() {
 					if(hasFavorited) {
 						favoriteButton.style = "color: var(--primaryColor);";
 						favoriteText.childNodes[1].nodeValue = "Unfavorite mod";
-						favoriteIcon.innerHTML = "star_border";
+						favoriteImage.src = "/Assets/Icons/starred.png";
 					} else {
 						favoriteButton.style = "";
 						favoriteText.childNodes[1].nodeValue = "Favorite mod";
-						favoriteIcon.innerHTML = "star";
+						favoriteImage.src = "/Assets/Icons/star.png";
 					}
 				}
 				updateButton();
@@ -129,17 +131,23 @@ async function asyncOnLoad() {
 		document.getElementById("downloadButton").addEventListener("click", function () {
 			API.downloadMod(modID);
 		});
-		document.getElementById("rateButton").addEventListener("click", async function () {
+		
+		likeButton.addEventListener("click", async function () {
 			if (isSignedIn) {
 				var hasLikedMod = await API.hasLiked(modID);
 
 				var likes = Number.parseInt(document.getElementById("likedCount").innerHTML);
+				
 
 				if (!hasLikedMod) {
-					document.getElementById("rateButton").style = "color: var(--primaryColor);";
+					likeButton.style = "color: var(--primaryColor);";
+					likeButton.childNodes[1].nodeValue = "Unlike"
+					likeImage.src = "/Assets/Icons/liked.png";
 					likes++;
 				} else {
-					document.getElementById("rateButton").style = "";
+					likeButton.style = "";
+					likeButton.childNodes[1].nodeValue = "Like"
+					likeImage.src = "/Assets/Icons/like.png";
 					likes--;
 				}
 				API.like(modID, !hasLikedMod);
@@ -186,7 +194,9 @@ async function asyncOnLoad() {
 				const hasLikedMod = await API.hasLiked(modID);
 
 				if(hasLikedMod) {
-					document.getElementById("rateButton").style = "color: var(--primaryColor);";
+					likeButton.style = "color: var(--primaryColor);";
+					likeButton.childNodes[1].nodeValue = "Unlike"
+					likeImage.src = "/Assets/Icons/liked.png";
 				}
 			}
 		}
@@ -197,8 +207,6 @@ async function asyncOnLoad() {
 
 		const sort = urlParams.get("comments");
 		if (sort == "newest") {
-
-			
 			DownloadedNonSpawnedComments = modData.Comments.sort(async function (a, b) { // put the current users comments first, otherwise sort after posted time
 				if(isSignedIn) {
 					var localuser = await API.getCurrentUser();
@@ -271,6 +279,7 @@ function SpawnNextComments() {
 
 		cloned.querySelector(".commentLikedCount").innerHTML = shortenNumber(comment.UsersWhoLikedThis.length);
 		const likeButton = cloned.querySelector(".likeButton");
+		const likeImage = likeButton.querySelector("img");
 
 		const asyncHasLikedComment = async function () {
 			if(!isSignedIn) {
@@ -281,8 +290,8 @@ function SpawnNextComments() {
 			const hasLikedComment = await API.hasLikedComment(modID, comment.CommentID);
 			if (hasLikedComment) {
 				likeButton.style = "color: var(--primaryColor);";
-			} else {
-				likeButton.style = "";
+				likeButton.childNodes[1].nodeValue = "Unlike";
+				likeImage.src = "/Assets/Icons/liked.png";
 			}
 		}
 		asyncHasLikedComment();
@@ -295,9 +304,13 @@ function SpawnNextComments() {
 				var likes = Number.parseInt(commentLikedCountDisplay.innerHTML);
 				if (!hasLikedComment) {
 					likeButton.style = "color: var(--primaryColor);";
+					likeButton.childNodes[1].nodeValue = "Unlike";
+					likeImage.src = "/Assets/Icons/liked.png";
 					likes++;
 				} else {
 					likeButton.style = "";
+					likeButton.childNodes[1].nodeValue = "Like";
+					likeImage.src = "/Assets/Icons/like.png";
 					likes--;
 				}
 
@@ -311,7 +324,7 @@ function SpawnNextComments() {
 		
 		const deleteButton = cloned.querySelector(".deleteButton");
 		deleteButton.addEventListener("click", function () {
-			if (confirm("Are you sure you want to delete your comment?")) {
+			if (confirm("Are you sure you want to delete this comment?")) {
 				API.deleteComment(modID, comment.CommentID);
 				cloned.remove();
 			}

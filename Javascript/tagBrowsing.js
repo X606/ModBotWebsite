@@ -218,6 +218,8 @@ async function loadTags() {
 		const useTagButton = cloned.querySelector("#useTagButton");
 		if (myTags.includes(tags[i].TagID)) {
 			useTagButton.style = "color: var(--primaryColor);";
+			useTagButton.childNodes[1].nodeValue = "Stop using tag";
+			useTagButton.querySelector("img").src = "/Assets/Icons/tagged.png"
 		}
 		useTagButton.addEventListener("click", () => {
 			if (myTags.includes(tags[index].TagID)) {
@@ -229,6 +231,8 @@ async function loadTags() {
 				onMyTagsChanged((worked) => {
 					if(worked) {
 						useTagButton.style = "";
+						useTagButton.childNodes[1].nodeValue = "Use this tag";
+						useTagButton.querySelector("img").src = "/Assets/Icons/tagPlus.png"
 					}
 				});
 				
@@ -238,6 +242,8 @@ async function loadTags() {
 				onMyTagsChanged((worked) => {
 					if(worked) {
 						useTagButton.style = "color: var(--primaryColor)";
+						useTagButton.childNodes[1].nodeValue = "Stop using tag";
+						useTagButton.querySelector("img").src = "/Assets/Icons/tagged.png"
 					}
 				});
 
