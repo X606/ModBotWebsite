@@ -302,23 +302,9 @@ async function createBanner(content, header, icon, autoClose) {
 	var itemToAdd = "";
 
 	if(!isNullOrWhitespace(icon)) {
-		itemToAdd += "<i class='material-icons'";
-		if(icon == "check_circle") {
-			itemToAdd += " style='color: var(--tertiaryGreen);'";
-
-		} else if(icon == "error" || icon == "warning" ) {
-			itemToAdd += " style='color: var(--tertiaryRed);'";
-
-		} else if(icon == "help") {
-			itemToAdd += " style='color: var(--secondaryBlue);'";
-
-		} else if(icon == "storage") {
-			itemToAdd += " style='color: var(--secondaryYellow);'";
-
-		}
-		itemToAdd += ">";
+		itemToAdd += "<img class='icon' src='Assets/Icons/";
 		itemToAdd += icon;
-		itemToAdd += "</i>";
+		itemToAdd += ".png'>";
 
 		banner.appendChild(htmlToElem(itemToAdd));
 		itemToAdd = "";

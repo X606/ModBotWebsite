@@ -95,7 +95,7 @@ function onDisplayTagClicked(e) {
 async function onMyTagsChanged(onDone) {
 	let result = await API.setPlayerTags(myTags);
 	if (!result.isError) {
-		createBanner(result.message, "Success", "check_circle", 1000);
+		createBanner(result.message, "Success", "check", 1000);
 
 		if (onDone)
 			onDone(true);
@@ -206,7 +206,7 @@ async function loadTags() {
 				if (response.isError) {
 					createBanner(response.message, "Error", "error", 2500);
 				} else {
-					createBanner(response.message, "Success", "check_circle", 2500);
+					createBanner(response.message, "Success", "check", 2500);
 					setTimeout(() => {
 						location.reload();
 					}, 1000);

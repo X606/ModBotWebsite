@@ -13,7 +13,7 @@ function copyToClipboard(str) {
 	document.execCommand('copy');
 	document.body.removeChild(el);
 
-	createBanner("Copied \"" + str + "\" to clipboard.", null, "check_circle", 1000);
+	createBanner("Copied \"" + str + "\" to clipboard.", null, "check", 1000);
 };
 
 async function asyncOnLoad() {

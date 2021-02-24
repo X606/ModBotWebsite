@@ -453,7 +453,7 @@ document.getElementById("updateButton").addEventListener("click", async function
 			if (response.isError) {
 				createBanner(response.message, "Error", "error", 3000);
 			} else {
-				createBanner(response.message, "Success", "check_circle", 3000);
+				createBanner(response.message, "Success", "check", 3000);
 			}
 		}
 	}

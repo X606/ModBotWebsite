@@ -13,7 +13,7 @@ function copyToClipboard(str) {
 	document.execCommand('copy');
 	document.body.removeChild(el);
 
-	createBanner("Copied \"" + str + "\" to clipboard.", null, "check_circle", 1000);
+	createBanner("Copied \"" + str + "\" to clipboard.", null, "check", 1000);
 };
 
 var asyncOnStart = async function () {
@@ -60,29 +60,26 @@ var asyncOnStart = async function () {
 	}
 
 	const usernameDisplay = document.getElementsByClassName("userName")[0];
-	usernameDisplay.innerHTML = userData.username;
+	usernameDisplay.childNodes[0].nodeValue = userData.username;
 	usernameDisplay.style = "color: " + userData.color;
 
-	var icon = document.getElementById("icon");
-	var authText = document.getElementById("userType");
+	const icon = document.getElementById("icon")
+	const authText = document.getElementById("userType");
 	switch (userData.authenticationLevel) {
 		case 4:
-			icon.innerHTML = "miscellaneous_services";
-			icon.style = "color: var(--tertiaryRed);";
+			icon.src = "/Assets/Icons/admin.png";
 			authText.innerHTML = "Admin";
-			authText.style = "color: var(--tertiaryRed);"
+			authText.style = "color: var(--tertiaryRed);";
 			break;
 		case 3:
-			icon.innerHTML = "construction";
-			icon.style = "color: var(--tertiaryOrange);";
+			icon.src = "/Assets/Icons/modder.png";
 			authText.innerHTML = "Modder";
-			authText.style = "color: var(--tertiaryOrange);"
+			authText.style = "color: var(--tertiaryOrange);";
 			break;
 		case 2:
-			icon.innerHTML = "verified";
-			icon.style = "color: var(--tertiaryBlue);";
+			icon.src = "/Assets/Icons/verified.png";
 			authText.innerHTML = "Verified";
-			authText.style = "color: var(--tertiaryBlue);"
+			authText.style = "color: var(--tertiaryBlue);";
 			break;
 	}
 

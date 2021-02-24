@@ -1,5 +1,3 @@
-@import "https://fonts.googleapis.com/icon?family=Material+Icons";
-
 @font-face {
 	font-family: 'Editundo';
 	src: url('Assets/Font/EditUndoBRK.eot');
@@ -44,7 +42,7 @@
 	--primaryRed: #aa0000;
 	--secondaryRed: #cc1111;
 	--tertiaryRed: #ee2222;
-	--primaryViolet: #2e4596;
+	--primaryViolet: #191a1d;
 	--secondaryViolet: #5067b8;
 	--tertiaryViolet: #7289da;
 	--borderWidth: 3px;
@@ -246,8 +244,15 @@ div.commentBackground button.showMore {
 }
 
 /* Things that aren't meant to be selected. */
-img, i.material-icons, iframe, button, a.button, ul.contents {
+img, iframe, button, a.button, ul.contents {
 	user-select: none;
+}
+
+img.icon {
+	width: 1em;
+
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
 }
 
 /* Iframe styling. */
@@ -441,14 +446,6 @@ ul.generalList {
 /* Changes color of text and links when needed. */
 .errorText {
 	color: var(--tertiaryRed);
-}
-
-.errorTitle i.material-icons {
-	color: var(--tertiaryRed);
-}
-
-.successTitle i.material-icons {
-	color: var(--tertiaryGreen);
 }
 
 .signInText {
@@ -717,7 +714,7 @@ button, input[type=submit] {
 	font-family: Editundo, Arial, Helvetica, sans-serif;
 }
 
-button i.material-icons, input[type=submit] i.material-icons {
+button img.icon, input[type=submit] img.icon {
 	margin-top: -0.3em;
 	margin-bottom: -0.3em;
 
@@ -833,22 +830,17 @@ div.menuItems p:hover {
 	cursor: pointer;
 }
 
-div.menuItems i.material-icons {
-	font-size: 1rem;
-	margin-right: calc(var(--spaceModifier) / 8);
-}
-
 .menuButton {
 	bottom: 0px;
 	vertical-align: middle;
 
-	padding: 0.1em;
+	padding: 0.3em;
 	background-color: var(--primaryGrey);
 
 	border-left: solid var(--borderWidth) var(--primaryColor);
 	border-radius: var(--borderWidth);
 
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 div.menu:hover div.menuItems {
@@ -951,7 +943,7 @@ div.bannerFrame {
 	position: relative;
 }
 
-div.bannerFrame i.material-icons {
+div.bannerFrame img.icon {
 	margin: calc(var(--spaceModifier) / 4);
 	font-size: 2.5rem;
 	float: left;
