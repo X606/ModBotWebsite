@@ -167,8 +167,8 @@ async function asyncOnLoad() {
 			}
 
 			var returnValue = await API.postComment(modID, comment.value);
-			if (returnValue.isError) {
-				commentError.innerHTML = returnValue.message;
+			if (returnValue.Error != null) {
+				commentError.innerHTML = returnValue.Error;
 				return;
 			}
 			comment.value = "";

@@ -94,14 +94,14 @@ function onDisplayTagClicked(e) {
 
 async function onMyTagsChanged(onDone) {
 	let result = await API.setPlayerTags(myTags);
-	if (!result.isError) {
+	if (result.Error == null) {
 		createBanner(result.message, "Success", "check", 1000);
 
 		if (onDone)
 			onDone(true);
 	} else 
 	{
-		createBanner(result.message, "Error", "error", 2000);
+		createBanner(result.Error, "Error", "error", 2000);
 		myTags = (await API.getMyTags()).Tags;
 		
 		if (onDone)
@@ -203,8 +203,8 @@ async function loadTags() {
 			if (confirm("Are you sure you want to delete this tag?")) {
 				let response = await API.removeTag(tags[index].TagID);
 				
-				if (response.isError) {
-					createBanner(response.message, "Error", "error", 2500);
+				if (response.Error != null) {
+					createBanner(response.Error, "Error", "error", 2500);
 				} else {
 					createBanner(response.message, "Success", "check", 2500);
 					setTimeout(() => {

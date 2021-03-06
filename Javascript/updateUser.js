@@ -57,8 +57,8 @@ async function asyncOnLoad() {
 		}
 
 		var result = await API.updateUserData(password, username, bio, password1, borderstyle, showFull);
-		if (result.isError) {
-			document.getElementById("error").innerHTML = result.message;
+		if (result.Error != null) {
+			document.getElementById("error").innerHTML = result.Error;
 			doneButton.style = "";
 			return;
 		}

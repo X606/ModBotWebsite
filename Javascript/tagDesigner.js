@@ -450,8 +450,8 @@ document.getElementById("updateButton").addEventListener("click", async function
 		if (confirm("You are about to update this tag, this will mean the tag has to be checked again, are you sure you want to continue?")) {
 			let body = Export();
 			let response = await API.editTag(tagID, body);
-			if (response.isError) {
-				createBanner(response.message, "Error", "error", 3000);
+			if (response.Error != null) {
+				createBanner(response.Error, "Error", "error", 3000);
 			} else {
 				createBanner(response.message, "Success", "check", 3000);
 			}

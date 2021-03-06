@@ -7,7 +7,7 @@ const userID = urlParams.get("userID");
 async function asyncOnLoad() {
 	const userData = await API.getUser(userID);
 
-	if (userData.isError) {
+	if (userData.Error != null) {
 		var nameDisplay = document.getElementsByClassName("name")[0];
 		nameDisplay.innerHTML = "[Deleted user]";
 		

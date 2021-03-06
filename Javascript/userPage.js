@@ -54,7 +54,7 @@ var asyncOnStart = async function () {
 	asyncGetData();
 
 	var userData = await API.getUser(userID);
-	if (userData.isError) {
+	if (userData.Error != null) {
 		window.location.replace("/404.html");
 		return;
 	}

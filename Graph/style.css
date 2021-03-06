@@ -1,0 +1,11 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+
+    height: 100vh;
+
+    background-color: #121212;
+}
+canvas {
+}
