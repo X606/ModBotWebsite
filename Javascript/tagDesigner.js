@@ -444,7 +444,7 @@ document.getElementById("updateButton").addEventListener("click", async function
 					window.location.href = window.location.pathname + "?tagID=" + id;
 				}
 
-			}, "uploadButton");
+			}, "uploadButton", "orange");
 		});
 	} else {
 		if (confirm("You are about to update this tag, this will mean the tag has to be checked again, are you sure you want to continue?")) {

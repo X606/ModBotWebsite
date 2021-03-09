@@ -1,5 +1,5 @@
 import { API } from "/api?operation=getAPI";
-import { createBanner } from "./Modules/popup.js";
+import { createPopup, createBanner } from "./Modules/popup.js";
 import { shortenNumber, processText } from "./Modules/textHandeling.js";
 
 function copyToClipboard(str) {
@@ -74,7 +74,7 @@ async function asyncOnLoad() {
 		var image = document.getElementsByClassName("modImage")[0];
 		API.getModImage(image, modID);
 
-		document.getElementsByClassName("modTitle")[0].innerHTML = modData.DisplayName;
+		document.getElementsByClassName("modTitle")[0].childNodes[1].nodeValue = modData.DisplayName;
 
 		var description = modData.Description;
 		if (!description) {
@@ -127,9 +127,6 @@ async function asyncOnLoad() {
 
 		document.getElementById("copyButton").addEventListener("click", function () {
 			copyToClipboard(modID);
-		});
-		document.getElementById("downloadButton").addEventListener("click", function () {
-			API.downloadMod(modID);
 		});
 		
 		likeButton.addEventListener("click", async function () {
@@ -188,6 +185,31 @@ async function asyncOnLoad() {
 		document.getElementById("modAuthor").src = "/api?operation=getUserHeader&userID=" + modData.OwnerID;
 		document.getElementById("likedCount").innerHTML = shortenNumber(modData.Likes);
 		document.getElementById("downloadCount").innerHTML = shortenNumber(modData.Downloads);
+
+		if(!modData.Verified) {
+			document.getElementsByClassName("modWarning")[0].style = "";
+			document.getElementsByClassName("warningIcon")[0].style = "";
+			document.getElementsByClassName("modBackground")[0].style = "background-color: #3a1a1a;";
+
+			document.getElementById("downloadButton").addEventListener("click", function () {
+				createPopup(function(popup) {
+					popup.createTitle("Are you sure?");
+					popup.createParagraph("This mod has NOT been checked for malware and could contain viruses.")
+					popup.createParagraph("Only download if you trust the author.")
+					popup.createButtonInput("Download", function() {
+						API.downloadMod(modID);
+						popup.close();
+					}, null, "orange");
+					popup.createButtonInput("Cancel", function() {
+						popup.close();
+					});
+				});
+			});
+		} else {
+			document.getElementById("downloadButton").addEventListener("click", function () {
+				API.downloadMod(modID);
+			});
+		}
 
 		const asyncHasLikedMod = async function () { // Wait, can't this be moved outside asyncGetSpecialModData?
 			if(isSignedIn) {

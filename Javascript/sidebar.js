@@ -127,7 +127,7 @@ async function asyncOnLoad() {
 							window.location.reload();
 						}, 100);
 
-					}, "signUpButton");
+					}, "signUpButton", "orange");
 				});
 			});
 
@@ -175,7 +175,7 @@ async function asyncOnLoad() {
 							window.location.reload();
 						}, 100);
 
-					}, "loginButton");
+					}, "loginButton", "orange");
 				});
 			});
 		};

@@ -249,16 +249,21 @@ function Popup(popupBackground, popupFrame, formData)
 		popupFrame.appendChild(htmlToElem(itemToAdd));
 	};
 
-	this.createButtonInput = function(text, callback, id) {
+	this.createButtonInput = function(text, callback, id, color) {
 		var itemToAdd = "";
 
 		itemToAdd += "<button ";
-		if (id) {
-			itemToAdd += "id=\"";
+		if(id) {
+			itemToAdd += "id='";
 			itemToAdd += id;
-			itemToAdd += "\" ";
+			itemToAdd += "'";
 		}
-		itemToAdd += "class='orange'>";
+		if(color) {
+			itemToAdd += " class='";
+			itemToAdd += color;
+			itemToAdd += "'";
+		}
+		itemToAdd += ">"
 		itemToAdd += text;
 		itemToAdd += "</button>";
 

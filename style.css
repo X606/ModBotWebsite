@@ -42,7 +42,7 @@
 	--primaryRed: #aa0000;
 	--secondaryRed: #cc1111;
 	--tertiaryRed: #ee2222;
-	--primaryViolet: #191a1d;
+	--primaryViolet: #3e45a6;
 	--secondaryViolet: #5067b8;
 	--tertiaryViolet: #7289da;
 	--borderWidth: 3px;
@@ -722,13 +722,13 @@ button img.icon, input[type=submit] img.icon {
 	font-size: 1.5rem;
 }
 
-button img, a.button img, input[type=submit] img, div.menu img {
+button img, a.button img, input[type=submit] img, div.menu img, h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {
 	height: 1.2em;
 	width: 1.2em;
 	margin: -0.1em;
 	margin-right: 0.5em;
 
-	vertical-align: middle;
+	vertical-align: top;
 	object-fit: contain;
 
 	image-rendering: crisp-edges;
@@ -877,6 +877,7 @@ div.popupBackground {
 
 div.popupFrame {
 	width: max-content;
+	max-width: calc(var(--spaceModifier) * 6);
 	height: max-content;
 
 	max-height: calc(100% - var(--spaceModifier));

@@ -117,6 +117,10 @@
 		p.modDescription {
 			margin: calc(var(--spaceModifier) / 2);
 		}
+
+		p.modWarning {
+			color: var(--tertiaryRed);
+		}
 	</style>
 	<style id="hideElements">
 		#mainHolder > * {
@@ -142,7 +146,8 @@
 				<div class="modImageHolder">
 					<img class="modImage" alt="Mod image">
 				</div>
-				<h1 class="modTitle">Loading title...</h1>
+				<h1 class="modTitle"><img class="warningIcon" src="/Assets/Icons/warning.png" alt="Warning" style="display: none;">Loading title...</h1>
+				<p class="modWarning" style="display: none;">WARNING: This mod has <b>not</b> been checked for malware.</p>
 				<hr>
 				<p class="modDescription">Loading description...</p>
 				<iframe id="modAuthor" class="userHeader" frameborder="0"></iframe>
