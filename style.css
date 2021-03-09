@@ -99,6 +99,17 @@ div.frame {
 	position: relative;
 }
 
+div.innerFrame {
+	margin-bottom: calc(var(--spaceModifier) / 2);
+	padding: calc(var(--spaceModifier) / 2);
+
+	background-color: var(--tertiaryDark);
+	border-bottom: solid var(--borderWidth) var(--tertiaryOrange);
+
+	border-bottom-left-radius: var(--borderWidth);
+	border-bottom-right-radius: var(--borderWidth);
+}
+
 /* Brighter box used to separate parts clearly. */
 div.outline {
 	margin: calc(var(--spaceModifier) / -2);
@@ -156,6 +167,15 @@ a.button:hover div.extender {
 	height: 100%;
 	border-top-left-radius: var(--borderWidth);
 	border-top-right-radius: var(--borderWidth);
+}
+
+/* Diffrent types of images. */
+.contributor img {
+	width: calc(var(--spaceModifier) * 2);
+	height: calc(var(--spaceModifier) * 2);
+
+	border-radius: 100%;
+	object-fit: fill;
 }
 
 /* Wide background image at top of layot.*/
@@ -313,7 +333,7 @@ table.layout {
 	table-layout: fixed;
 }
 
-table.layout tr td {
+table.layout td, .contributor td {
 	padding: calc(var(--spaceModifier) / 8);
 	vertical-align: top;
 }
@@ -471,6 +491,11 @@ ul.generalList {
 
 .greyText a:hover.hiddenLink {
 	color: var(--tertiaryLight);
+}
+
+/* Contributor list styling. */
+.contributor h2 {
+	font-size: 2em;
 }
 
 /* Table of contents styling. */
