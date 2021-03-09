@@ -82,7 +82,7 @@ async function loadMods() {
 				}
 			});
 			
-			API.getModImage(cloned.querySelector(".modImage"), modInfos[i].UniqueID);
+			API.getModImage(cloned.querySelector(".modImage"), modInfos[i].UniqueID, true);
 			
 			cloned.style = "";
 			modsHolder.appendChild(cloned);

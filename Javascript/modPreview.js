@@ -72,7 +72,7 @@ async function asyncOnLoad() {
 		}
 
 		var image = document.getElementsByClassName("modImage")[0];
-		API.getModImage(image, modID);
+		API.getModImage(image, modID, true);
 
 		document.getElementsByClassName("modTitle")[0].childNodes[1].nodeValue = modData.DisplayName;
 
