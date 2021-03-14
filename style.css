@@ -108,6 +108,8 @@ div.innerFrame {
 
 	border-bottom-left-radius: var(--borderWidth);
 	border-bottom-right-radius: var(--borderWidth);
+
+	position: relative;
 }
 
 /* Brighter box used to separate parts clearly. */
@@ -323,6 +325,10 @@ div.page {
 	width: 100%;
 }
 
+iframe.widget {
+	max-width: 100%;
+}
+
 /* Table styling. */
 
 table.layout {
@@ -331,6 +337,10 @@ table.layout {
 
 	border-collapse: collapse;
 	table-layout: fixed;
+}
+
+table.layout img {
+	width: 100%;
 }
 
 table.layout td, .contributor td {
@@ -449,20 +459,6 @@ a.link:hover {
 	text-decoration: underline;
 }
 
-ul.generalList {
-	list-style-image: url("../Assets/Icon.png");
-}
-
-.generalList li {
-	width: min-content;
-	margin: calc(var(--spaceModifier) / 4);
-}
-
-.generalList li img {
-	width: 20em;
-	margin: 0.5em;
-}
-
 /* Changes color of text and links when needed. */
 .errorText {
 	color: var(--tertiaryRed);
@@ -500,7 +496,6 @@ ul.generalList {
 
 /* Table of contents styling. */
 
-/* Trusted solution for numbering from stack overflow. */
 ul.contents, ul.contents ul {
 	list-style-type: none;
 	/*counter-reset: item;*/
@@ -510,132 +505,114 @@ ul.contents, ul.contents ul {
 ul.contents item, ul.contents ul item {
 	display: block
 }
-/*
-ul.contents item:before, ul.contents ul item:before {
-	color: var(--tertiaryOrange);
-	font-weight: bold;
 
-	content: counters(item, ".") " ";
-	counter-increment: item
+.page a {
+	color: var(--secondaryBlue);
 }
-	*/
-
-
-.page {
-	font-family: Segoe UI,SegoeUI,Helvetica Neue,Helvetica,Arial,sans-serif;
-	font-size: 16px;
-}	
-	.page hr.tiny {
-		border: solid calc(var(--borderWidth) / 2) #1e1e1e;
-	}
-	.page a {
-		color: var(--primaryBlue);
-	}
-		.page a:hover {
-			text-decoration: underline;
-		}
-
-	.page li {
-		margin-top: 1em;
-		list-style-type: disc;
+	.page a:hover {
+		color: var(--tertiaryBlue);
+		text-decoration: underline;
 	}
 
-	.page note {
-		background-color: #0b517b;
-		display: block;
-		padding: 0.7em;
-		padding-top: 0.7em;
-		padding-top: 3em;
-		border-radius: 4px;
-		margin-top: 1em;
-		position: relative;
-	}
-		.page note > div {
-			position: absolute;
-			left: 0.7em;
-			right: 0.7em;
-			top: 0.9em;
-			height: 1.5em;
-			font-size: 1.1em;
-			font-weight: bold;
-		}
-	.page warning {
-		background-color: #7b200b;
-		display: block;
-		padding: 0.7em;
-		padding-top: 0.7em;
-		padding-top: 3em;
-		border-radius: 4px;
-		margin-top: 1em;
-		position: relative;
-	}
-		.page warning > div {
-			position: absolute;
-			left: 0.7em;
-			right: 0.7em;
-			top: 0.9em;
-			height: 1.5em;
-			font-size: 1.1em;
-			font-weight: bold;
-		}
+.page li {
+	margin-top: 1em;
+	list-style-type: disc;
+}
 
-	.page pre {
-		position: relative;
-		height: 230px;
-		background-color: #1e1e1e;
-		border-width: 2px;
-		border-style: solid;
-		border-color: #2e2e2e;
+.page note {
+	background-color: var(--primaryBlue);
+	display: block;
+	padding: 0.7em;
+	padding-top: 0.7em;
+	padding-top: 3em;
+	border-radius: 4px;
+	margin-top: 1em;
+	position: relative;
+}
+	.page note > div {
+		position: absolute;
+		left: 0.7em;
+		right: 0.7em;
+		top: 0.9em;
+		height: 1.5em;
+		font-size: 1.1em;
+		font-weight: bold;
 	}
-		.page pre > .header {
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			right: 0px;
+.page warning {
+	background-color: var(--primaryRed);
+	display: block;
+	padding: 0.7em;
+	padding-top: 0.7em;
+	padding-top: 3em;
+	border-radius: 4px;
+	margin-top: 1em;
+	position: relative;
+}
+	.page warning > div {
+		position: absolute;
+		left: 0.7em;
+		right: 0.7em;
+		top: 0.9em;
+		height: 1.5em;
+		font-size: 1.1em;
+		font-weight: bold;
+	}
+
+.page pre {
+	position: relative;
+	height: 230px;
+	background-color: var(--secondaryDark);
+}
+	.page pre > .header {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		height: 30px;
+	}
+		.page .header > .headerItem {
+			width: 60px;
+			position: relative;
+			display: inline-block;
+			text-align: center;
 			height: 30px;
+			user-select: none;
+			cursor: pointer;
 		}
-			.page .header > .headerItem {
-				width: 60px;
-				position: relative;
-				display: inline-block;
-				text-align: center;
-				height: 30px;
-				user-select: none;
-				cursor: pointer;
+			.page .headerItem.selectedItem {
+				background-color: var(--primaryBlue);
 			}
-				.page .headerItem.selectedItem {
-					background-color: var(--primaryBlue);
-				}
-				.page .header > .headerItem:hover {
-					text-decoration: underline;
-				}
-				.page .headerItem > span {
-					position: absolute;
-					top: 50%;
-					transform: translate(-50%,-50%);
-					left: 50%;
-					text-decoration: inherit;
-				}
+			.page .header > .headerItem:hover {
+				text-decoration: underline;
+			}
+			.page .headerItem > span {
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				left: 50%;
+				text-decoration: inherit;
+			}
 
-		.page pre > code {
-			font-family: Consolas;
-			tab-size: 4;
-			-moz-tab-size: 4;
-			border-top-style: solid;
-			border-color: #2e2e2e;
-			border-width: 2px;
-			margin-top: 0px;
-			margin-bottom: 0px;
-			position: absolute;
-			left: 0px;
-			right: 0px;
-			top: 30px;
-			bottom: 0px;
-		}
+	.page pre > code {
+		font-family: Consolas;
+		tab-size: 4;
+		-moz-tab-size: 4;
+		border-top-style: solid;
+		border-color: var(--tertiaryDark);
+		border-width: 3px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		top: 30px;
+		bottom: 0px;
+		background-color: var(--secondaryDark);
+	}
 
-		code * {
-			font-family: Consolas, Monaco, monospace !important;
-		}
+	code * {
+		font-family: Consolas, Monaco, monospace !important;
+	}
 
 ul.contents {
 	padding: 1em;
@@ -701,7 +678,7 @@ input:-webkit-autofill:first-line {
 /* A div that contains several buttons. */
 div.buttonHolder {
 	bottom: 0px;
-	right: var(--spaceModifier);
+	right: calc(var(--spaceModifier) / 2);
 
 	user-select: none;
 	position: absolute;

@@ -23,7 +23,7 @@
 			left: 0px;
 			right: 0px;
 
-			height: calc(9em);
+			height: calc(6em);
 			bottom: 0px;
 
 			background-image: linear-gradient(#ffffff00, var(--tertiaryDark) 25%);
@@ -32,14 +32,23 @@
 			position: absolute;
 		}
 
-		div.buttonHolder {
-			bottom: 2.4em;
-			left: 0px;
-			right: 0px;
+		div.likeBox {
+			bottom: 3em;
+			right: 1em;
 
-			margin: 0px;
-			padding: 0.5em;
-			padding-right: 0px;
+			padding: 0.2em;
+			border-radius: 0.2em;
+
+			background-color: var(--primaryHighlight);
+			position: absolute;
+		}
+
+		div.likeBox img{
+			height: 1.2em;
+			vertical-align: middle;
+
+			image-rendering: crisp-edges;
+			image-rendering: pixelated;
 		}
 		
 		img.modImage {
@@ -55,22 +64,21 @@
 		}
 
 		iframe.userHeader {
+			width: calc(100% - 5em);
 			height: clamp(1.5em, 5vh, 5vh);
-			left: 0.5em;
-			bottom: 5em;
-			position: absolute;
-		}
 
-		button {
-			width: calc(50% - 0.5em);
-			margin-right: 0.5em;
-			font-size: 1em;
+			left: 0.5em;
+			bottom: 3em;
+
+			position: absolute;
 		}
 
 		button#downloadButton {
 			width: calc(100vw - 1em);
 			bottom: 0.5em;
 			left: 0.5em;
+			margin-right: 0.5em;
+			font-size: 1em;
 			position: absolute;
 		}
 
@@ -131,9 +139,9 @@
 		</a>
 		<div class="descriptionGradient"></div>
 		<iframe class="userHeader" src="" frameborder="0"></iframe>
-		<div class="buttonHolder">
-			<button id="rateButton" class=""><img src="Assets/Icons/like.png">Like <span id="likedCount">...</span></button><!--
-			--><button id="copyButton" class=""><img src="Assets/Icons/copy.png">Copy ID</button>
+		<div class="likeBox">
+			<img src="/Assets/Icons/like.png" alt="Like count">
+			<span id="likedCount">...</span>
 		</div>
 		<button id="downloadButton" class="orange"><img src="Assets/Icons/download.png">Download <span id="downloadCount">...</span></button>
 	</body>

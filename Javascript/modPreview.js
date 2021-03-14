@@ -189,7 +189,7 @@ async function asyncOnLoad() {
 		if(!modData.Verified) {
 			document.getElementsByClassName("modWarning")[0].style = "";
 			document.getElementsByClassName("warningIcon")[0].style = "";
-			document.getElementsByClassName("modBackground")[0].style = "background-color: #3a1a1a;";
+			document.getElementById("modBackground").style = "background-color: #3a1a1a;";
 
 			document.getElementById("downloadButton").addEventListener("click", function () {
 				createPopup(function(popup) {

@@ -1,28 +1,28 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<meta layout="LevelScripting/layout.txt" id="layout">
+		<meta layout="LevelScripting/layout.txt" id="layout">
 
-	<link rel="icon" href="/Assets/Icon.png">
-	<link rel="stylesheet" href="/style.css">
+		<link rel="icon" href="/Assets/Icon.png">
+		<link rel="stylesheet" href="/style.css">
 
-	<title>Mod-Bot Level Scripting</title>
+		<title>Mod-Bot Level Scripting</title>
 
-	<script src="/Javascript/sidebar.js" type="module"></script>
-	<script src="/Javascript/reference.js" type="module"></script>
+		<script src="/Javascript/sidebar.js" type="module"></script>
+		<script src="/Javascript/reference.js" type="module"></script>
 
-	<link rel="stylesheet"
-		  href="https://highlightjs.org/static/demo/styles/vs2015.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+		<link rel="stylesheet"
+			href="https://highlightjs.org/static/demo/styles/vs2015.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 
-	<!-- Workaround to fix transition bug on chrome. -->
-	<script></script>
-</head>
+		<!-- Workaround to fix transition bug on chrome. -->
+		<script></script>
+	</head>
 	<body class="frame">
 		<!-- Sidebar navigation menu. -->
 		<iframe class="sidebar" src="/sidebar.html" frameborder="0"></iframe>
@@ -49,7 +49,9 @@
 						</ul>
 					</td>
 					<td colspan="2">
-						<div class="page" id="page"></div>
+						<div class="innerFrame">
+							<div class="page" id="page"></div>
+						</div>
 					</td>
 				</tr>
 			</table>

@@ -1,26 +1,11 @@
 import { API } from "/api?operation=getAPI";
-import {createPopup, createBanner} from "./Modules/popup.js";
+import {createPopup} from "./Modules/popup.js";
 import {shortenNumber, processText} from "./Modules/textHandeling.js"
-
-function copyToClipboard(str) {
-	const el = document.createElement('textarea');
-	el.value = str;
-	el.setAttribute('readonly', '');
-	el.style.position = 'absolute';
-	el.style.left = '-9999px';
-	document.body.appendChild(el);
-	el.select();
-	document.execCommand('copy');
-	document.body.removeChild(el);
-
-	createBanner("Copied \"" + str + "\" to clipboard.", null, "check", 1000);
-};
 
 async function asyncOnLoad() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const modID = urlParams.get("modID");
 
-	var likeButton = document.getElementById("rateButton");
 	var likeCount = document.getElementById("likedCount");
 
 	var downloadButton = document.getElementById("downloadButton");
@@ -43,13 +28,6 @@ async function asyncOnLoad() {
 
 		document.getElementsByClassName("modDescription")[0].innerHTML = processText(description);
 		document.getElementsByClassName("previewLink")[0].href += "?modID=" + modID;
-
-		likeButton.addEventListener("click", function() {
-			window.top.location.href = document.getElementsByClassName("previewLink")[0].href;
-		});
-		document.getElementById("copyButton").addEventListener("click", function() {
-			copyToClipboard(modID);
-		});
 
 		setTimeout(function () {
 			document.body.style = "transition-duration: 1s; transition-property: opacity;";

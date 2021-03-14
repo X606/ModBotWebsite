@@ -24,14 +24,6 @@
 			padding: 0.6em;
 			font-size: 1.2em;
 		}
-
-		li {
-			font-size: 1.2em;
-		}
-
-		p {
-			line-height: 1.2em;
-		}
 	</style>
 	<body class="frame">
 		<!-- Sidebar navigation menu. -->
@@ -43,24 +35,54 @@
 
 		<!-- Background div with main content inside. -->
 		<div class="frame">
-			<h3>Clone drone Mod-Bot is a mod loader and manager for <i>Clone Drone In The Danger Zone</i> that adds lots of cool new stuff to the game.</h3>
-			<div class="buttonHolder">
-				<button class="orange" onclick="(async () => window.open(await API.getModBotLauncherDownload()))();"><img src="Assets/Icons/download.png">Download Mod-Bot</button>
-				<button class="violet" onclick="window.open('https://discord.gg/Em4n6gB')"><img src="Assets/discord.png" style="image-rendering: auto">Join our Discord server</button>
-			</div>
-			<br>
 			<div class="innerFrame">
-				<ul class="generalList">
-					<h2>What does it add exactly?</h2>
-					<li>A nice UI for downloading community made mods in-game.<br><img src="Assets/FeatureExample1.png" alt="Mod-Bot in-game download UI"></li>
-					<li>Easier way to manage the mods you choose to use.<br><img src="Assets/FeatureExample2.png" alt="Mod-Bot in-game mod manager"></li>
-					<li>Multiple pages for modded upgrades.<br><img src="Assets/FeatureExample3.png" alt="Mod-Bot extra upgrade screen"></li>
-				</ul>
+				<h1>What is Clone Drone Mod-Bot?</h1>
+				<p>It's a mod loader and manager for <i>Clone Drone in the Danger Zone</i>, which lets modders add lots of cool new stuff to the game.</p>
+				<div class="buttonHolder">
+					<button class="orange" onclick="(async () => window.open(await API.getModBotLauncherDownload()))();"><img src="Assets/Icons/download.png">Download Mod-Bot</button>
+					<button class="violet" onclick="window.open('https://discord.gg/Em4n6gB')"><img src="Assets/discord.png" style="image-rendering: auto">Join our Discord server</button>
+				</div>
+				<p>Note that you need to have bought the game Clone Drone in the Danger Zone to use Mod-Bot with it.</p>
+				<iframe src="https://store.steampowered.com/widget/597170/" class="widget" frameborder="0" width="646" height="190"></iframe>
+			</div>
+			<div class="innerFrame">
+				<h2>What does it add exactly?</h2>
+				<table class="layout">
+					<tr>
+						<td><img src="Assets/FeatureExample1.png" alt="Mod-Bot in-game download UI"></td>
+						<td>
+							<h3>A nice UI for downloading community made mods in-game.</h3>
+							<p>Even nicer than what this outdated image suggests.</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h3>Easier way to manage the mods you choose to use.</h3>
+							<p>Really impressive stuff, or so I'm told.</p>
+						</td>
+						<td><img src="Assets/FeatureExample2.png" alt="Mod-Bot in-game mod manager"></td>
+					</tr>
+					<tr>
+						<td><img src="Assets/FeatureExample3.png" alt="Mod-Bot extra upgrade screen"></td>
+						<td>
+							<h3>Multiple pages for modded upgrades.</h3>
+							<p>Oooh, fancy.</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="innerFrame">
+				<h2>How do I get started?</h2>
+				<p>If you have bought Clone Drone in the Danger Zone, all you need to do is download the Mod-Bot application and follow the <a class="link" href="/Reference/installation.html">installation steps</a>. Then you can choose which mods to download, either by using the in-game UI or by visiting the <a class="link" href="/modBrowsing.html">mod browsing page</a>.</p>
+				<button class="orange" onclick="(async () => window.open(await API.getModBotLauncherDownload()))();"><img src="Assets/Icons/download.png">Download Mod-Bot</button>
+			</div>
+			<div class="innerFrame">
+				<h2>How do I make stuff?</h2>
+				<p>For guide on how to create your own custom levels, please visit the <a class="link" href="/Reference/levelScripting.html">level editing page</a>. Otherwise if you want to make mods, please visit the <a class="link" href="/Reference/modding.html">modding page</a>. Note that some previous programming knowledge is needed.</p>
+				<p>You will need a <i>verified</i> account to upload mods or tags. To get your acount verified, simply log in with it in-game to link it with your steam account.</p>
+				<p>If you have any questions or suggestions, please share them in the Clone Drone Mod-Bot Discord Server.</p>
+				<button class="violet" onclick="window.open('https://discord.gg/Em4n6gB')"><img src="Assets/discord.png" style="image-rendering: auto">Join our Discord server</button>
 			</div>
 		</div>
 	</body>
 </html>
-
-
-
-
