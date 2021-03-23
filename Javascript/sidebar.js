@@ -5,16 +5,40 @@ window.API = API;
 
 const images = ["arm.png", "armored.png", "beam.png", "beast.png", "behind.png", "bow.png", "bowing.png", "dino.jpg", "down.png", "fire.png", "flat.png", "flying.png", "gather.png", "glowing.png", "god.png", "hammer.png", "headless.png", "host.png", "knight.png", "laser.png", "look.png", "messy.png", "mighty.png", "neon.png", "no.png", "shield.jpg", "sick.png", "sparks.png", "spear.png", "spidertaur.jpg", "statue.png", "statuer.png", "sword.jpg"];
 
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
+
 async function asyncOnLoad() {
 	var backgroundImage = document.getElementById("backgroundImage");
 	backgroundImage.src = "/Assets/BackgroundImages/" + images[Math.floor(Math.random() * images.length)];
 	backgroundImage.addEventListener("load", function() {
 		backgroundImage.style = "opacity: 100%; transition: opacity 1s;"
 	});
-	
+
 	const sessionID = await API.getCurrentSessionId();
 
-	if (sessionID != "" && await API.isValidSession(sessionID)) { // if is signed in
+	const isValidSession = await API.isValidSession(sessionID) == "true";
+
+	if (sessionID != "") { // if is signed in
+
+		if (!isValidSession)
+		{
+			deleteAllCookies();
+
+			setTimeout(() => {
+				window.location.reload();
+			}, 10);
+			return;
+		}
+
 		var sidebarIframe = document.getElementsByClassName("sidebar")[0];
 
 		var onLoad = function () {
@@ -25,7 +49,7 @@ async function asyncOnLoad() {
 			const getCurrentUserAsync = async function () {
 				const currentUserID = await API.getCurrentUser();
 				let userHeader = sidebarDocument.getElementById("userHeader");
-				userHeader.contentWindow.location.replace("/api?operation=getUserHeader&userID=" + currentUserID); // redirect iframe to new url without making the 
+				userHeader.contentWindow.location.replace("/api?operation=getUserHeader&userID=" + currentUserID); // redirect iframe to new url without making the
 			};
 			getCurrentUserAsync();
 
